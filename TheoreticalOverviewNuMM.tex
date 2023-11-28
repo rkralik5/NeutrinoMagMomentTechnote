@@ -1,41 +1,6 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amsthm, amssymb, amsfonts}
-\usepackage{mathtools}
-\usepackage{graphicx}
-\usepackage[T1]{fontenc}
-\usepackage[absolute,overlay]{textpos}
-\usepackage{braket}  % bra-ket notation
-\usepackage{slashed} % Dirac notation
-\usepackage{tikz-feynman,contour}
-\usepackage{breqn}   % Equation breaking
-\usepackage{mathptmx}
-\usepackage{fullpage}
-\usepackage{units}
+%Neutrino electromagnetic properties have been proposed since the very beginning by Pauli to solve the discrepancies in the electron beta emission spectra. This was solved by discovering the neutron. Then again, neutrino magnetic moment was proposed as one of the solution to the solar neutrino problem 
 
-%\usepackage[printwatermark]{xwatermark}
-%\newwatermark[allpages,color=black!20,angle=45,scale=2,xpos=0,ypos=0]{WORK IN PROGRESS}
-
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks,
-    citecolor=blue,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
-
-\author{Robert Kralik}
-\title{Theoretical overview for the neutrino magnetic moment analysis}
-
-%\linenumbers % Include line numbers
-
-\begin{document}
-\maketitle
-\tableofcontents
-\newpage
-
-\section{Electromagnetic properties of the neutrino}
+\subsection{Electromagnetic properties of the neutrino}
 
 %In the Standard Model (SM) neutrinos are electrically neutral and do not interact with photons at the tree level. However, radiative corrections generate neutrino interactions with photons through loops involving the charged leptons and the W boson, as shown by the one-loop diagrams in Fig. 9(a). The corresponding neutrino-photon interactions are described by charge radii of the flavor neutrinos . Therefore, even in the SM, where neutrinos are neutral and massless, there are non-zero neutrino electromagnetic properties. [NeutrinoPropertiesSnowmass2022.pdf]
 
@@ -43,7 +8,11 @@
 
 % ...the existence of neutrino masses and mixing implies that neutrinos have magnetic moments. Since their values depend on the specific theory which extends the standard model in order to accommodate neutrino masses and mixing, experimentalists and theorists are eagerly looking for them. [nuElmagInt2015.pdf]
 
-In the standard model, neutrino can have electromagnetic interaction only at a higher order of the perturbative expansion of the interaction - from loop diagrams. In the one photon approximation, the electromagnetic interactions of a neutrino field $\left(\nu_k\left(x\right), k\in\left\lbrace 1,...,N\right\rbrace\right)$, for $N$ neutrino mass states, can be described by the effective interaction Hamiltonian \cite{nuElmagInt2015.pdf}
+In the standard model, neutrino can have electromagnetic interaction only at a higher order of the perturbative expansion of the interaction - from loop diagrams. 
+%But this is only the neutrino charge radius, not the neutrino electric or magnetic moment
+
+%Various theories beyond the Standard Model 
+In the one photon approximation, the electromagnetic interactions of a neutrino field $\left(\nu_k\left(x\right), k\in\left\lbrace 1,...,N\right\rbrace\right)$, for $N$ neutrino mass states, can be described by the effective interaction Hamiltonian \cite{nuElmagInt2015.pdf}
 \begin{equation}
 \mathcal{H}^{\left(\nu\right)}_{em}\left(x\right)=\sum^N_{k,j=1}\overline{\nu}_k\left(x\right)\Lambda^{kj}_{\mu}\nu_j\left(x\right)A^{\mu}\left(x\right)
 \end{equation}
@@ -112,8 +81,17 @@ In case of \textbf{Majorana neutrinos}, the general expression for the vertex fu
 \end{equation}
 Therefore the Majorana charge, magnetic and electric form factor matrices are antisymmetric and the anapole form factor matrix is symmetric. This means that Majorana neutrino doesn't have any diagonal charge and dipole magnetic and electric moments, but it can have transition  charge and magnetic and electric moment \cite{nuElmagInt2015.pdf}.
 
+[NuMMBasicsAndAstro\_2022.pdf]
+One of the most important for astrophysics consequences of neutrino nonzero effective magnetic moments is the neutrino helicity change $\nu_l\rightarrow\nu_R$ with the appearance of nearly sterile right-handed neutrinos $\nu_R$. In general, this phenomena can proceed in three different mechanisms:
+\begin{enumerate}
+\item the helicity change in the neutrino magnetic moment scattering on electrons (or protons and neutrons),
+\item the neutrino spin and spin-flavour precession in an external magnetic field, and
+\item the neutrino spin and spin-flavour precession in the transversally moving matter currents or in the transversally polarized matter at rest
+\end{enumerate}
+For completeness note that the important astrophysical consequence of nonzero neutrino millicharges is the neutrino deviation from the rectilinear trajectory.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Neutrino electric and magnetic dipole moments}
+\subsubsection{Neutrino electric and magnetic dipole moments}
 
 Evaluating the one loop diagrams in the minimal extension of the standard model with right handed (Dirac) neutrinos gives us the first approximation of the electric and magnetic moments $\left(q^2=0\right)$:
 \begin{equation}
@@ -161,8 +139,9 @@ This limits imply, that if a magnetic moment $\mu\gtrsim 10^{-15}\mu_B$ would be
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Measuring neutrino magnetic moment}
-\subsection{Effective neutrino magnetic moment}
+\subsection{Measuring neutrino magnetic moment}
+%Maybe use "Effect of neutrino magnetic moment on measurement" instead
+\subsubsection{Effective neutrino magnetic moment}
 What we measure in experiments is an effective "flavour" magnetic moment, which is influenced by mixing of "mass" magnetic moments (and electric moments) and oscillations. In the ultrarelativistic limit this is
 \begin{equation}
 \mu_{\nu_l}^2\left(L,E_{\nu}\right)=\sum_j\left|\sum_k U^{\star}_{lk}e^{-i\Delta m^2_{kj}L/2E_{\nu}}\left(\mu_{jk}-i\epsilon_{jk}\right)\right|^2.
@@ -183,7 +162,7 @@ which is independent of the neutrino energy and of the source to detector distan
 
 It is important to mention, that since the effective magnetic moment depends on the flavour of the studied neutrino, it is different for different types of neutrino experiment. Also the solar neutrino experiments need to include the effect of the solar matter on the neutrino oscillations. Therefore the reports on the value (or upper limit) of the effective neutrino magnetic moment are not directly comparable between different types of neutrino experiments.
 
-\subsection{Neutrino-on-electron elastic scattering}
+\subsubsection{Neutrino-on-electron elastic scattering}
 The most sensitive method to measure neutrino magnetic moment is the low energy elastic scattering of (anti)neutrinos on electrons \cite{nuElmagInt2015.pdf}. This interaction has two observables, the recoil electron's kinetic energy $\left(T_e\right)$ and the recoil angle with respect to the incoming neutrino beam $\left(\theta\right)$. From simple $2\rightarrow 2$ kinematics we can get
 \begin{equation}
 \left(P_{\nu}-P_{e^{\prime}}\right)^2=\left(P_{\nu^{\prime}}-P_e\right)^2,
@@ -232,7 +211,7 @@ g_V^{\nu_{\mu,\tau}}&=2\sin^2\theta_W-1/2,\hspace{2.25cm} g_A^{\nu_{\mu,\tau}}=-
 \end{align}
 For antineutrinos $g_A\rightarrow -g_A$.
 
-Using expressions \ref{eqThetaTRelation} and \ref{eqTThetaSqExp} we can also derive \cite{NuOnECrossSections.pdf} cross sections with respect to $\cos\theta$, $\theta^2$ and $T\theta^2$:
+Using expressions \ref{eqThetaTRelation} and \ref{eqTThetaSqExp} we can also derive \cite{NuOnECrossSections1989.pdf} cross sections with respect to $\cos\theta$, $\theta^2$ and $T\theta^2$:
 
 \begin{multline}
 \left(\frac{d\sigma_{\nu_le^-}}{d\cos\theta}\right)_{\textsf{SM}}=
@@ -263,7 +242,7 @@ Using expressions \ref{eqThetaTRelation} and \ref{eqTThetaSqExp} we can also der
 \frac{m_e}{E_{\nu}}\left(1-\frac{T\theta^2}{2m_e}\right)\right\rbrace.
 \end{multline}
 
-The neutrino magnetic moment contribution is (include derivation from \cite{PhysRevD.39.3378}) \cite{nuElmagInt2015.pdf}:
+The neutrino magnetic moment contribution is (include derivation from \cite{NeutrinoElmagFormFactors1989.pdf}) \cite{nuElmagInt2015.pdf}:
 \begin{equation}
 \left(\frac{d\sigma_{\nu_le^-}}{dT_e}\right)_{\textsf{MAG}}=\frac{\pi\alpha^2}{m_e^2}\left(\frac{1}{T_e}-\frac{1}{E_{\nu}}\right)\left(\frac{\mu_{\nu_l}}{\mu_B}\right)^2,
 \end{equation}
@@ -290,8 +269,3 @@ The magnetic moment contribution exceeds the standard model contribution for low
 T_e\lesssim\frac{\pi^2\alpha^2}{G_F^2m_e^3}\left(\frac{\mu_{\nu}}{\mu_B}\right)^2\simeq 2.9\times 10^{19}\left(\frac{\mu_{\nu}}{\mu_B}\right)^2\left[\textsf{MeV}\right],
 \end{equation}
 which does not depend on the neutrino energy and makes neutrino experiment sensitive to lower energetic neutrinos more sensitive to the neutrino magnetic moment.
-
-\newpage
-\bibliographystyle{unsrturl}
-\bibliography{TheoreticalOverviewNuMMLiterature}
-\end{document}

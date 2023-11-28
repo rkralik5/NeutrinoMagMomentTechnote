@@ -5,8 +5,16 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amsthm, amssymb,amsfonts}
 \usepackage{mathptmx}
+\usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage{authblk} % To add authors' affiliations
+\usepackage[absolute,overlay]{textpos}
+\usepackage{braket}  % bra-ket notation
+\usepackage{slashed} % Dirac notation
+\usepackage{tikz-feynman,contour}
+\usepackage{breqn}   % Equation breaking
+% Should I use SIUnitX instead?
+\usepackage{units}
 
 \usepackage{hyperref}
 \hypersetup{colorlinks,
@@ -21,6 +29,18 @@
 \affil[1]{University of Sussex, Brighton, UK}
 \date{\today}
 
+%\usepackage[printwatermark]{xwatermark}
+%\newwatermark[allpages,color=black!20,angle=45,scale=2,xpos=0,ypos=0]{WORK IN PROGRESS}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
 %\linenumbers % Include line numbers
 
 \begin{document}
@@ -29,8 +49,15 @@
 \begin{abstract}
     This is the abstract
 \end{abstract}
+\newpage
+\tableofcontents
+\newpage
 
 \section{Introduction}
+
+Main motivations for the analysis. Briefly mention that there was a previous study by Biao, what were the results there and what limitations (or maybe talk about this in the Experimental overview?).
+
+Maybe briefly mention the overview of the theory and experimental overview.
 
 %The same types of experimental measurements are also sensitive to more exotic neutrino electromagnetic properties: magnetic moments and millicharges, which would be certainly due to new physics beyond the Standard Model. The discovery of millicharges or anomalously large neutrino magnetic moments would have also important implications for astrophysics and cosmology. [NeutrinoPropertiesSnowmass2022.pdf]
 
@@ -40,25 +67,77 @@
 
 %Systematic theoretical studies of neutrino electromagnetic properties started after it was shown that in the extended standard model with right-handed neutrinos the magnetic moment of a massive neutrino is, in general, nonvanishing and that its value is determined by the neutrino mass (Lee and Shrock, 1977; Marciano and Sanda, 1977; Petcov, 1977; Fujikawa and Shrock, 1980; Pal and Wolfenstein, 1982; Shrock, 1982; Bilenky and Petcov, 1987). Neutrino electromagnetic properties are important because they are directly connected to fundamentals of particle physics. For example, neutrino electromagnetic properties can be used to distinguish Dirac and Majorana neutrinos, because Dirac neutrinos can have both diagonal and offdiagonal magnetic and electric dipole moments, whereas only the off-diagonal ones are allowed for Majorana neutrinos (Schechter and Valle, 1981; Kayser, 1982, 1984; Nieves, 1982; Pal and Wolfenstein, 1982; Shrock, 1982). Another important case in which Dirac and Majorana neutrinos have quite different observable effects is the spin-flavor precession in an external magnetic field discussed in Sec. VI.B. Neutrino electromagnetic properties are also probes of new physics beyond the standard model, because in the standard model neutrinos can have only a charge radius. The discovery of other neutrino electromagnetic properties would be a signal of new physics beyond the standard model (Bell et al., 2005, 2006; Bell, 2007; Novales-Sanchez et al., 2008). [nuElmagInt2015.pdf]
 
-%Considering an experiment which does not observe any effect of neutrino magnetic mometn and obtains a limit on the neutrino mag. moment, it is possible to obtain, following Studenikin (2014), a bound on neutrino millicharge by demanding that the effect of neutrino millicharge is smaller that tha of neutrino magnetic moment. [nuElmagInt2015.pdf - page 580]
+%Considering an experiment which does not observe any effect of neutrino magnetic moment and obtains a limit on the neutrino mag. moment, it is possible to obtain, following Studenikin (2014), a bound on neutrino millicharge by demanding that the effect of neutrino millicharge is smaller that tha of neutrino magnetic moment. [nuElmagInt2015.pdf - page 580]
 
+\section{Literature review}
 \subsection{Theoretical overview}
+\include{TheoreticalOverviewNuMM}
 \subsection{Experimental overview}
-\subsection{Analysis overview}
+\include{ExperimentalOverviewNuMM}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                       ANALYSIS OVERVIEW                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analysis overview}
 \subsection{Datasets and Event Reconstruction details}
 \subsubsection{Enhanced $\nu$-on-e sample}
+\subsubsection{Enhance $\nu_e$CC MEC sample}
 \subsection{Analysis weights}
 \subsubsection{Neutrino magnetic moment as a weight}
+\subsubsection{Radiative correction weight}
+\subsection{Event selection}
+\begin{enumerate}
+\item Very brief description of common-sense preselection cuts in decafs
+\item Description of all variables used for selection in this analysis
+\item Plots of all variables used for selection in this analysis, showing the distribution with L: no cuts and R: cumulative cuts up to this point.
+\item Test explaining the motivation for each selection cut.
+\end{enumerate}
+Describe/point to the ND group's event selection
+Plots of event selection variables distribution with two columns. Left distribution with no cuts applied and right with all previous cuts applied.
 
+\subsection{Resolution and binning}
+\subsubsection{Fitting framework}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                   SYSTEMATIC UNCERTAINTIES                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Systematic uncertainties}
+Plots showing combined uncertainties for signal and backgrounds
+
+\subsection{Normalization systematics}
+Should we include normalization systematics?
+
 \subsection{Neutrino flux systematics}
+Using the PCA vs using the PPFX universes+beam transport separately. Plots of energy showing shifts for signal and backgrounds separately
+
+[to do]: understand differences with ND and 3F methods
+
 \subsection{Detector systematics}
+Plots of energy showing shifts for signal and backgrounds separately
 \subsection{Cross section systematics}
+Only for the non nu-on-e background. Assuming the nu-on-e events (including the signal events) are precisely known.
 
-\section{Event selection}
+Plots of energy showing shifts for signal and backgrounds separately
 
-\section{Resolution and binning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                           RESULTS                             %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+[to do]: talk about the shape-only versus normalisation-only strategies for the differential versus single-bin analyses.
+
+\subsection{Counting experiment}
+Single bin analysis - total numbers of signal and backgrounds
+\subsection{Binned experiment}
+Plots showing delta chi2 for stats and systs separately. Plot showing the chi2 with limits
+\subsubsection{Sensitivities and limits}
+
+\section{Conclusion}
+Report the limit with its uncertainty.
+
+Very briefly discuss differences with current world limit and how the techniques differ.
+
+Very briefly summarise expectations for future measurements.
 
 \bibliographystyle{unsrturl}
-\bibliography{literature}
+\bibliography{NeutrinoMagMomentTechnoteLiterature}
 \end{document}
