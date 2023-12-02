@@ -79,15 +79,186 @@ Maybe briefly mention the overview of the theory and experimental overview.
 %%%                       ANALYSIS OVERVIEW                       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analysis overview}
+What are we trying to achieve? Are we aiming for purity or efficiency?
+
+Trying to select nu-on-e events with low electron recoil energies.
+
+What are we going to do with these events afterwards? 
+
+Are we just going to compare the event counts of signal and background (and possibly correct the background based on some other "sideband" selection?), or are we doing a fit to some spectra - either electron energy, angle or ETh2.
+
+Describe what I'm talking about in this section (datasets, weights, selection, resolution, fitting framework).
+
 \subsection{Datasets and Event Reconstruction details}
-\subsubsection{Enhanced $\nu$-on-e sample}
-\subsubsection{Enhance $\nu_e$CC MEC sample}
+For this analysis we are using the near detector samples with a standard Production 5.1 reconstruction. To tackle low number of $\nu$-on-e and $\nu_e$CC MEC events (after full selection) in the nominal simulation sample, and to increase speed and lower the computation costs of each study, we are using the following samples for the signal and background components, for the nominal prediction as well as systematically shifted.
+
+For data we are only planning to unveil them after fully approved by the collaboration and we will be using the following data sample...
+
+Yiwen has already looked at data for the following samples and the results are here...
+
+Should I mention the POT counting here or somewhere else?
+
+The use of the samples can be briefly summarised as follows:
+\begin{table}[!ht]
+\centering
+\def\arraystretch{1.4}
+\begin{tabular}{l@{\hskip 1in}l}
+Signal                   & Enhanced $\nu$-on-e sample\\
+$\nu$-on-e background    & Enhanced $\nu$-on-e sample\\
+$\nu_e$CC MEC background & Enhanced $\nu_e$CC MEC sample\\
+Other background         & Flat sumdecaf
+\end{tabular}
+\caption{Overview of simulation samples used.}
+\label{tab:DefinitionsOverview}
+\end{table}
+
+\subsubsection*{Enhanced $\nu$-on-e sample}
+Created by Wenjie Wu (was it just him or also Yiwen?) to do ... and fully described in the technote \cite{NOVA-doc-56383}. Using the overlayed and filematched samples for consistency.
+
+We only have the selected few systematics definitions because ... 
+
+Describe the differences
+\begin{itemize}
+\item Missing cross section parameters - unable to use cross section weights or so
+\item Special mode for nu-on-e elastic scattering 10005
+\end{itemize}
+
+List all the nu-on-e sample definitions used is on table \ref{tab:NuoneDefinitions}.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{p{\textwidth}}
+\hline\hline\\
+\textbf{Nominal:}\\
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_v1\_nuone\_overlay}\\[2mm]
+\textbf{Systematically shifted samples:}\\
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibup\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibdown\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvup\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvdown\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightlevelup\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightleveldown\_v1\_nuone\_overlay}\\[2mm]
+\hline\hline
+\end{tabular}
+\caption{SAMWEB definitions for the $\nu$-on-e samples.}
+\label{tab:NuoneDefinitions}
+\end{table}
+
+\subsubsection*{Enhance $\nu_e$CC MEC sample}
+Created by Yiwen Xiao \cite{NOVA-doc-56383} to tackle the low statistics of the $\nu_E$CC MEC background events and subsequently large and unphysical cross section weights.
+
+List all the nueCC MEC sample definitions used. Do this after creating the filematched definitions maybe?
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{p{\textwidth}}
+\hline\hline\\
+\textbf{Nominal:}\\
+\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_v1\_g4rwgt\_respin\_batch2\_filematchedSystematics}\\[2mm]
+\textbf{Systematically shifted samples:}\\
+\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.e\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_calibdown\_v1\_batch2\_filematchedSystematics\_calibdown\_v1}\\[2mm]
+\hline\hline
+\end{tabular}
+\caption{SAMWEB definitions of the other background samples. THIS IS JUST A PLACEHOLDER!}
+\label{tab:NueCCMECDefinitions}
+\end{table}
+
+\subsubsection*{Near detector flat summed decaf sample}
+What are the cuts used for the DeCAF sample? Why was it created? What is the effect of these cuts?
+
+What is the "Nominal g4rwgt respin flatcaf" and should I be using that instead of the nominal flatcaf?
+
+There's also 3 flavour concats - what are those? there are both numu and nue and they're for the ND... What are the cuts used to create these?
+
+There's Genie Skew Fix and then there's Genie reweight  - what is the reweight and why? What should be used in the end? Are the systematic samples compatible with any of those? Or are they the most up-to-date (i.e. with Genie Skew Fix and with the reweight?)
+
+Should I include here also why did I choose to use the decafs instead of cafs? Maybe just point to my talks where I show the plot how much faster it is and that it doesn't matter much for the result. Maybe discuss how different the result would be if I used cafs instead of decafs...
+
+List all the flat sumdecaf definitions used.
+\begin{table}[!ht]
+\centering
+\begin{tabular}{p{\textwidth}}
+\hline\hline\\
+\textbf{Nominal:}\\
+\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_v1\_g4rwgt\_respin\_batch2\_filematchedSystematics}\\[2mm]
+\textbf{Systematically shifted samples:}\\
+\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.e\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_calibdown\_v1\_batch2\_filematchedSystematics\_calibdown\_v1}\\[2mm]
+\hline\hline
+\end{tabular}
+\caption{SAMWEB definitions of the other background samples. First figure out what definitions should I use}
+\label{tab:SumDeCAFDefinitions}
+\end{table}
+
 \subsection{Analysis weights}
-\subsubsection{Neutrino magnetic moment as a weight}
-\subsubsection{Radiative correction weight}
+What are the weights we are using and why?
+
+List of weights for each sample, maybe table again?
+\begin{table}[!ht]
+\centering
+\def\arraystretch{1.4}
+\begin{tabular}{l@{\hskip 1in}l}
+Signal                   & PPFX and Neutrino magnetic moment weight\\
+$\nu$-on-e background    & PPFX and Radiative correction weights\\
+$\nu_e$CC MEC background & PPFX and prod5.1 GSF XSec weights\\
+Other background         & PPFX and prod5.1 GSF XSec weights
+\end{tabular}
+\caption{Overview of simulation samples used.}
+\label{tab:WeightsOverview}
+\end{table}
+
+\subsubsection*{PPFX weight}
+What does this do (one sentence).
+
+\subsubsection*{Neutrino magnetic moment as a weight}
+What does this do and why does it work? Reference the theory part as to why is the magnetic moment signal simply a rescaling of the GENIE cross section.
+
+Mention here where did I get the original GENIE cross section from (reference Yiwen's talk or technote, plus the original paper that was used).
+
+Maybe event write out the actual expressions here. Or at least the standard model constants.
+
+Name of the weight in CAFAna/nuone namespace
+
+\subsubsection*{Radiative correction weight}
+Why are we doing this? (reference Yiwen's talk/technote). Using the same tree-level cross section from GENIE as in the neutrino magnetic moment weight.
+
+Write out the actual version of the weight.
+
+Say that we are not using the third part of the correction because it is tiny and it makes no difference. (tried and tested)
+
+\subsubsection*{Prod5.1 GSF XSec weight}
+Briefly describe what does this do. Also mention Yiwen's talk/technote about the large XSec weights that made her create an enhanced nueCC MEC sample.
+
+We are only using the for the background since we assume that the cross section for the signal is perfect. Also there are not weights for this kind of interaction.
+
 \subsection{Event selection}
+Should this be a separate section or is it all right to keep it here? It will have a lot of plots...
+
+What is the signal and all the background samples definition? Difference between using kIsVtxCont and the fiducial volume. Is there a fundamental difference or preference? Or does it just depend on me? The results/counts are quite different...
+
+Currently we are using the exact same selection as is used by the ND group \cite{NOVA-doc-56383} and very similar to the Light Dark Matter analysis (cite their technote).
+
+Brief overview of the cuts that are being used in text.
+
+Pre-selection consists of... basic quality cuts including the cuts from the ND DeCAF selection.
+
+Containment and fiducial cuts.
+
+Single shower/particle cuts.
+
+Energy cut - should this be removed? What is the effect on the event count? Why was this included in the first place (the identifiers are not as strong for lowere energies - is this true though? - also there are further unexplored backgrounds that would need to be further studied and explore. Maybe depends on where would we move the cut...)
+
+Convolution neural networks.
+
+ETh2 cut.
+
+Using the many plots below that show the effect of each of the cuts on the signal and all background events. (For signal we are showing NuMM=...)
+
+The final event count and efficiency of each of the cuts is shown on the table ... Table ... shows the dissemination of background into the individual components.
+
+From here we can see that ... Maybe what can be improved is...
+
 \begin{enumerate}
-\item Very brief description of common-sense preselection cuts in decafs
+\item Very brief description of common-sense preselection cuts in decafs - this might already be described when introducing the definitions...
 \item Description of all variables used for selection in this analysis
 \item Plots of all variables used for selection in this analysis, showing the distribution with L: no cuts and R: cumulative cuts up to this point.
 \item Test explaining the motivation for each selection cut.
@@ -96,39 +267,58 @@ Describe/point to the ND group's event selection
 Plots of event selection variables distribution with two columns. Left distribution with no cuts applied and right with all previous cuts applied.
 
 \subsection{Resolution and binning}
-\subsubsection{Fitting framework}
+The electron energy and angle distributions and resolutions. Are we going to fit in E, Th, or ETh2? Is there something else?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                   SYSTEMATIC UNCERTAINTIES                    %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Systematic uncertainties}
+Show plots of Reco V True for both energy and angle. (Should I show it with or without the energy cut?). Also show the resolution plots.
+
+\subsection{Systematic uncertainties}
 Plots showing combined uncertainties for signal and backgrounds
 
-\subsection{Normalization systematics}
+\subsubsection*{Normalization systematics}
 Should we include normalization systematics?
 
-\subsection{Neutrino flux systematics}
+\subsubsection*{Neutrino flux systematics}
 Using the PCA vs using the PPFX universes+beam transport separately. Plots of energy showing shifts for signal and backgrounds separately
 
 [to do]: understand differences with ND and 3F methods
 
-\subsection{Detector systematics}
+\subsubsection*{Detector systematics}
 Plots of energy showing shifts for signal and backgrounds separately
-\subsection{Cross section systematics}
+\subsubsection*{Cross section systematics}
 Only for the non nu-on-e background. Assuming the nu-on-e events (including the signal events) are precisely known.
 
 Plots of energy showing shifts for signal and backgrounds separately
 
+\subsection{Fitting framework}
+How does the fitting framework work? It's based on the framework developed by Mu Wei for the Light Dark Matter analysis (ref.) which was developed together (is this fair?). Basic description of the framework.
+
+Also this framework is used for both LDM and NuMM together. It is trivial to simply switch between including the NuMM or LDM in it. This was done to save space in creating predictions since our backgrounds are exactly the same (or at least they should be...). Theoretically this could be separated into two difference frameworks.
+
+\begin{itemize}
+\item <NDPredictionSingleElectron> Prediction class which holds the LDM as a special 2-D spectrum (not used for NuMM), and NuMM, $\nu$-on-e background, $\nu_e$CC MEC background and other background as simple 1-D spectra. Also scaling each spectra by...
+\item <NDPredictionSystSingleElectron> class derived from PredictionInterp that takes in the NDPredictionSingleElectron and applies systematic shifts to it. Includes the interpolation/extrapolation between the systematic shifts.
+\item FitVariables and what do they do
+\item Fitter which does exactly what... What are the parameters of the fit? What are the results/outputs?
+\end{itemize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                           RESULTS                             %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}
+\section{Results / Fake data studies}
 [to do]: talk about the shape-only versus normalisation-only strategies for the differential versus single-bin analyses.
 
+I think it might be a good idea to talk about this already in the analysis overview section.
+
+I need to also discuss fake data studies. Should I talk about this now? Probably
+
 \subsection{Counting experiment}
-Single bin analysis - total numbers of signal and backgrounds
+Single bin analysis - total numbers of signal and backgrounds predicted. Possible background corrections and its effect on the background uncertainties. 
+
 \subsection{Binned experiment}
-Plots showing delta chi2 for stats and systs separately. Plot showing the chi2 with limits
+Plots showing delta chi2 for stats and systs separately. Plot showing the chi2 with limits. Maybe talk about using different binning and variables and the effect.
+
+Also need to somehow quantify the various fitter settings, like different seeding values, different range of profiling. Should I talk about Feldman-Cousins? 
+
 \subsubsection{Sensitivities and limits}
 
 \section{Conclusion}
