@@ -10,18 +10,21 @@
 
 In the standard model, neutrino can have electromagnetic interaction only at a higher order of the perturbative expansion of the interaction - from loop diagrams. 
 %But this is only the neutrino charge radius, not the neutrino electric or magnetic moment
+\todo{To be more specific, neutrinos can only have charge radius in standard model. Any other electromagnetic interactions must come from beyond standard model theories}
 
 %Various theories beyond the Standard Model 
-In the one photon approximation, the electromagnetic interactions of a neutrino field $\left(\nu_k\left(x\right), k\in\left\lbrace 1,...,N\right\rbrace\right)$, for $N$ neutrino mass states, can be described by the effective interaction Hamiltonian \cite{nuElmagInt2015.pdf}
+In the one photon approximation, electromagnetic interactions of a neutrino field $\nu_k\left(x\right), k\in\left\lbrace 1,...,N\right\rbrace$, for $N$ neutrino mass states, can be described by an effective interaction Hamiltonian \cite{nuElmagInt2015.pdf}
 \begin{equation}
-\mathcal{H}^{\left(\nu\right)}_{em}\left(x\right)=\sum^N_{k,j=1}\overline{\nu}_k\left(x\right)\Lambda^{kj}_{\mu}\nu_j\left(x\right)A^{\mu}\left(x\right)
+\mathcal{H}^{\left(\nu\right)}_{em}\left(x\right)=\sum^N_{k,j=1}\overline{\nu}_k\left(x\right)\Lambda^{kj}_{\mu}\nu_j\left(x\right)A^{\mu}\left(x\right).
 \end{equation}
-and the amplitude of neutrino-to-neutrino interaction for \textbf{Dirac} neutrinos shown on fig.\ref{figFeynman} is
+\todo{decribe here what is lambda and everything else in the equation. Also mention figure 1}
+
+The amplitude of neutrino-to-neutrino interaction for \textbf{Dirac} neutrinos is
 \begin{equation}
 \braket{\nu_f\left(p_f\right)|j^{\left(\nu\right)}_{\mu}\left(x\right)|\nu_i\left(p_i\right)}=
 e^{i\left(p_f-p_i\right)x}\overline{u}_f\left(p_f\right)\Lambda^{fi}_{\mu}\left(p_f,p_i\right)u_i\left(p_i\right),
 \end{equation}
-where $p_f$ and $p_i$ are the final and initial four momentums respectively and $u/\overline{u}$ are the solutions to the Dirac equation for a free particle. We take into account possible transitions between different mass states $\nu_i$ and $\nu_f$ \cite{nuElmagInt2015.pdf}.
+where $p_f$ and $p_i$ are the final and initial four momentums respectively and $u/\overline{u}$ are the solutions to the Dirac equation for a free particle. We take into account possible transitions between different mass states $\nu_i$ and $\nu_f$ \cite{nuElmagInt2015.pdf}. \todo{also describe what is j}
 
 \begin{figure}
 \centering
@@ -42,7 +45,7 @@ where $p_f$ and $p_i$ are the final and initial four momentums respectively and 
 \label{figFeynman}
 \end{figure}
 
-The vertex function $\Lambda^{fi}_{\mu}\left(p_f,p_i\right)$ is a matrix and in the most general case it can be written in terms of linearly independent products of Dirac matrices $\left(\gamma\right)$ and four momentum of the photon $\left(q=p_f-p_i\right)$:
+The vertex function $\Lambda^{fi}_{\mu}\left(p_f,p_i\right)$ is generally a matrix and in the most general case it can be written in terms of linearly independent products of Dirac matrices $\left(\gamma\right)$ and four momentum of the photon $\left(q=p_f-p_i\right)$:
 \begin{align}
 \Lambda^{fi}_{\mu}\left(p_f,p_i\right)=&
 \mathbb{F}^{fi}_1\left(q^2\right)q_{\mu}+
@@ -56,13 +59,14 @@ where $\mathbb{F}^{fi}_i\left(q^2\right)$ are six Lorentz invariant form factors
 
 Applying conditions of hermiticity $\left(\mathcal{H}^{\left(\nu\right)\dagger}_{em}=\mathcal{H}^{\left(\nu\right)}_{em}\right)$ and of conservation of the current (continuity equation: 
 $\partial^{\mu}j^{\left(\nu\right)}_{\mu}\left(x\right)=0$), we can rewrite the vertex function as
+\todo{maybe describe why we would want to apply these conditions}
 \begin{equation}
 \Lambda^{fi}_{\mu}\left(q\right)=
 \left(\gamma_{\mu}-q_{\mu}\slashed{q}/q^2\right)\left[
 \mathbb{F}^{fi}_{Q}\left(q^2\right)+\mathbb{F}^{fi}_{A}\left(q^2\right)q^2\gamma_5\right]-
 i\sigma_{\mu\nu}q^{\nu}\left[\mathbb{F}^{fi}_{M}\left(q^2\right)+i\mathbb{F}^{fi}_{E}\left(q^2\right)\gamma_5\right],
 \end{equation}
-where $\mathbb{F}^{fi}_Q,\mathbb{F}^{fi}_M,\mathbb{F}^{fi}_E$ and $\mathbb{F}^{fi}_A$ are hermitian matrices representing the real charge, dipole magnetic, dipole electric and anapole neutrino form factors. In coupling with a real photon $\left(q^2=0\right)$ these become the neutrino charge, magnetic, electric and anapole moment \cite{nuElmagInt2015.pdf}.
+where $\mathbb{F}^{fi}_Q,\mathbb{F}^{fi}_M,\mathbb{F}^{fi}_E$ and $\mathbb{F}^{fi}_A$ are hermitian matrices representing the real charge, dipole magnetic, dipole electric and anapole neutrino form factors. In coupling with a real photon $\left(q^2=0\right)$ these become the neutrino charge and magnetic, electric and anapole moments \cite{nuElmagInt2015.pdf}.
 
 For antineutrinos the form factors are transformed as:
 \begin{equation}\label{eqAnu1}
@@ -71,8 +75,10 @@ For antineutrinos the form factors are transformed as:
 \begin{equation}\label{eqAnu2}
 \overline{\mathbb{F}}^{fi}_{A}=\mathbb{F}^{if}_{A}=\left(\mathbb{F}^{fi}_{A}\right)^{\star}.
 \end{equation}
+\todo{maybe describe what does this mean?}
 
-In case of \textbf{Majorana neutrinos}, the general expression for the vertex function in terms of charge, magnetic, electric and anapole form factors looks the same as for Dirac neutrinos. However, since Majorana antineutrinos are the same particle as Majorana neutrinos, from eq.\ref{eqAnu1},\ref{eqAnu2} we can see that:
+In case of \textbf{Majorana neutrinos}, the general expression for the vertex function in terms of charge, magnetic, electric and anapole form factors looks the same as for Dirac neutrinos.
+\todo{so does that mean that the interaction amplitude can be written in the same way for both Dirac and Majorana neutrinos?} However, since Majorana antineutrinos are the same particle as Majorana neutrinos, from eq.\ref{eqAnu1},\ref{eqAnu2} we can see that:
 \begin{equation}\label{eqAntisymmetryCondition}
 \mathbb{F}^M_{\Omega}=-\left(\mathbb{F}^M_{\Omega}\right)^T \ \ \ \Omega=Q,M,E,
 \end{equation}
@@ -80,20 +86,22 @@ In case of \textbf{Majorana neutrinos}, the general expression for the vertex fu
 \mathbb{F}^M_{A}=\left(\mathbb{F}^M_A\right)^T.
 \end{equation}
 Therefore the Majorana charge, magnetic and electric form factor matrices are antisymmetric and the anapole form factor matrix is symmetric. This means that Majorana neutrino doesn't have any diagonal charge and dipole magnetic and electric moments, but it can have transition  charge and magnetic and electric moment \cite{nuElmagInt2015.pdf}.
+\todo{Explain why is this worth mentioning or remove it if it's not}
 
 [NuMMBasicsAndAstro\_2022.pdf]
-One of the most important for astrophysics consequences of neutrino nonzero effective magnetic moments is the neutrino helicity change $\nu_l\rightarrow\nu_R$ with the appearance of nearly sterile right-handed neutrinos $\nu_R$. In general, this phenomena can proceed in three different mechanisms:
+One of the most important astrophysical consequences of neutrino non-zero effective magnetic moments is the neutrino helicity change $\nu_l\rightarrow\nu_R$ with the appearance of nearly sterile right-handed neutrinos $\nu_R$. In general, this phenomena can proceed in three different mechanisms:
 \begin{enumerate}
 \item the helicity change in the neutrino magnetic moment scattering on electrons (or protons and neutrons),
 \item the neutrino spin and spin-flavour precession in an external magnetic field, and
 \item the neutrino spin and spin-flavour precession in the transversally moving matter currents or in the transversally polarized matter at rest
 \end{enumerate}
 For completeness note that the important astrophysical consequence of nonzero neutrino millicharges is the neutrino deviation from the rectilinear trajectory.
+\todo{find out if this is the same thing that IceCube describes in their paper}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Neutrino electric and magnetic dipole moments}
 
-Evaluating the one loop diagrams in the minimal extension of the standard model with right handed (Dirac) neutrinos gives us the first approximation of the electric and magnetic moments $\left(q^2=0\right)$:
+Evaluating the one loop diagrams in the minimal extension of the standard model \todo{should I mention here what actually do I mean by the minimal extension of SM? probably this:  "introduction of three right-handed neutrinos"} with right handed (Dirac) neutrinos gives us the first approximation of the electric and magnetic moments $\left(q^2=0\right)$:
 \begin{equation}
 \begin{rcases}
 \mu^D_{kj}\\
@@ -101,9 +109,10 @@ i\epsilon^D_{kj}
 \end{rcases}
 \simeq\frac{3eG_F}{16\sqrt{2}\pi^2}\left(m_k\pm m_j\right)\left(\delta_{kj}-\frac{1}{2}\sum_{l=e,\mu ,\tau}U^{\star}_{lk}U_{lj}\frac{m_l^2}{m_W^2}\right),
 \end{equation}
-where $m_k,m_j$ are the neutrino masses, but $m_l$ are the masses of charged leptons which appear in the loop diagrams. Higher order electromagnetic corrections were neglected, but those can also have a significant contribution \cite{nuElmagInt2015.pdf}.
+where $m_k,m_j$ are the neutrino masses and $m_l$ are the masses of charged leptons which appear in the loop diagrams. Higher order electromagnetic corrections were neglected, but those can also have a significant contribution \cite{nuElmagInt2015.pdf}.
+\todo{ok, so what does that mean? Does that mean that this equation is not actually correct or that it's the higher/lower limit? or something else?}
 
-There are no diagonal electric moments $\left(\epsilon_{kk}^D=0\right)$ and the diagonal magnetic moments are approximately
+(It can be seen that) There are no diagonal electric moments $\left(\epsilon_{kk}^D=0\right)$ and the diagonal magnetic moments are approximately
 \begin{equation}\label{DiagMagMomVal}
 \mu_{kk}^D\simeq\frac{3eG_Fm_k}{8\sqrt{2}\pi^2}\simeq 3.2\times 10^{-19}\left(\frac{m_k}{\textsf{eV}}\right)\mu_B,
 \end{equation}
@@ -111,14 +120,14 @@ where $\mu_B$ is the Bohr magneton \cite{nuElmagInt2015.pdf}.
 
 The transition magnetic moments are suppressed with respect to the largest of the diagonal magnetic moments by at least a factor of $10^{-4}$ due to the $m_W^2$ in denominator and the transition electric moments are even smaller than that due to the mass difference \cite{nuElmagInt2015.pdf}. Therefore an experimental observation of a magnetic moment larger than in eq.\ref{DiagMagMomVal} would indicate physics beyond the minimally extended standard model \cite{nuMMMajoranaBounds2006.pdf}.
 
-Majorana neutrinos can be obtained by either adding a $\textsf{SU}\left(2\right)_L$ Higgs triplet, or right handed neutrinos together with a $\textsf{SU}\left(2\right)_L$ Higgs singlet. If we neglect the Feynman diagrams which depend on the model of the scalar sector, the magnetic and electric dipole moments are
+Majorana neutrinos can be obtained by either adding a $\textsf{SU}\left(2\right)_L$ Higgs triplet, or right handed neutrinos together with a $\textsf{SU}\left(2\right)_L$ Higgs singlet \todo{is this also considered a minimally extended SM? or is this the only way to get Majorana neutrinos? Most likely the former - from nuElmagInt2015.pdf: the absence of Higgs triplets, without which it is not possible to have Majorana mass terms.}. If we neglect the Feynman diagrams which depend on the model of the scalar sector \todo{what does that mean for the result?}, the magnetic and electric dipole moments are
 \begin{equation}
 \mu_{kj}^M\simeq -\frac{3ieG_F}{16\sqrt{2}\pi^2}\left(m_k+m_j\right)\sum_{l=e,\mu ,\tau}\operatorname{Im}\left[U^{\star}_{lk}U_{lj}\right]\frac{m_l^2}{m_W^2},
 \end{equation}
 \begin{equation}
 \epsilon_{kj}^M\simeq \frac{3ieG_F}{16\sqrt{2}\pi^2}\left(m_k-m_j\right)\sum_{l=e,\mu ,\tau}\operatorname{Re}\left[U^{\star}_{lk}U_{lj}\right]\frac{m_l^2}{m_W^2}.
 \end{equation}
-These are difficult to compare to the Dirac case, due to possible presence of Majorana phases in the PMNS matrices, but it is clear that they have the same order of magnitude as Dirac transition dipole moments. However, the neglected model dependent contributions can enhance the transition dipole moments \cite{nuElmagInt2015.pdf}.
+These are difficult to compare to the Dirac case, due to possible presence of Majorana phases in the PMNS matrices, but it is clear that they have the same order of magnitude as Dirac transition dipole moments. However, the neglected model dependent contributions can enhance the transition dipole moments \cite{nuElmagInt2015.pdf}. \todo{but how much?}
 
 It is possible \cite{nuMMMajoranaBounds2006.pdf} to obtain "natural" upper limits on the size of neutrino magnetic moment by calculating its contribution to the neutrino mass by standard model radiative corrections. For Dirac neutrinos the radiative correction induced by neutrino magnetic moment, generated at an energy scale $\Lambda$, to the neutrino mass is generically
 \begin{equation}
@@ -141,6 +150,7 @@ This limits imply, that if a magnetic moment $\mu\gtrsim 10^{-15}\mu_B$ would be
 
 \subsection{Measuring neutrino magnetic moment}
 %Maybe use "Effect of neutrino magnetic moment on measurement" instead
+\todo{Need to add some general description of the measurements}
 \subsubsection{Effective neutrino magnetic moment}
 What we measure in experiments is an effective "flavour" magnetic moment, which is influenced by mixing of "mass" magnetic moments (and electric moments) and oscillations. In the ultrarelativistic limit this is
 \begin{equation}
@@ -149,6 +159,7 @@ What we measure in experiments is an effective "flavour" magnetic moment, which 
 What is called the effective magnetic moment (often just magnetic moment) therefore contains contributions from both the neutrino magnetic and electric moment \cite{nuElmagInt2015.pdf}.
 
 For antineutrinos, the effective magnetic moment is
+\todo{maybe I should just combine these two equations to avoid overcrowding}
 \begin{equation}
 \mu_{\overline{\nu}_l}^2\left(L,E_{\nu}\right)=\sum_j\left|\sum_k U^{\star}_{lk}e^{+i\Delta m^2_{kj}L/2E_{\nu}}\left(\mu_{jk}-i\epsilon_{jk}\right)\right|^2.
 \end{equation}
@@ -195,7 +206,7 @@ Considering $E_{\nu}\sim\textsf{GeV}$, we can approximate $\frac{m_e^2}{E_{\nu}^
 T\theta^2\cong 2m_e\left(1-\frac{T_e}{E_{\nu}}\right)<2m_e.
 \end{equation}
 
-In the ultrarelativistic limit, the neutrino magnetic moment changes the neutrino helicity, turning active neutrinos into sterile. Since the SM weak interaction conserves helicity we can add the two contribution to the neutrino on electron cross section incoherently \cite{nuElmagInt2015.pdf}:
+In the ultrarelativistic limit, the neutrino magnetic moment changes the neutrino helicity, turning active neutrinos into sterile \todo{this is a very strong statement and it probably need a bit more backing up}. Since the SM weak interaction conserves helicity we can add the two contribution to the neutrino on electron cross section incoherently \cite{nuElmagInt2015.pdf}:
 \begin{equation}
 \frac{d\sigma_{\nu_le^-}}{dT_e}=\left(\frac{d\sigma_{\nu_le^-}}{dT_e}\right)_{\textsf{SM}}+\left(\frac{d\sigma_{\nu_le^-}}{dT_e}\right)_{\textsf{MAG}}.
 \end{equation}
@@ -212,6 +223,7 @@ g_V^{\nu_{\mu,\tau}}&=2\sin^2\theta_W-1/2,\hspace{2.25cm} g_A^{\nu_{\mu,\tau}}=-
 For antineutrinos $g_A\rightarrow -g_A$.
 
 Using expressions \ref{eqThetaTRelation} and \ref{eqTThetaSqExp} we can also derive \cite{NuOnECrossSections1989.pdf} cross sections with respect to $\cos\theta$, $\theta^2$ and $T\theta^2$:
+\todo{I don't think these equations are actually valid. We've been using some approximations and therefore I don't think these equations work for any theta dependence}
 
 \begin{multline}
 \left(\frac{d\sigma_{\nu_le^-}}{d\cos\theta}\right)_{\textsf{SM}}=
@@ -242,7 +254,7 @@ Using expressions \ref{eqThetaTRelation} and \ref{eqTThetaSqExp} we can also der
 \frac{m_e}{E_{\nu}}\left(1-\frac{T\theta^2}{2m_e}\right)\right\rbrace.
 \end{multline}
 
-The neutrino magnetic moment contribution is (include derivation from \cite{NeutrinoElmagFormFactors1989.pdf}) \cite{nuElmagInt2015.pdf}:
+The neutrino magnetic moment contribution is \todo{include derivation from \cite{NeutrinoElmagFormFactors1989.pdf}} \cite{nuElmagInt2015.pdf}:
 \begin{equation}
 \left(\frac{d\sigma_{\nu_le^-}}{dT_e}\right)_{\textsf{MAG}}=\frac{\pi\alpha^2}{m_e^2}\left(\frac{1}{T_e}-\frac{1}{E_{\nu}}\right)\left(\frac{\mu_{\nu_l}}{\mu_B}\right)^2,
 \end{equation}
@@ -269,3 +281,4 @@ The magnetic moment contribution exceeds the standard model contribution for low
 T_e\lesssim\frac{\pi^2\alpha^2}{G_F^2m_e^3}\left(\frac{\mu_{\nu}}{\mu_B}\right)^2\simeq 2.9\times 10^{19}\left(\frac{\mu_{\nu}}{\mu_B}\right)^2\left[\textsf{MeV}\right],
 \end{equation}
 which does not depend on the neutrino energy and makes neutrino experiment sensitive to lower energetic neutrinos more sensitive to the neutrino magnetic moment.
+\todo{this is probably not about sensitivity to lower energetic neutrinos but to lower energetic electron, isn't it?}

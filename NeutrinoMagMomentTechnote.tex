@@ -179,11 +179,7 @@ List all the nueCC MEC sample definitions used. Do this after creating the filem
 \subsubsection*{Near detector flat summed decaf sample}
 What are the cuts used for the DeCAF sample? Why was it created? What is the effect of these cuts?
 
-What is the "Nominal g4rwgt respin flatcaf" and should I be using that instead of the nominal flatcaf?
-
 There's also 3 flavour concats - what are those? there are both numu and nue and they're for the ND... What are the cuts used to create these?
-
-There's Genie Skew Fix and then there's Genie reweight  - what is the reweight and why? What should be used in the end? Are the systematic samples compatible with any of those? Or are they the most up-to-date (i.e. with Genie Skew Fix and with the reweight?)
 
 Should I include here also why did I choose to use the decafs instead of cafs? Maybe just point to my talks where I show the plot how much faster it is and that it doesn't matter much for the result. Maybe discuss how different the result would be if I used cafs instead of decafs...
 
@@ -207,6 +203,8 @@ List all the flat sumdecaf definitions used.
 What are the weights we are using and why?
 
 To correct for known deficiencies in simulation of neutrino flux or cross sections we apply weights calculated for each event.
+
+Table \ref{tab:WeightsOverview} shows what CAFAna weights are used to simulate what signal/background sample.
 
 \begin{table}[!ht]
 \centering
@@ -245,7 +243,7 @@ Say that we are not using the third part of the correction because it is tiny an
 \todo{correct the equation}
 Calculated as 
 \begin{equation}
-weight_{Radiative Corr.} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{Radiative Corr.} / \left.\frac{\textsf{d}\sigma_{\nu-on-e}}{\textsf{d}y}\right|_{GENIE 3};\,y=\frac{E_e-m_e}{E_\nu}
+weight_{\text{Radiative Corr.}} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{\text{Radiative Corr.}} / \left.\frac{\textsf{d}\sigma_{\nu-on-e}}{\textsf{d}y}\right|_{\text{GENIE 3}};\,y=\frac{E_e-m_e}{E_\nu}
 \end{equation}
 
 \subsubsection{Neutrino magnetic moment signal as a weight}
@@ -258,7 +256,7 @@ Using the same tree-level cross section from GENIE as in the rad. corr. weight.
 \todo{correct the equation}
 Calculated as 
 \begin{equation}
-weight_{\nu Mag. Moment} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{\nu Mag. Moment} / \left.\frac{\textsf{d}\sigma_{\nu-on-e}}{\textsf{d}y}\right|_{GENIE 3};\,y=\frac{E_e-m_e}{E_\nu}
+weight_{\nu\text{ Mag. Moment}} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{\nu\text{ Mag. Moment}} / \left.\frac{\textsf{d}\sigma_{\nu-on-e}}{\textsf{d}y}\right|_{\text{GENIE 3}};\,y=\frac{E_e-m_e}{E_\nu}
 \end{equation}
 
 \subsection{Event selection}
