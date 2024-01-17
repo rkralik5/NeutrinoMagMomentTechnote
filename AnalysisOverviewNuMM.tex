@@ -1,0 +1,344 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                       ANALYSIS OVERVIEW                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analysis overview}
+\todo{Describe the motivations for this analysis}
+What are we trying to achieve? Are we aiming for purity or efficiency?
+
+Trying to select nu-on-e events with low electron recoil energies.
+
+What are we going to do with these events afterwards? 
+
+Are we just going to compare the event counts of signal and background (and possibly correct the background based on some other "sideband" selection?), or are we doing a fit to some spectra - either electron energy, angle or ETh2.
+
+Describe what I'm talking about in this section (datasets, weights, selection, resolution, fitting framework).
+
+Describe already here that we're dividing the signal/background into four due to ... Here on forward I'm going to describe the differences between these (definitions, weights, signal def, systematics. What is the same: event selection and binning. They're joint together in the fitting framework, where the $\nu_e$CC MEC and the other backgrounds are simply summed together and scaled together. The $\nu$-on-e background (also called the irreducible background by the LDM analysis) is treated/scaled separately.
+
+\textit{Should I describe the NOvA Near Detector here? Specifically its capabilities for detecting electrons?}
+
+\subsection{Datasets and Event Reconstruction details}
+For this analysis we are using the near detector samples with a standard Production 5.1 reconstruction. To tackle low number of $\nu$-on-e and $\nu_e$CC MEC events (after full selection) in the nominal simulation sample, and to increase speed and lower the computation costs of each study, we are using the following samples for the signal and background components, for the nominal prediction as well as systematically shifted.
+
+\todo{Find out what data sample we're using and write out the data POT}
+For data we are only planning to unveil them after fully approved by the collaboration and we will be using the following data sample...
+
+Yiwen has already looked at data for the following samples and the results are here...
+
+Should I mention the POT counting here or somewhere else? - I think I should mention with each separate sample if the POT has to be rescaled or not.
+
+The use of the samples can be briefly summarised as follows:
+\begin{table}[!ht]
+\centering
+\def\arraystretch{1.4}
+\begin{tabular}{l@{\hskip 1in}l}
+Signal                   & Enhanced $\nu$-on-e sample\\
+$\nu$-on-e background    & Enhanced $\nu$-on-e sample\\
+$\nu_e$CC MEC background & Enhanced $\nu_e$CC MEC sample\\
+Other background         & Flat sumdecaf
+\end{tabular}
+\caption{Overview of simulation samples used.}
+\label{tab:DefinitionsOverview}
+\end{table}
+
+\subsubsection*{Enhanced $\nu$-on-e sample}
+Created by Wenjie Wu (was it just him or also Yiwen?) to do ... and fully described in the technote \cite{NOVA-doc-56383}. Using the overlayed and filematched samples for consistency.
+
+We only have the selected few systematics definitions because ... 
+
+Describe the differences
+\begin{itemize}
+\item Missing cross section parameters - unable to use cross section weights or so
+\item Special mode for nu-on-e elastic scattering 10005
+\end{itemize}
+
+List all the nu-on-e sample definitions used is on table \ref{tab:NuoneDefinitions}.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{p{\textwidth}}
+\hline\hline\\
+\textbf{Nominal:}\\
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_v1\_nuone\_overlay}\\[2mm]
+\textbf{Systematically shifted samples:}\\
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibup\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibdown\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvup\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvdown\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightlevelup\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightleveldown\_v1\_nuone\_overlay}\\[2mm]
+\hline\hline
+\end{tabular}
+\caption{SAMWEB definitions for the $\nu$-on-e samples.}
+\label{tab:NuoneDefinitions}
+\end{table}
+
+\subsubsection*{Enhance $\nu_e$CC MEC sample}
+Created by Yiwen Xiao \cite{NOVA-doc-56383} to tackle the low statistics of the $\nu_e$CC MEC background events and subsequently large and unphysical cross section weights.
+
+List all the nueCC MEC sample definitions used. Do this after creating the filematched definitions maybe?
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{p{\textwidth}}
+\hline\hline\\
+\textbf{Nominal:}\\
+\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_v1\_g4rwgt\_respin\_batch2\_filematchedSystematics}\\[2mm]
+\textbf{Systematically shifted samples:}\\
+\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.e\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_calibdown\_v1\_batch2\_filematchedSystematics\_calibdown\_v1}\\[2mm]
+\hline\hline
+\end{tabular}
+\caption{SAMWEB definitions of the other background samples. THIS IS JUST A PLACEHOLDER!}
+\label{tab:NueCCMECDefinitions}
+\end{table}
+
+\subsubsection*{Near detector flat summed decaf sample}
+What are the cuts used for the DeCAF sample? Why was it created? What is the effect of these cuts?
+
+There's also 3 flavour concats - what are those? there are both numu and nue and they're for the ND... What are the cuts used to create these?
+
+Should I include here also why did I choose to use the decafs instead of cafs? Maybe just point to my talks where I show the plot how much faster it is and that it doesn't matter much for the result. Maybe discuss how different the result would be if I used cafs instead of decafs...
+
+List all the flat sumdecaf definitions used.
+\begin{table}[!ht]
+\centering
+\begin{tabular}{p{\textwidth}}
+\hline\hline\\
+\textbf{Nominal:}\\
+\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_v1\_g4rwgt\_respin\_batch2\_filematchedSystematics}\\[2mm]
+\textbf{Systematically shifted samples:}\\
+\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.e\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_calibdown\_v1\_batch2\_filematchedSystematics\_calibdown\_v1}\\[2mm]
+\hline\hline
+\end{tabular}
+\caption{SAMWEB definitions of the other background samples. First figure out what definitions should I use}
+\label{tab:SumDeCAFDefinitions}
+\end{table}
+
+\subsection{Analysis weights}
+\todo{Describe why do we use weights}
+What are the weights we are using and why?
+
+To correct for known deficiencies in simulation of neutrino flux or cross sections we apply weights calculated for each event.
+
+Table \ref{tab:WeightsOverview} shows what CAFAna weights are used to simulate what signal/background sample.
+
+\begin{table}[!ht]
+\centering
+\def\arraystretch{1.4}
+\begin{tabular}{l@{\hskip 1in}l}
+Signal                   & Flux and neutrino magnetic moment weights\\
+$\nu$-on-e background    & Flux and radiative correction weights\\
+$\nu_e$CC MEC background & Flux and cross section weights\\
+Other background         & Flux and cross section weights
+\end{tabular}
+\caption{Overview of CAFAna weights applied to each analysis sample.}
+\label{tab:WeightsOverview}
+\end{table}
+
+\subsubsection*{PPFX weight}
+\texttt{ana::kPPFXFluxCVWgt} \cite{NOVA-doc-23441}
+\todo{What does this do (one sentence ish).}
+
+\subsubsection*{Prod5.1 GSF XSec weight}
+\texttt{ana::kXSecCVWgt2020GSFProd51}
+\todo{Find the reference: possibly Maria's docdb:53336 together with the official 2020 XSec tuning technote docdb:43962.}
+
+\todo{Briefly describe what does this do. Also mention Yiwen's talk/technote about the large XSec weights that made her create an enhanced nueCC MEC sample.}
+
+We are only using the for the background since we assume that the cross section for the signal is perfect. Also there are not weights for this kind of interaction.
+
+\subsubsection*{Radiative correction weight}
+\todo{Why are we doing this? (reference Yiwen's talk/technote).}
+
+Mention here where did I get the original GENIE cross section from (reference Yiwen's talk or technote, plus the original paper that was used).
+
+\todo{Write out the actual version of the weight. Including the original and the corrected XSec constants}
+
+Say that we are not using the third part of the correction because it is tiny and it makes no difference. (tried and tested)
+
+\todo{correct the equation}
+Calculated as 
+\begin{equation}
+weight_{\text{Radiative Corr.}} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{\text{Radiative Corr.}} / \left.\frac{\textsf{d}\sigma_{\nu-on-e}}{\textsf{d}y}\right|_{\text{GENIE 3}};\,y=\frac{E_e-m_e}{E_\nu}
+\end{equation}
+
+\subsubsection{Neutrino magnetic moment signal as a weight}
+\todo{What does this do and why does it work? Reference the theory part as to why is the magnetic moment signal simply a rescaling of the GENIE cross section.}
+
+Using the same tree-level cross section from GENIE as in the rad. corr. weight.
+
+\todo{Write the name of the weight in CAFAna/nuone namespace and where it is located}
+
+\todo{correct the equation}
+Calculated as 
+\begin{equation}
+weight_{\nu\text{ Mag. Moment}} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{\nu\text{ Mag. Moment}} / \left.\frac{\textsf{d}\sigma_{\nu-on-e}}{\textsf{d}y}\right|_{\text{GENIE 3}};\,y=\frac{E_e-m_e}{E_\nu}
+\end{equation}
+
+\subsection{Event selection}
+\textit{Should this be a separate section or is it all right to keep it here? It will have a lot of plots...}
+
+\todo{Define the signal of the NuMM. Reference the NuMM weight description above}
+The signal of the neutrino magnetic moment analysis is just a reweighted signal of the $\nu$-on-e analysis from the near detector group. We are using the same event selection as the near detector group.
+
+\todo{Decide and explain what signal definitions we're using (kIsVtxContained VS Fiducial volume}
+What is the signal and all the background samples definition? Difference between using kIsVtxCont and the fiducial volume. Is there a fundamental difference or preference? Or does it just depend on me? The results/counts are quite different...
+
+\begin{table}[!ht]
+\centering
+\def\arraystretch{1.4}
+\begin{tabular}{p{.25\textwidth}p{.7\textwidth}}
+Signal                   & \texttt{kMode}== 10005 \&\& \texttt{NDNuoneFiducial}\\
+$\nu$-on-e background    & \texttt{kMode}== 10005 \&\& \texttt{NDNuoneFiducial}\\
+$\nu_e$CC MEC background & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) \&\& (\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode == 10})\\
+Other background         & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) $||$ !(\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode} == 10)
+\end{tabular}
+\caption{Overview of signal and background definitions. Mode 10005 denotes $\nu$-on-e events, while mode 5 denotes all electron scattering events, including inverse muon decay interactions. That is why we had to add a requirement of an electron in the final state. Mode 10 denotes all MEC events.\todo{Check that the definitions are correct from the code.}}
+\label{tab:SignalDefinitions}
+\end{table}
+
+\todo{Add the link to the LDM group's technote and say what's different (or maybe do this after we discuss the cuts?}
+Currently we are using the exact same selection as is used by the ND group \cite{NOVA-doc-56383} and very similar to the Light Dark Matter analysis (cite their technote).
+
+Pre-selection cuts include basic quality cuts \todo{describe the basic quality cuts that are implied from the preselection cuts}. They also remove the obvious $\nu$CC interactions by requiring that the length of the longest prong is $<800\ \unit{cm}$, number of planes crossed by the longest prong is $<120$, and the summed number of cells for all prongs in the slice is $<600$. In pre-selection we also include a cut on the time difference between the mean times of the "current" slice and of the slice closest in time, which should be $>25\ \unit{ns}$. This ensures that ... \todo{describe why do we need the closest slice cut with reference to Yiwen's talk and technote}.
+
+\todo{Add the DeCAF cuts description here - might describe them already when introducing the decaf samples, not sure yet}
+
+\todo{Describe what does the fiducial cut do}
+We require that the reconstructed vertex is contained within the following volume: $-185<\textsf{Vtx}_X<175,-175<\textsf{Vtx}_Y<175, 95<\textsf{Vtx}_Z<1095\ \unit{cm}$.
+
+To ensure all the energy is contained within the detector and to remove events originating outside of the detector (rock muons), we require that the extreme positions of hits for all prongs in the slice are within the following volume: $-190<\textsf{min}_X, \textsf{max}_X<180, -180<\textsf{min}_Y, \textsf{max}_Y<190, 105<\textsf{min}_Z, \textsf{max}_Z<1275\ \unit{cm}$
+
+To selection events with a single particle we require that the fraction of energy contained in the most energetic shower is $>0.8$, that the summed energy of all cells (above threshold and within $\pm8$ planes from the vertex) outside of the most energetic shower is $<0.02\ \unit{GeV}$, and that the distance between the vertex and the start of the primary shower is $<20\ \unit{cm}$.
+
+\todo{discuss the energy cut, should this be removed? What is the effect on the event count? Why was this included in the first place (the identifiers are not as strong for lowere energies - is this true though? - also there are further unexplored backgrounds that would need to be further studied and explore. Maybe depends on where would we move the cut...)}
+The calorimetric energy of the primary shower is required to be within $0.5<E_{cal}<5\ \unit{GeV}$.
+
+We are using two event classifiers based on convolution neural network that were developed specifically to identify $\nu$-on-e interactions. The first one (\texttt{NuoneID}) is trained to select $\nu$-on-e events and the second one (\texttt{Epi0ID}) is trained on the events passing the \texttt{NuoneID} to reject the $\pi^0$ background. Our selection requires that \texttt{NuoneID}$>0.73$ and that \texttt{Epi0ID}$>0.92$.
+
+\todo{reference theory for the kinematics of nuone scattering}
+We require that the product of reconstructed energy of the primary shower and the square of its angle from the Z axis is $E_{cal}\theta^2<0.005\ \unit{GeV\times rad^2}$.
+
+\todo{Add plots of distributions of the event selection variables with two columns. LHS shows no cuts applied and RHS shows all previous cuts applied}
+
+Using the many plots below that show the effect of each of the cuts on the signal and all background events. (For signal we are showing NuMM=...)
+
+\todo{Get the correct table below and describe it}
+The final event count and efficiency of each of the cuts is shown on the table ... Table ... shows the dissemination of background into the individual components.
+
+\begin{table}[!hb]
+\begin{tabular}{|l|ccc|ccc|ccc|}\hline
+\multicolumn{1}{|c|}{}                                     & \multicolumn{3}{c|}{\textbf{$\nu$ Mag. Moment signal}}          & \multicolumn{3}{c|}{\textbf{$\nu$-on-e background}}                      & \multicolumn{3}{c|}{\textbf{Other background}}                           \\
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\textbf{Selection}}} & \multicolumn{1}{c}{\textbf{$N_{sig}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N_{IBkg}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N_{Bkg}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} \\\hline
+\textbf{slicing}      & 269.77            & 100                                                                & 100                                       & 3.43E+3               & 100                                                                 & 100                                        & 9.43E+6           & 100                                                                 & 100                                        \\
+\textbf{longestProng} & 174.67            & 64.75                                                              & 64.75                                     & 3.22E+3               & 93.68                                                               & 93.68                                      & 8.91E+6           & 94.5                                                                & 94.5                                       \\
+\textbf{nplane}       & 174.67            & 100                                                                & 64.75                                     & 3.22E+3               & 99.98                                                               & 93.67                                      & 8.91E+6           & 99.98                                                               & 94.49                                      \\
+\textbf{ncell}        & 174.67            & 100                                                                & 64.75                                     & 3.22E+3               & 99.98                                                               & 93.65                                      & 8.80E+6           & 98.72                                                               & 93.28                                      \\
+\textbf{nslicehits}   & 80.98             & 46.36                                                              & 30.02                                     & 2.94E+6               & 91.45                                                               & 85.64                                      & 8.79E+6           & 99.9                                                                & 93.19                                      \\
+\textbf{nsliceplanes} & 80.73             & 99.7                                                               & 29.93                                     & 2.94E+3               & 99.94                                                               & 85.59                                      & 8.79E+6           & 100                                                                 & 93.18                                      \\
+\textbf{closestslice} & 78.59             & 97.35                                                              & 29.13                                     & 2.87E+3               & 97.62                                                               & 83.55                                      & 8.36E+6           & 95.08                                                               & 88.6                                       \\
+\textbf{fiducial}     & 77.58             & 98.71                                                              & 28.76                                     & 2.82E+3               & 98.38                                                               & 82.2                                       & 6.83E+6           & 81.75                                                               & 72.43                                      \\
+\textbf{containment}  & 71.67             & 92.39                                                              & 26.57                                     & 2.23E+3               & 78.89                                                               & 64.85                                      & 5.67E+6           & 82.99                                                               & 60.11                                      \\
+\textbf{decafcont}    & 70.14             & 97.85                                                              & 26                                        & 2.14E+3               & 96.14                                                               & 62.34                                      & 5.67E+6           & 99.99                                                               & 60.1                                       \\
+\textbf{showerEFrac}  & 66.89             & 95.38                                                              & 24.8                                      & 2.10E+3               & 98.07                                                               & 61.13                                      & 2.85E+6           & 50.24                                                               & 30.2                                       \\
+\textbf{vtxE}         & 61.61             & 92.1                                                               & 22.84                                     & 1.88E+3               & 89.63                                                               & 54.8                                       & 6.75E+5            & 23.72                                                               & 7.16                                       \\
+\textbf{gap}          & 59.88             & 97.2                                                               & 22.2                                      & 1.80E+3               & 95.48                                                               & 52.32                                      & 5.93E+5            & 87.8                                                                & 6.29                                       \\
+\textbf{showerE}      & 36.19             & 60.43                                                              & 13.41                                     & 1.31E+3               & 73.03                                                               & 38.21                                      & 4.56E+5            & 76.82                                                               & 4.83                                       \\
+\textbf{nuoneid}      & 28.77             & 79.49                                                              & 10.66                                     & 910.21             & 69.38                                                               & 26.51                                      & 1.68E+4             & 3.68                                                                & 0.18                                       \\
+\textbf{epi0id}       & 21.97             & 76.39                                                              & 8.14                                      & 726.13             & 79.78                                                               & 21.15                                      & 1.03E+4             & 61.09                                                               & 0.11                                       \\
+\rowcolor[HTML]{67FD9A}
+\textbf{etheta2}      & 19.29             & 87.8                                                               & 7.15                                      & 653.86             & 90.05                                                               & 19.04                                      & 69.26             & 0.68                                                                & 0                                          \\
+\textbf{etheta2\_sb}  & 2.66              & 13.77                                                              & 0.98                                      & 71.7               & 10.97                                                               & 2.09                                       & 917.89            & 1325.36                                                             & 0.01                                       \\\hline\hline
+\textbf{no\_showerE}  & 28.96             & 1090.07                                                            & 10.74                                    & 725.23             & 1011.52                                                             & 21.12                                      & 88.71             & 9.66                                                                & 0   \\\hline
+\end{tabular}
+\caption{Event selection cutflow table with correct POT scale, with filematch, but with ND DeCAF cuts and samples - WRONG!}
+\label{tab:CutflowTableSignal}
+\end{table}
+
+\begin{table}[!hb]
+\begin{tabular}{|l|ccc|ccc|ccc|}\hline
+\multicolumn{1}{|c|}{}                                     & \multicolumn{3}{c|}{\textbf{$\nu$ Mag. Moment signal}}          & \multicolumn{3}{c|}{\textbf{$\nu$-on-e background}}                      & \multicolumn{3}{c|}{\textbf{Other background}}                           \\
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\textbf{Selection}}} & \multicolumn{1}{c}{\textbf{$N_{sig}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N_{IBkg}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N_{Bkg}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} \\\hline
+\textbf{No Cut}                                          & 263.39                                 & 100       & 100       & 3,352.43                                         & 100       & 100       & 9.19E+6                                         & 100       & 100       \\
+\textbf{DeCAF cuts}                                      & 73.53                                  & 27.92     & 27.92     & 2,332.75                                         & 69.58     & 69.58     & 9.19E+6 & 100       & 100       \\
+\textbf{Closest Slice Time}                              & 71.57                                  & 97.34     & 27.17     & 2,275.86                                         & 97.56     & 67.89     & 8.79E+6                                         & 95.72     & 95.72     \\
+\textbf{Preselection}                                    & 71.57                                  & 100       & 27.17     & 2,271.24                                         & 99.80     & 67.75     & 8.30E+6                                         & 94.42     & 90.38     \\
+\textbf{Fiducial}                                        & 70.86                                  & 99.01     & 26.90     & 2,248.47                                         & 99.00     & 67.07     & 6.80E+6                                         & 81.92     & 74.03     \\
+\textbf{Containment}                                     & 68.49                                  & 96.65     & 26.00     & 2,090.35                                         & 92.97     & 62.35     & 5.65E+6                                         & 83.13     & 61.54     \\
+\textbf{Single Particle Req.}                            & 58.47                                  & 85.37     & 22.20     & 1,754.08                                         & 83.91     & 52.32     & 5.83E+5                                         & \textbf{10.31}     & 6.34      \\
+\textbf{Energy Cut}                                      & 35.33                                  & 60.43     & 13.41     & 1,280.94                                         & 73.03     & 38.21     & 4.48E+5                                         & 76.97     & 4.88      \\
+\textbf{NuoneID}                                         & 28.08                                  & 79.49     & 10.66     & 888.69                                          & 69.38     & 26.51     & 17384.6                                         & \textbf{3.88}      & 0.19      \\
+\textbf{Epi0ID}                                          & 21.45                                  & 76.39     & 8.14      & 708.96                                          & 79.78     & 21.15     & 10740.7                                         & 61.78     & 0.12      \\
+\rowcolor[HTML]{67FD9A} 
+\textbf{etheta2}                                         & 18.83                                  & 87.80     & 7.15      & 638.39                                          & 90.05     & 19.04     & 65.92                                           & \textbf{0.61}      & 0.00072   \\\hline\hline
+\textbf{No Energy Cut}                                   & 29.03                                  &           & 11.02     & 726.66                                          &           & 21.68     & 112.03                                          &           & 0.0012   \\\hline
+\end{tabular}
+\caption{The original event selection cutflow table with CAFs, no filematch, old POT scale and ND DeCAF cuts}
+\label{tab:CutflowTableSignal}
+\end{table}
+
+\begin{table}[!hb]
+\begin{tabular}{|l|ccccc|}\hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Selection}}} & \multicolumn{5}{c|}{\textbf{Background}}                                        \\
+\multicolumn{1}{|c|}{}                                    & \textbf{All} & \textbf{$\nu_e$CC} & \textbf{$\nu_\mu$CC} & \textbf{NC} & \textbf{Other} \\\hline
+\textbf{No Cut}                                         & 9.19E+06     & 2.41E+05       & 6.29E+06        & 2.66E+06    & 0              \\
+\textbf{DeCAF Cuts}                                     & 9.19E+06     & 2.41E+05       & 6.29E+06        & 2.66E+06    & 0              \\
+\textbf{Closest Slice Cuts}                             & 8.79E+06     & 2.31E+05       & 6.03E+06        & 2.53E+06    & 0              \\
+\textbf{Preselection}                                   & 8.30E+06     & 2.30E+05       & 5.55E+06        & 2.52E+06    & 0              \\
+\textbf{Fiducial}                                       & 6.80E+06     & 1.88E+05       & 4.50E+06        & 2.12E+06    & 0              \\
+\textbf{Containment}                                    & 5.65E+06     & 1.70E+05       & 3.46E+06        & 2.02E+06    & 0              \\
+\textbf{Single Particle Req.}                           & 5.83E+05     & 2.26E+04       & 3.93E+05        & 1.67E+05    & 0              \\
+\textbf{Energy Cut}                                     & 4.48E+05     & 1.43E+04       & 3.21E+05        & 1.13E+05    & 0              \\
+\textbf{NuoneID}                                        & 1.74E+04     & 3.92E+03       & 7.20E+03        & 6.26E+03    & 0              \\
+\textbf{Epi0ID}                                         & 1.07E+04     & 3.08E+03       & 4.45E+03        & 3.21E+03    & 0              \\
+\rowcolor[HTML]{67FD9A}
+\textbf{etheta2}                                        & 65.92        & 50.81          & 1.90            & 13.20       & 0              \\\hline\hline
+\textbf{No Energy Cut}                                  & 112.03       & 72.46          & 9.85            & 29.72       & 0   \\\hline
+\end{tabular}
+\caption{Event selection cutflow table for background components}
+\label{tab:CutflowTableBackground}
+\end{table}
+
+\todo{Add a discussion of possible improvements on the event selection on its limitations - mostly for the analysis review committee}
+From here we can see that ... Maybe what can be improved is...
+This can likely be improved upon by specifically selection low energy events and removing the cut on the reconstructed shower energy. 
+
+\subsection{Resolution and binning}
+The electron energy and angle distributions and resolutions. Are we going to fit in E, Th, or ETh2? Is there something else?
+
+Show plots of Reco V True for both energy and angle. (Should I show it with or without the energy cut?). Also show the resolution plots.
+
+\subsection{Systematic uncertainties}
+Plots showing combined uncertainties for signal and backgrounds. Maybe also some interpolations. Table of systematic uncertainties on the event count.
+
+\subsubsection*{Normalization systematics}
+Should we include normalization systematics? Would that make any difference? There's a POT scaling uncertainty which is very small (find out exactly how small).
+
+In the fitting experiment normalization uncertainties would probably not make any difference whatsoever, but in the counting experiment they might be important?
+
+\subsubsection*{Neutrino flux systematics}
+Using the PCA vs using the PPFX universes+beam transport separately. Plots of energy showing shifts for signal and backgrounds separately
+
+[to do]: understand differences with ND and 3F methods
+
+This is mainly a normalization. Discuss how to use the fact that $\nu$-on-e events can be used (and are used) to constraint the beam uncertainty. Would the counting experiment still be valid then? Maybe if we made another sideband sample...
+
+\subsubsection*{Detector systematics}
+Plots of energy showing shifts for signal and backgrounds separately
+
+\subsubsection*{Cross section systematics}
+Only for the non nu-on-e background. Assuming the nu-on-e events (including the signal events) are precisely known.
+
+Plots of energy showing shifts for signal and backgrounds separately
+
+\subsection{Fitting framework}
+How does the fitting framework work? It's based on the framework developed by Mu Wei for the Light Dark Matter analysis (ref.) which was developed together (is this fair?). Basic description of the framework.
+
+Also this framework is used for both LDM and NuMM together. It is trivial to simply switch between including the NuMM or LDM in it. This was done to save space in creating predictions since our backgrounds are exactly the same (or at least they should be...). Theoretically this could be separated into two difference frameworks.
+
+\begin{itemize}
+\item <NDPredictionSingleElectron> Prediction class which holds the LDM as a special 2-D spectrum (not used for NuMM), and NuMM, $\nu$-on-e background, $\nu_e$CC MEC background and other background as simple 1-D spectra. Also scaling each spectra by...
+\item <NDPredictionSystSingleElectron> class derived from PredictionInterp that takes in the NDPredictionSingleElectron and applies systematic shifts to it. Includes the interpolation/extrapolation between the systematic shifts.
+\item FitVariables and what do they do
+\item Fitter which does exactly what... What are the parameters of the fit? What are the results/outputs?
+\end{itemize}
