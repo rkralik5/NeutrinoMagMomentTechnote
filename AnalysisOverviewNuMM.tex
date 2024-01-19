@@ -3,33 +3,61 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analysis overview}
 \todo{Describe the motivations for this analysis}
-What are we trying to achieve? Are we aiming for purity of the final sample or efficiency of the selection?
+What are we trying to achieve? Are we aiming for purity of the final sample or efficiency of the selection? We are trying to see the low energy excess of very forward neutrino-on-electron events. We can either do this via a counting experiment (possibly with various control samples/regions to control backgrounds and systematics), or with a fit to the energy spectrum of well-selected neutrino-on-electron events.
 
 We are trying to select nu-on-e events with low electron recoil energies.
 
 \todo{Briefly introduce what are we going to do with these events after the selection (fitting)}
-Are we just going to compare the event counts of signal and background (and possibly correct the background based on some other "sideband" selection?), or are we doing a fit to some spectra - either electron energy, angle or ETh2.
+Are we just going to compare the event counts of signal and background (and possibly correct the background based on some other "sideband" selection?), or are we doing a fit to some spectra - either electron energy, angle or ETh2. - We do not know yet...
 
 \todo{Describe what I'm talking about in this section (datasets, weights, selection, resolution, fitting framework).}
 
 \todo{Describe already here that we're dividing the signal/background into four due to ...}
 Here on forward I'm going to describe the differences between these (definitions, weights, signal def, systematics. What is the same: event selection and binning. They're joint together in the fitting framework, where the $\nu_e$CC MEC and the other backgrounds are simply summed together and scaled together. The $\nu$-on-e background (also called the irreducible background by the LDM analysis) is treated/scaled separately.
 
-\textit{Should I describe the NOvA Near Detector here? Specifically its capabilities for detecting electrons?}
+\todo{Say here already that this is the same/similar events that are studied by the ND beam constraint and the LDM analyses}
+
+\todo{Should I describe the NOvA Near Detector here? Specifically its capabilities for detecting electrons?}
+
+\todo{List things that could be improved for this analysis over the presented technical note. Namely revisiting the event selection specifically for the neutrino magnetic moment events, especially the energy cut. Also including the anti-neutrino events and doing a joint fit.}
 
 \subsection{Datasets and Event Reconstruction details}
-For this analysis we are using the near detector samples with a standard Production 5.1 reconstruction. To tackle low number of $\nu$-on-e and $\nu_e$CC MEC events (especially after full selection) in the nominal simulation sample, and to increase speed and lower the computation costs of each study, we are using the following samples for the signal and background components, for the nominal prediction as well as systematically shifted.
+For this analysis we are using near detector CAF samples with the standard Production 5.1 reconstruction.
 
-\todo{Find out what data sample we're using and write out the data POT}
-For data we are only planning to unveil them after fully approved by the collaboration and we will be using the following data sample...
+The SAMWEB definition for the data sample is:\\
+\begin{center}
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.l\_nd\_numi\_fhc\_full\_v1\_goodruns}.
+\end{center}
+We are following the standard data blinding procedure and have not looked at any data events until the analysis passes the full collaboration review. The Near Detector group has validated \todo{Figure out where did Yiwen and Wenjie actually look at the data} using this data sample.
 
-Yiwen has already looked at data for the following samples and the results are here...
+The exposure of the data sample is approximately $1.3848600\times 10^{21}\ \unit{POT}$. This is the exposure we use for all the following studies shown in this technical note.
+The Prod5.1 ND data sample contains data from run 10391 in epoch1a (2014-08-22 21:08:40) until run 14010 in epoch 11a (2021-02-03 15:48:21) (from the period and epoch naming wiki page https://cdcvs.fnal.gov/redmine/projects/novaart/wiki/Period\_and\_Epoch\_Naming)
 
-Should I mention the POT counting here or somewhere else? - I think I should mention with each separate sample if the POT has to be rescaled or not.
+\todo{Briefly describe the MC details. Versions of the individual simulation software}
+To tackle the low number of $\nu$-on-e and $\nu_e$CC MEC events in the nominal simulation sample we are using a suit of nominal and enhanced simulation samples for four different signal and background components. Each one contains its nominal sample and special systematically shifted samples for the detector systematics. The use of the samples is summarised in table \ref{tab:SignalDefinitions} and described in detail below.
 
-The use of the samples can be briefly summarised as follows:
+The \textsf{GENIE} tune is \texttt{GENIE N1810j 02 11a} (from the Prod5.Frankenstein docdb: 53360).
+The Genie release used for this production is R20-08-06-prod5.1genie.h, which has GENIE version V3.0.6 \cite{GENIE}
+
+Also prod5.1 uses Geant4 v4.10.4.p02 \cite{Geant4}
+
+We use the standard NOvA simulation (reference NOvA 3fl paper DOI: 10.1103/PhysRevD.106.032004)
+
+Describe how did we deal with the GENIE skew fix. It was the GSF weights that forces "us" to treat the nueCC MEC background differently than the other background. As I understand it, the GSF is applied simply as the new weight. No change to the systematics is required.
+
+Reference: A. Mislivic, “Genie skew reweight validation.” NOvA Internal Document, DocDB: 553811
+[from antinueCC IncXSec docdb:53691]
+"Final state kinematics were predicted by the N1810j 00 000 tune, but total cross section were generated with the intended N1810j 0211a179 tune, which differed in RES and DIS rates tuned to external data. Properly correcting the skew180 would require all simulation to be regenerated, so a temporary solution developed by the NOvA181 Cross-section Tuning Group involves reweighing production 5.1 events to the default N1810j 00 000.182 An additional modification to the GENIE MEC contribution are applied to better agree with NOvA183 ND data.
+
+MC includes simulation in the rock surrounding the ND
+
+\todo{Describe here that we're using the nominal ND MC sample for signal utilizing the simple relationship between the Standard Model cross section and the neutrino magnetic moment cross section (ref. theory)}
+
+\todo{Say already here that the POT inside the enhanced MC samples are not properly accounted for in CAFAna (Loader issue) and so the event counts need to be adjusted post-hoc}
+
 \begin{table}[!ht]
 \centering
+\caption{Overview of the simulation samples corresponding to different signal and background components.}
 \def\arraystretch{1.4}
 \begin{tabular}{l@{\hskip 1in}l}
 Signal                   & Enhanced $\nu$-on-e sample\\
@@ -37,7 +65,6 @@ $\nu$-on-e background    & Enhanced $\nu$-on-e sample\\
 $\nu_e$CC MEC background & Enhanced $\nu_e$CC MEC sample\\
 Other background         & Nominal ND CAF sample
 \end{tabular}
-\caption{Overview of simulation samples used.}
 \label{tab:DefinitionsOverview}
 \end{table}
 
@@ -58,20 +85,20 @@ The list of the nu-on-e sample definitions is in table \ref{tab:NuoneDefinitions
 
 \begin{table}[!ht]
 \centering
+\caption{SAMWEB definitions for the enhanced $\nu$-on-e samples.}
 \begin{tabular}{p{\textwidth}}
-\hline\hline\\
+\hline\hline\\[-2mm]
 \textbf{Nominal:}\\
-\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_v1\_nuone\_overlay}\\[7mm]
 \textbf{Systematically shifted samples:}\\
-\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibup\_v1\_nuone\_overlay}\\[2mm]
-\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibdown\_v1\_nuone\_overlay}\\[2mm]
-\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvup\_v1\_nuone\_overlay}\\[2mm]
-\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvdown\_v1\_nuone\_overlay}\\[2mm]
-\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightlevelup\_v1\_nuone\_overlay}\\[2mm]
-\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightleveldown\_v1\_nuone\_overlay}\\[2mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibup\_v1\_nuone\_overlay}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibdown\_v1\_nuone\_overlay}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvup\_v1\_nuone\_overlay}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvdown\_v1\_nuone\_overlay}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightlevelup\_v1\_nuone\_overlay}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightleveldown\_v1\_nuone\_overlay}\\[7mm]
 \hline\hline
 \end{tabular}
-\caption{SAMWEB definitions for the $\nu$-on-e samples.}
 \label{tab:NuoneDefinitions}
 \end{table}
 
@@ -80,22 +107,56 @@ Created by Yiwen Xiao \cite{NOVA-doc-56383} to tackle the low statistics of the 
 
 \todo{List all the nueCC MEC sample definitions used. Do this after creating the filematched definitions maybe?}
 
+\todo{List the limitations of the sample in the q3-q0 parameter space}
+
 \begin{table}[!ht]
 \centering
+\caption{SAMWEB definitions of the $\nu_e$CC MEC background sample.}
 \begin{tabular}{p{\textwidth}}
-\hline\hline\\
+\hline\hline\\[-2mm]
 \textbf{Nominal:}\\
-\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_v1\_g4rwgt\_respin\_batch2\_filematchedSystematics}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap}\\[2mm]
 \textbf{Systematically shifted samples:}\\
-\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.e\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_calibdown\_v1\_batch2\_filematchedSystematics\_calibdown\_v1}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibUp}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibDown}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CkvUp}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CkvDown}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_LLUp}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_LLDown}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_Aging}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibShape}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_MCNP}\\[2mm]
 \hline\hline
 \end{tabular}
-\caption{SAMWEB definitions of the other background samples. THIS IS JUST A PLACEHOLDER!}
 \label{tab:NueCCMECDefinitions}
 \end{table}
 
 \subsubsection*{Near Detector filematched CAF sample}
 \todo{describe and list all the ND nominal CAF samples}
+
+The nominal ND MC includes 4x data POT. The systematics are file-matched to remove any statistical bias
+
+\begin{table}[!ht]
+\centering
+\caption{SAMWEB definitions of the other background samples.}
+\begin{tabular}{p{\textwidth}}
+\hline\hline\\[-2mm]
+\textbf{Nominal:}\\
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.a\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_v1}\\[7mm]
+\textbf{Systematically shifted samples:}\\
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.e\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibup\_v1\_batch2}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.e\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibdown\_v1\_batch2}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.f\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvup\_v1\_batch2}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.f\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_ckvdown\_v1\_batch2}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightlevelup\_v1\_batch2}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_lightlevelup\_v1\_batch2}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.f\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_detectorageing\_v1\_batch2}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.f\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_calibshape\_v1\_batch2}\\[7mm]
+\texttt{prod\_caf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc\_nova\_v08} \texttt{\_full\_mcnp\_v1\_batch2}\\[7mm]
+\hline\hline
+\end{tabular}
+\label{tab:CAFDefinitions}
+\end{table}
 
 \iffalse
 \subsubsection*{Near detector flat summed decaf sample}
@@ -104,21 +165,6 @@ What are the cuts used for the DeCAF sample? Why was it created? What is the eff
 There's also 3 flavour concats - what are those? there are both numu and nue and they're for the ND... What are the cuts used to create these?
 
 Should I include here also why did I choose to use the decafs instead of cafs? Maybe just point to my talks where I show the plot how much faster it is and that it doesn't matter much for the result. Maybe discuss how different the result would be if I used cafs instead of decafs...
-
-List all the flat sumdecaf definitions used.
-\begin{table}[!ht]
-\centering
-\begin{tabular}{p{\textwidth}}
-\hline\hline\\
-\textbf{Nominal:}\\
-\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.g\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_v1\_g4rwgt\_respin\_batch2\_filematchedSystematics}\\[2mm]
-\textbf{Systematically shifted samples:}\\
-\texttt{prod\_flatsumdecaf\_R20-11-25-prod5.1reco.e\_nd\_genie\_N1810j0211a\_nonswap\_fhc} \texttt{\_nova\_v08\_full\_calibdown\_v1\_batch2\_filematchedSystematics\_calibdown\_v1}\\[2mm]
-\hline\hline
-\end{tabular}
-\caption{SAMWEB definitions of the other background samples. First figure out what definitions should I use}
-\label{tab:SumDeCAFDefinitions}
-\end{table}
 \fi
 
 \subsection{Analysis weights}
@@ -131,6 +177,7 @@ Table \ref{tab:WeightsOverview} shows what CAFAna weights are used to simulate w
 
 \begin{table}[!ht]
 \centering
+\caption{Overview of CAFAna weights applied to each analysis sample.}
 \def\arraystretch{1.4}
 \begin{tabular}{l@{\hskip 1in}l}
 Signal                   & Flux and neutrino magnetic moment weights\\
@@ -138,17 +185,22 @@ $\nu$-on-e background    & Flux and radiative correction weights\\
 $\nu_e$CC MEC background & Flux and cross section weights\\
 Other background         & Flux and cross section weights
 \end{tabular}
-\caption{Overview of CAFAna weights applied to each analysis sample.}
 \label{tab:WeightsOverview}
 \end{table}
 
 \subsubsection*{PPFX weight}
 \texttt{ana::kPPFXFluxCVWgt} \cite{NOVA-doc-23441}
 \todo{What does this do (one sentence ish).}
+Maybe cite Leo's thesis? Or paper?
+L. Aliaga, “Neutrino Flux Prediction for the NuMI Beamline.” PhD Thesis, FERMILAB-1081
+THESIS-2016-03
+
 
 \subsubsection*{Prod5.1 GSF XSec weight}
 \texttt{ana::kXSecCVWgt2020GSFProd51}
 \todo{Find the reference: possibly Maria's docdb:53336 together with the official 2020 XSec tuning technote docdb:43962.}
+
+NOvAReweight reference: J. Wolcott, “NOvARwgt software.” https://github.com/novaexperiment/NOvARwgt-public.
 
 \todo{Briefly describe what does this do. Also mention Yiwen's talk/technote about the large XSec weights that made her create an enhanced nueCC MEC sample.}
 
@@ -157,9 +209,12 @@ We are only using the for the background since we assume that the cross section 
 \subsubsection*{Radiative correction weight}
 \todo{Why are we doing this? (reference Yiwen's talk/technote).}
 
-Mention here where did I get the original GENIE cross section from (reference Yiwen's talk or technote, plus the original paper that was used).
+Mention here where did I get the original GENIE cross section from (reference Yiwen's talk or technote, plus the original paper that was used). nu-on-e technote\cite{NOVA-doc-56383}
 
 \todo{Write out the actual version of the weight. Including the original and the corrected XSec constants}
+
+MINERvA paper:
+https://journals.aps.org/prd/pdf/10.1103/PhysRevD.100.092001
 
 Say that we are not using the third part of the correction because it is tiny and it makes no difference. (tried and tested)
 
@@ -197,6 +252,7 @@ What is the signal and all the background samples definition? Difference between
 
 \begin{table}[!ht]
 \centering
+\caption{Overview of signal and background definitions. Mode 10005 denotes $\nu$-on-e events, while mode 5 denotes all electron scattering events, including inverse muon decay interactions. That is why we had to add a requirement of an electron in the final state. Mode 10 denotes all MEC events.\todo{Check that the definitions are correct from the code.}}
 \def\arraystretch{1.4}
 \begin{tabular}{p{.25\textwidth}p{.7\textwidth}}
 Signal                   & \texttt{kMode}== 10005 \&\& \texttt{NDNuoneFiducial}\\
@@ -204,7 +260,6 @@ $\nu$-on-e background    & \texttt{kMode}== 10005 \&\& \texttt{NDNuoneFiducial}\
 $\nu_e$CC MEC background & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) \&\& (\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode == 10})\\
 Other background         & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) $||$ !(\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode} == 10)
 \end{tabular}
-\caption{Overview of signal and background definitions. Mode 10005 denotes $\nu$-on-e events, while mode 5 denotes all electron scattering events, including inverse muon decay interactions. That is why we had to add a requirement of an electron in the final state. Mode 10 denotes all MEC events.\todo{Check that the definitions are correct from the code.}}
 \label{tab:SignalDefinitions}
 \end{table}
 
@@ -246,6 +301,7 @@ Using the many plots below that show the effect of each of the cuts on the signa
 The final event count and efficiency of each of the cuts is shown on the table \ref{tab:CutflowTableSignal}. Table \ref{tab:CutflowTableBackground} shows the dissemination of background into the individual components.
 
 \begin{table}[!hb]
+\caption{Event selection cutflow table}
 \begin{tabular}{|l|ccc|ccc|ccc|}\hline
 \multicolumn{1}{|c|}{}                                     & \multicolumn{3}{c|}{\textbf{$\nu$ Mag. Moment signal}}          & \multicolumn{3}{c|}{\textbf{$\nu$-on-e background}}                      & \multicolumn{3}{c|}{\textbf{Other background}}                           \\
 \multicolumn{1}{|c|}{\multirow{-2}{*}{\textbf{Selection}}} & \multicolumn{1}{c}{\textbf{$N_{sig}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N_{IBkg}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N_{Bkg}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} \\\hline
@@ -267,12 +323,12 @@ The final event count and efficiency of each of the cuts is shown on the table \
 \textbf{$E\theta^2$ (sb)}  & 2.74              & -                                                              & 1.01                                      & 74.30              & -                                                               & 2.16                                       & 1.01$\times 10^3$          & - & 3.43$\times 10^{-4}$                                  \\\hline\hline
 \textbf{No ShwE}  & 37.62             & -                                                           & 13.94                                     & 782.67             & -                                                            & 22.79                                      & 238.79            & -                                                              & 8.07E-05   \\\hline
 \end{tabular}
-\caption{Event selection cutflow table}
 \label{tab:CutflowTableSignal}
 \end{table}
 
 %\begin{landscape}
 \begin{sidewaysfigure}[!hb]
+\caption{Event selection cutflow table for background components}
 \begin{scriptsize}
 %\begin{table}[!hb]
 \begin{tabular}{|l|ccc|ccc|ccc|ccc|ccc|}\hline
@@ -300,7 +356,7 @@ The final event count and efficiency of each of the cuts is shown on the table \
 \textbf{$E\theta^2$ (sb)}  & 386.16             & -                                                            & 1.10                                       & 306.55               & -                                                                & 9.48$\times 10^{-3}$                                     & 165.59                & -                                                               & 7.40$\times 10^{-5}$                                      & 149.93            & -                                                             & 4.41$\times 10^{-4}$                                  & 6.24                 & -                                                              & 1.79$\times 10^{-5}$                                     \\\hline\hline
 \textbf{No ShwE}  & 15.54              & -                                                                & 0.044                                      & 69.61                & -                                                                 & 2.15$\times 10^{-3}$                                     & 68.48                 & - & 3.06$\times 10^{-5}$                                      & 75.67             & - & 2.22$\times 10^{-4}$                                  & 9.49                 & -                                                                & 2.72E-05   \\\hline
 \end{tabular}
-\caption{Event selection cutflow table for background components}
+
 \label{tab:CutflowTableBackground}
 %\end{table}
 \end{scriptsize}
@@ -337,6 +393,7 @@ This is mainly a normalization. Discuss how to use the fact that $\nu$-on-e even
 
 \subsubsection*{Detector systematics}
 \todo{Make plots of energy showing shifts for signal and backgrounds separately}
+Reference for the Prod5.1 detector systematics is docdb 53225
 
 \subsubsection*{Cross section systematics}
 \todo{Describe the XSec systs}
