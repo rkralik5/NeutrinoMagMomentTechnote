@@ -1,5 +1,4 @@
 \section{Theoretical overview}
-\todo{Go over the theoretical overview and make it better}
 
 %Neutrino electromagnetic properties have been proposed since the very beginning by Pauli to solve the discrepancies in the electron beta emission spectra. This was solved by discovering the neutron. Then again, neutrino magnetic moment was proposed as one of the solution to the solar neutrino problem 
 
@@ -11,27 +10,16 @@
 
 %Neutrino electromagnetic properties are important because they are directly connected to fundamentals of particle physics. For example, neutrino electromagnetic properties can be used to distinguish Dirac and Majorana neutrinos, because Dirac neutrinos can have both diagonal and off-diagonal magnetic and electric dipole moments, whereas only the off-diagonal ones are allowed for Majorana neutrinos (Schechter and Valle, 1981; Kayser, 1982, 1984; Nieves, 1982; Pal and Wolfenstein, 1982; Shrock, 1982). This is shown in detail in Secs. III.A and III.B. Another important case in which Dirac and Majorana neutrinos have quite different observable effects is the spin-flavor precession in an external magnetic field discussed in Sec. VI.B. Neutrino electromagnetic properties are also probes of new physics beyond the standard model, because in the standard model neutrinos can have only a charge radius (see Secs. III.C and VII.B). The discovery of other neutrino electromagnetic properties would be a signal of new physics beyond the standard model (Bell et al., 2005, 2006; Bell, 2007; Novales-Sanchez et al., 2008). [nuElmagInt2015.pdf]
 
-\subsection{Electromagnetic properties of the neutrino}
+In the Standard Model (SM), neutrinos are massless and electrically neutral particles. However, even in the SM neutrinos can have electromagnetic interaction through loop diagrams involving the charged leptons and the W boson. These interactions are described by the neutrino charge radius, described in section \ref{sec:otherNuElmagProperties} \cite{NeutrinoPropertiesSnowmass2022.pdf}.
 
-%In the Standard Model (SM) neutrinos are electrically neutral and do not interact with photons at the tree level. However, radiative corrections generate neutrino interactions with photons through loops involving the charged leptons and the W boson, as shown by the one-loop diagrams in Fig. 9(a). The corresponding neutrino-photon interactions are described by charge radii of the flavor neutrinos. Therefore, even in the SM, where neutrinos are neutral and massless, there are non-zero neutrino electromagnetic properties. [NeutrinoPropertiesSnowmass2022.pdf]
-
-In the standard model, neutrino can have electromagnetic interaction only at a higher order of the perturbative expansion of the interaction - from loop diagrams. 
 %But this is only the neutrino charge radius, not the neutrino electric or magnetic moment (maybe also the anapole moment) "Hence, in the standard model the form factor can be interpreted as a neutrino charge radius or as an anapole moment (or as a combination of both). The standard model theory of the neutrino charge radius has a long history, with some controversies which are shortly summarized in the following." [nuElmagInt2015.pdf - sec.VIIB]
-\todo{To be more specific, neutrinos can only have charge radius in standard model. Any other electromagnetic interactions must come from beyond standard model theories}
 
-%Various theories beyond the Standard Model 
-In the one photon approximation, electromagnetic interactions of a neutrino field $\nu_k\left(x\right), k\in\left\lbrace 1,...,N\right\rbrace$, for $N$ neutrino mass states, can be described by an effective interaction Hamiltonian \cite{nuElmagInt2015.pdf}
+%Various theories beyond the Standard Model
+To include neutrino masses required by neutrino oscillations, we must go Beyond the Standard Model (BSM), where neutrinos can acquire other electromagnetic properties \cite{nuElmagInt2015.pdf}. In the most general case, considering interactions with a single photon as shown on Fig.\ref{fig:Feynman}, neutrino electromagnetic interactions can be described by an \textit{effective} interaction Hamiltonian \cite{nuElmagInt2015.pdf}
 \begin{equation}
 \mathcal{H}^{\left(\nu\right)}_{em}\left(x\right)=\sum^N_{k,j=1}\overline{\nu}_k\left(x\right)\Lambda^{kj}_{\mu}\nu_j\left(x\right)A^{\mu}\left(x\right).
 \end{equation}
-\todo{decribe here what is lambda and everything else in the equation. Also mention figure 1}
-
-The amplitude of neutrino-to-neutrino interaction for \textbf{Dirac} neutrinos is
-\begin{equation}
-\braket{\nu_f\left(p_f\right)|j^{\left(\nu\right)}_{\mu}\left(x\right)|\nu_i\left(p_i\right)}=
-e^{i\left(p_f-p_i\right)x}\overline{u}_f\left(p_f\right)\Lambda^{fi}_{\mu}\left(p_f,p_i\right)u_i\left(p_i\right),
-\end{equation}
-where $p_f$ and $p_i$ are the final and initial four momentums respectively and $u/\overline{u}$ are the solutions to the Dirac equation for a free particle. We take into account possible transitions between different mass states $\nu_i$ and $\nu_f$ \cite{nuElmagInt2015.pdf}. \todo{also describe what is j}
+Here $\nu_k\left(x\right), k\in\left\lbrace 1,...,N\right\rbrace$ are neutrino fields in the mass basis with $N$ neutrino mass states. $\Lambda^{kj}_{\mu}$ is a general vertex function and $A^{\mu}\left(x\right)$ is the electromagnetic field.
 
 \begin{figure}
 \centering
@@ -49,12 +37,21 @@ where $p_f$ and $p_i$ are the final and initial four momentums respectively and 
   \end{feynman}
 \end{tikzpicture}
 \caption{Effective coupling of neutrinos with one photon electromagnetic field.}
-\label{figFeynman}
+\label{fig:Feynman}
 \end{figure}
 
-The vertex function $\Lambda^{fi}_{\mu}\left(p_f,p_i\right)$ is generally a matrix and in the most general case it can be written in terms of linearly independent products of Dirac matrices $\left(\gamma\right)$ and four momentum of the photon $\left(q=p_f-p_i\right)$:
+\iffalse
+The amplitude of neutrino-to-neutrino interaction for \textbf{Dirac} neutrinos is
+\begin{equation}
+\braket{\nu_f\left(p_f\right)|j^{\left(\nu\right)}_{\mu}\left(x\right)|\nu_i\left(p_i\right)}=
+e^{i\left(p_f-p_i\right)x}\overline{u}_f\left(p_f\right)\Lambda^{fi}_{\mu}\left(p_f,p_i\right)u_i\left(p_i\right),
+\end{equation}
+where $p_f$ and $p_i$ are the final and initial four momentums respectively and $u/\overline{u}$ are the solutions to the Dirac equation for a free particle. We take into account possible transitions between different mass states $\nu_i$ and $\nu_f$ \cite{nuElmagInt2015.pdf}. \todo{also describe what is j}
+\fi
+
+The vertex function $\Lambda^{fi}_{\mu}\left(q\right)$ is generally a matrix and in the most general case can be written in terms of linearly independent products of Dirac matrices $\left(\gamma\right)$ and only depends on the square of the four momentum of the photon $\left(q=p_f-p_i\right)$:
 \begin{align}
-\Lambda^{fi}_{\mu}\left(p_f,p_i\right)=&
+\Lambda^{fi}_{\mu}\left(q\right)=&
 \mathbb{F}^{fi}_1\left(q^2\right)q_{\mu}+
 \mathbb{F}^{fi}_2\left(q^2\right)q_{\mu}\gamma_5+
 \mathbb{F}^{fi}_3\left(q^2\right)\gamma_{\mu}+
@@ -62,19 +59,24 @@ The vertex function $\Lambda^{fi}_{\mu}\left(p_f,p_i\right)$ is generally a matr
 \mathbb{F}^{fi}_5\left(q^2\right)\sigma_{\mu\nu}q^{\nu}+
 \mathbb{F}^{fi}_6\left(q^2\right)\epsilon_{\mu\nu\rho\gamma}q^{\nu}\sigma^{\rho\gamma},
 \end{align}
-where $\mathbb{F}^{fi}_i\left(q^2\right)$ are six Lorentz invariant form factors. For $f=i$ they are called "diagonal" and for $f\neq i$ "transition form factors" \cite{nuElmagInt2015.pdf}.
+where $\mathbb{F}^{fi}_i\left(q^2\right)$ are six Lorentz invariant form factors \cite{nuElmagInt2015.pdf}.
 
-Applying conditions of hermiticity $\left(\mathcal{H}^{\left(\nu\right)\dagger}_{em}=\mathcal{H}^{\left(\nu\right)}_{em}\right)$ and of conservation of the current (continuity equation: 
-$\partial^{\mu}j^{\left(\nu\right)}_{\mu}\left(x\right)=0$), we can rewrite the vertex function as
-\todo{maybe describe why we would want to apply these conditions}
+Applying conditions of hermiticity $\left(\mathcal{H}^{\left(\nu\right)\dagger}_{em}=\mathcal{H}^{\left(\nu\right)}_{em}\right)$ and of the gauge invariance of the electromagnetic field, we can rewrite the vertex function as
 \begin{equation}
 \Lambda^{fi}_{\mu}\left(q\right)=
 \left(\gamma_{\mu}-q_{\mu}\slashed{q}/q^2\right)\left[
 \mathbb{F}^{fi}_{Q}\left(q^2\right)+\mathbb{F}^{fi}_{A}\left(q^2\right)q^2\gamma_5\right]-
 i\sigma_{\mu\nu}q^{\nu}\left[\mathbb{F}^{fi}_{M}\left(q^2\right)+i\mathbb{F}^{fi}_{E}\left(q^2\right)\gamma_5\right],
 \end{equation}
-where $\mathbb{F}^{fi}_Q,\mathbb{F}^{fi}_M,\mathbb{F}^{fi}_E$ and $\mathbb{F}^{fi}_A$ are hermitian matrices representing the real charge, dipole magnetic, dipole electric and anapole neutrino form factors. In coupling with a real photon $\left(q^2=0\right)$ these become the neutrino charge and magnetic, electric and anapole moments \cite{nuElmagInt2015.pdf}.
+where $\mathbb{F}^{fi}_Q,\mathbb{F}^{fi}_M,\mathbb{F}^{fi}_E$ and $\mathbb{F}^{fi}_A$ are hermitian matrices representing the charge, dipole magnetic, dipole electric and anapole neutrino form factors. In coupling with a real photon $\left(q^2=0\right)$ these become the neutrino charge and magnetic, electric and anapole moments. The neutrino charge radius corresponds to the second term in the expansion of the charge form factor \cite{nuElmagInt2015.pdf}.
 
+We can simplify the above expression as \cite{NeutrinoPropertiesSnowmass2022.pdf}
+\begin{equation}
+\Lambda^{fi}_{\mu}\left(q\right)=\gamma_{\mu}\left(Q_{\nu_{fi}}+\frac{q^2}{6}\langle r^2\rangle_{\nu_{fi}}\right)-i\sigma_{\mu\nu}q^{\nu}\mu_{\nu_{fi}},
+\end{equation}
+where $Q_{\nu_{fi}}$, $\langle r^2\rangle_{\nu_{fi}}$, and $\mu_{\nu_{fi}}$ are the neutrino charge, effective charge radius (also containing anapole moment), and an effective magnetic moment (also containing electric moment) respectively. This is possible thanks to the proportional effect of the neutrino charge radius and the anapole moment, or the neutrino magnetic and electric moment respectively \cite{nuElmagInt2015.pdf}. These quantities (charge, charge radius and magnetic moment) are the three neutrino electromagnetic properties measured in experiments.
+
+\iffalse
 For antineutrinos the form factors are transformed as:
 \begin{equation}\label{eqAnu1}
 \overline{\mathbb{F}}^{fi}_{\Omega}=-\mathbb{F}^{if}_{\Omega}=-\left(\mathbb{F}^{fi}_{\Omega}\right)^{\star} \ \ \ \Omega=Q,M,E,
@@ -94,9 +96,10 @@ In case of \textbf{Majorana neutrinos}, the general expression for the vertex fu
 \end{equation}
 Therefore the Majorana charge, magnetic and electric form factor matrices are antisymmetric and the anapole form factor matrix is symmetric. This means that Majorana neutrino doesn't have any diagonal charge and dipole magnetic and electric moments, but it can have transition  charge and magnetic and electric moment \cite{nuElmagInt2015.pdf}.
 \todo{Explain why is this worth mentioning or remove it if it's not}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Neutrino electric and magnetic dipole moments}
+\subsection{Neutrino electric and magnetic dipole moments}
 
 The size and effect of the neutrino electromagnetic properties depends on the specific theory beyond standard model.
 
@@ -145,7 +148,7 @@ which is shown in the flavour basis , which relates to the framework used previo
 \end{equation}
 This limits imply, that if a magnetic moment $\mu\gtrsim 10^{-15}\mu_B$ would be measured, it is plausible neutrinos are Majorana fermions and the scale of lepton violation would be well below the conventional see-saw scale \cite{nuMMMajoranaBounds2006.pdf}.
 
-\subsubsection{Other neutrino electromagnetic properties}
+\subsection{Other neutrino electromagnetic properties}\label{sec:otherNuElmagProperties}
 
 Neutrino electric charge is heavily constraint by the measurements on the neutrality of matter (since generally neutrinos having an electric charge would also mean that neutrons have charge which would affect all heavier nuclei). It is also constrained by the SN1987A, since neutrino having an effective charge would lengthen its path through the extragalactic magnetic fields and would arrive on earth later. It can also be obtained from nu-on-e scatter from the relationship between neutrino millicharge and magnetic moment. [nuElmagInt2015.pdf - sec. VIIA]
 
