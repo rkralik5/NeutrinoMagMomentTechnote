@@ -53,6 +53,8 @@ MC includes simulation in the rock surrounding the ND
 
 \todo{Describe here that we're using the nominal ND MC sample for signal utilizing the simple relationship between the Standard Model cross section and the neutrino magnetic moment cross section (ref. theory)}
 
+The signal of the neutrino magnetic moment analysis is just a re-weighted signal of the $\nu$-on-e analysis from the near detector group. We are using the same event selection as the near detector group.
+
 \todo{Say already here that the POT inside the enhanced MC samples are not properly accounted for in CAFAna (Loader issue) and so the event counts need to be adjusted post-hoc}
 
 \begin{table}[!ht]
@@ -102,10 +104,8 @@ The list of the nu-on-e sample definitions is in table \ref{tab:NuoneDefinitions
 \label{tab:NuoneDefinitions}
 \end{table}
 
-\subsubsection*{Enhance $\nu_e$CC MEC sample}
+\subsubsection*{Enhanced $\nu_e$CC MEC sample}
 Created by Yiwen Xiao \cite{NOVA-doc-56383} to tackle the low statistics of the $\nu_e$CC MEC background events and subsequently large and unphysical cross section weights.
-
-\todo{List all the nueCC MEC sample definitions used. Do this after creating the filematched definitions maybe?}
 
 \todo{List the limitations of the sample in the q3-q0 parameter space}
 
@@ -132,7 +132,7 @@ Created by Yiwen Xiao \cite{NOVA-doc-56383} to tackle the low statistics of the 
 \end{table}
 
 \subsubsection*{Near Detector filematched CAF sample}
-\todo{describe and list all the ND nominal CAF samples}
+\todo{describe all the ND nominal CAF samples}
 
 The nominal ND MC includes 4x data POT. The systematics are file-matched to remove any statistical bias
 
@@ -167,7 +167,7 @@ There's also 3 flavour concats - what are those? there are both numu and nue and
 Should I include here also why did I choose to use the decafs instead of cafs? Maybe just point to my talks where I show the plot how much faster it is and that it doesn't matter much for the result. Maybe discuss how different the result would be if I used cafs instead of decafs...
 \fi
 
-\subsection{Analysis weights}
+\subsection{Analysis weights}\label{sec:anaWeights}
 \todo{Describe why do we use weights}
 What are the weights we are using and why?
 
@@ -238,27 +238,29 @@ weight_{\nu\text{ Mag. Moment}} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{\n
 \end{equation}
 
 \subsection{Event selection}
-\textit{Should this be a separate section or is it all right to keep it here? It will have a lot of plots...}
 
-\todo{Add the link to the LDM group's technote and say what's different (or maybe do this after we discuss the cuts?}
-Currently we are using the exact same selection as is used by the ND group \cite{NOVA-doc-56383} and very similar to the Light Dark Matter analysis (cite their technote).
+We are trying to select low energy neutrino-on-electron events, which are characterised by a single very forward going electron shower. Since these are the same events as are used in the Near Detector group's analysis to constraint the neutrino beam prediction with a neutrino-on-electron events \cite{NOVA-doc-56383}, we have taken taken their event selection without changes. This is to save time and analysis efforts, but also to get a first good estimation of NOvA's capabilities to constraint (or measure) neutrino magnetic moment. Almost the same selection is also used in the Light Dark Matter analysis \cite{NOVA-doc-59439}, only without the final $E\theta^2$ cut.
+
+We explain the motivation behind each cut of the event selection and discuss their effect on the neutrino magnetic moment events below. We also consider possible improvements to the event selection for a future (re-)analysis.
+
+The code to make plots and analyse the event selection is located in the \path{NuMagMomentAna/NuMMAnalysis/EventSelection} directory. The signal definition is in \path{NuoneCuts.h} and the cut values in the \path{EventCVNCuts.h/cxx} scripts from the \path{NuMagMomentAna/Cuts} directory.
 
 \subsubsection*{Signal definition}
-\todo{Define the signal of the NuMM. Reference the NuMM weight description above}
-The signal of the neutrino magnetic moment analysis is just a reweighted signal of the $\nu$-on-e analysis from the near detector group. We are using the same event selection as the near detector group.
+To define the signal and background samples we use the true information listed in table \ref{tab:SignalDefinitions}. The neutrino magnetic moment signal definition is the same as the neutrino-on-electron background with the neutrino magnetic moment weight applied, as explained in sec.\ref{sec:anaWeights}. 
 
-\todo{Decide and explain what signal definitions we're using (kIsVtxContained VS Fiducial volume}
-What is the signal and all the background samples definition? Difference between using kIsVtxCont and the fiducial volume. Is there a fundamental difference or preference? Or does it just depend on me? The results/counts are quite different...
+The signal definitions use the $kMode$ variable instead of the $kIntType$, which is now deprecated (ref.: various Slack conversations). Mode 10005 denotes only the $\nu$-on-e events and is only available for the enhanced $\nu$-on-e samples, while mode 5 denotes all electron scattering events, including inverse muon decay interactions. That is why we had to add a requirement of an electron in the final state. Mode 10 denotes all Meson Exchange Current (MEC) events.
+
+We are using the ND group's \cite{NOVA-doc-56383} signal definition including a requirement for the true vertex to lie within their fiducial volume (defined below). This is the cut name \texttt{NDNuoneFiducial}. This is in contrast with the LDM analysis \cite{NOVA-doc-59439}, which uses the \texttt{ana::kVtxIsContained} cut instead, which has a looser boundary. This choice has only a negligible effect on the final number of selected events and only affects the selection efficiency.
 
 \begin{table}[!ht]
 \centering
-\caption{Overview of signal and background definitions. Mode 10005 denotes $\nu$-on-e events, while mode 5 denotes all electron scattering events, including inverse muon decay interactions. That is why we had to add a requirement of an electron in the final state. Mode 10 denotes all MEC events.\todo{Check that the definitions are correct from the code.}}
+\caption{Overview of signal and background definitions.}
 \def\arraystretch{1.4}
 \begin{tabular}{p{.25\textwidth}p{.7\textwidth}}
 Signal                   & \texttt{kMode}== 10005 \&\& \texttt{NDNuoneFiducial}\\
 $\nu$-on-e background    & \texttt{kMode}== 10005 \&\& \texttt{NDNuoneFiducial}\\
 $\nu_e$CC MEC background & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) \&\& (\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode == 10})\\
-Other background         & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) $||$ !(\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode} == 10)
+Other background         & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) \&\& !(\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode} == 10)
 \end{tabular}
 \label{tab:SignalDefinitions}
 \end{table}
