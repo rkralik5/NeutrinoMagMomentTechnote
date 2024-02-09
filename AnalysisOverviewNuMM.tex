@@ -2,29 +2,26 @@
 %%%                       ANALYSIS OVERVIEW                       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analysis overview}
-\todo{Describe the motivations for this analysis}
-What are we trying to achieve? Are we aiming for purity of the final sample or efficiency of the selection? We are trying to see the low energy excess of very forward neutrino-on-electron events. We can either do this via a counting experiment (possibly with various control samples/regions to control backgrounds and systematics), or with a fit to the energy spectrum of well-selected neutrino-on-electron events.
+In this analysis we are searching for a signal of possible neutrino magnetic moment events in the NOvA Near Detector. This signal would manifest as an excess of neutrino-on-electron elastic scattering ($\nu$-on-e) events at low electron recoil energies on top of the Standard Model background, as described in Sec. \ref{sec:MeasuringNuMM}. In case we would not observe any excess (null hypothesis), we would provide an upper limit on the effective muon neutrino magnetic moment.
 
-We are trying to select nu-on-e events with low electron recoil energies.
+The $\nu$-on-e interactions are also used in the Near Detector (ND) group's analysis to constraint the neutrino beam prediction \cite{NOVA-doc-56383}, which relies on the precise theoretical knowledge of the $\nu$-on-e interaction cross section. They compare the total number of recorded $\nu$-on-e interactions, with background subtracted based on a data/MC comparison in a sideband region, to the prediction. Since the number of $\nu$-on-e events should only depend on the normalization of the neutrino beam, this analysis should give us a precise validation, or correction, of the neutrino flux normalization. There has been a large amount of work going into this analysis, including making special samples, weights, event classifiers, developing a dedicated event selection, or developing a background subtraction method, among others. To save time and analysis effort, we have taken most of these work at face value and applied it to the neutrino magnetic moment analysis. This will help us get the first good estimate of NOvA's capabilities to constraint (or measure) the neutrino magnetic moment.
 
-\todo{Briefly introduce what are we going to do with these events after the selection (fitting)}
-Are we just going to compare the event counts of signal and background (and possibly correct the background based on some other "sideband" selection?), or are we doing a fit to some spectra - either electron energy, angle or ETh2. - We do not know yet...
+The same detector signature of a single forward going electron shower, as present in the $\nu$-on-e events, is also present in the Light Dark Matter (LDM) analysis \cite{NOVA-doc-59439}. This analysis is using a similar event selection to select the LDM events as the ND group, only without the final $E\theta^2$ cut (see Sec.\ref{sec:EventSelection}). However, instead of simply comparing the total event counts, the LDM analysis is using a CAFAna-based fitting framework to fit for the possible LDM signal in a distribution of electron recoil energy multiplied by electron recoil angle squared.
 
-\todo{Describe what I'm talking about in this section (datasets, weights, selection, resolution, fitting framework).}
+%What are we trying to achieve? We are trying to see the low energy excess of very forward neutrino-on-electron ($\nu$-on-e) events. We can either do this via a counting experiment (possibly with various control samples/regions to control backgrounds and systematics), or with a fit to the energy spectrum of well-selected $\nu$-on-electron events.
 
-\todo{Describe already here that we're dividing the signal/background into four due to ...}
-Here on forward I'm going to describe the differences between these (definitions, weights, signal def, systematics. What is the same: event selection and binning. They're joint together in the fitting framework, where the $\nu_e$CC MEC and the other backgrounds are simply summed together and scaled together. The $\nu$-on-e background (also called the irreducible background by the LDM analysis) is treated/scaled separately.
+Our analysis strategy is to compare the recorded number of neutrino events in data with a predicted number of signal events, which depends on the neutrino magnetic moment value, on top of a Standard Model background. We use the ND group's sideband region to constraint the non-$\nu$-on-e background with data. It is also possible to use a second sideband sample, based on the electron recoil energy, to provide an additional constraint on the $\nu$-on-e background, but this idea has not been visited yet.
 
-\todo{Say here already that this is the same/similar events that are studied by the ND beam constraint and the LDM analyses}
+In the future, this analysis can be improved for example by improving the event selection, creating additional background samples, by including antineutrino events, or by using using a fit to the energy distribution, similarly to the LDM analysis.
 
-\todo{Should I describe the NOvA Near Detector here? Specifically its capabilities for detecting electrons?}
+This section describes the simulation samples used to predict the number of signal and background events (Sec.\ref{sec:datasets}), the weights used to correct for known limitations of the simulation (Sec. \ref{sec:anaWeights}), the event selection used to constraint the background (Sec. \ref{sec:EventSelection}), and the resolution of the electron recoil energy and angle (Sec. \ref{sec:resolution}).
 
-\todo{List things that could be improved for this analysis over the presented technical note. Namely revisiting the event selection specifically for the neutrino magnetic moment events, especially the energy cut. Also including the anti-neutrino events and doing a joint fit.}
+% Not sure if this should be here or in the datasets subsection... Here on forward I'm going to describe the differences between these (definitions, weights, signal def, systematics. What is the same: event selection and binning. They're joint together in the fitting framework, where the $\nu_e$CC MEC and the other backgrounds are simply summed together and scaled together. The $\nu$-on-e background (also called the irreducible background by the LDM analysis) is treated/scaled separately.
 
-\subsection{Datasets and Event Reconstruction details}
+\subsection{Datasets and Event Reconstruction details}\label{sec:datasets}
 For this analysis we are using near detector CAF samples with the standard Production 5.1 reconstruction.
 
-The SAMWEB definition for the data sample is:\\
+The SAMWEB definition for the data sample is:
 \begin{center}
 \texttt{prod\_caf\_R20-11-25-prod5.1reco.l\_nd\_numi\_fhc\_full\_v1\_goodruns}.
 \end{center}
@@ -74,6 +71,8 @@ Other background         & Nominal ND CAF sample
 \todo{Describe the nuone sample}
 Created by Wenjie Wu (was it just him or also Yiwen?) to do ... and fully described in the technote \cite{NOVA-doc-56383}. Using the overlayed and filematched samples for consistency.
 
+Incorrect POT is 3.6995434e+20, Correct POT is 1.7209423e+24 (this should be filematched)
+
 \todo{Find a reference and reasoning for why Wenjie hasn't created the other systematics samples}
 We only have the selected few systematics definitions because ... 
 
@@ -107,6 +106,8 @@ The list of the nu-on-e sample definitions is in table \ref{tab:NuoneDefinitions
 \subsubsection*{Enhanced $\nu_e$CC MEC sample}
 Created by Yiwen Xiao \cite{NOVA-doc-56383} to tackle the low statistics of the $\nu_e$CC MEC background events and subsequently large and unphysical cross section weights.
 
+Incorrect POT is 4.7334120e+23 and correct POT is 1.9880340e+24. This is filematched
+
 \todo{List the limitations of the sample in the q3-q0 parameter space}
 
 \begin{table}[!ht]
@@ -115,17 +116,17 @@ Created by Yiwen Xiao \cite{NOVA-doc-56383} to tackle the low statistics of the 
 \begin{tabular}{p{\textwidth}}
 \hline\hline\\[-2mm]
 \textbf{Nominal:}\\
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_filematch}\\[2mm]
 \textbf{Systematically shifted samples:}\\
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibUp}\\[2mm]
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibDown}\\[2mm]
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CkvUp}\\[2mm]
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CkvDown}\\[2mm]
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_LLUp}\\[2mm]
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_LLDown}\\[2mm]
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_Aging}\\[2mm]
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibShape}\\[2mm]
-\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_MCNP}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibUp\_Combined\_240124\_filematch}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibDown\_Combined\_240124\_filematch}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CkvUp\_Combined\_240124\_filematch}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CkvDown\_Combined\_240124\_filematch}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_LLUp\_Combined\_240124\_filematch}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_LLDown\_Combined\_240124\_filematch}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_Aging\_Combined\_240124\_filematch}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_CalibShape\_Combined\_240124\_filematch}\\[2mm]
+\texttt{YiwenXiao\_NueCCMEC\_Single\_NJobs7500\_CAF\_NonSwap\_MCNP\_Combined\_240124\_filematch}\\[2mm]
 \hline\hline
 \end{tabular}
 \label{tab:NueCCMECDefinitions}
@@ -133,8 +134,12 @@ Created by Yiwen Xiao \cite{NOVA-doc-56383} to tackle the low statistics of the 
 
 \subsubsection*{Near Detector filematched CAF sample}
 \todo{describe all the ND nominal CAF samples}
+\todo{Also mention the decaf sample and discuss if we could use them or not}
 
 The nominal ND MC includes 4x data POT. The systematics are file-matched to remove any statistical bias
+
+Total POT is 5.54497e+21
+But for the filematched samples (batch 2) there's only 1.93109e+21
 
 \begin{table}[!ht]
 \centering
@@ -224,7 +229,7 @@ Calculated as
 weight_{\text{Radiative Corr.}} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{\text{Radiative Corr.}} / \left.\frac{\textsf{d}\sigma_{\nu-on-e}}{\textsf{d}y}\right|_{\text{GENIE 3}};\,y=\frac{E_e-m_e}{E_\nu}
 \end{equation}
 
-\subsubsection{Neutrino magnetic moment signal as a weight}
+\subsubsection*{Neutrino magnetic moment signal as a weight}
 \todo{What does this do and why does it work? Reference the theory part as to why is the magnetic moment signal simply a rescaling of the GENIE cross section.}
 
 Using the same tree-level cross section from GENIE as in the rad. corr. weight.
@@ -237,7 +242,7 @@ Calculated as
 weight_{\nu\text{ Mag. Moment}} = \left.\frac{d\sigma_{\nu-on-e}}{dy}\right|_{\nu\text{ Mag. Moment}} / \left.\frac{\textsf{d}\sigma_{\nu-on-e}}{\textsf{d}y}\right|_{\text{GENIE 3}};\,y=\frac{E_e-m_e}{E_\nu}
 \end{equation}
 
-\subsection{Event selection}
+\subsection{Event selection}\label{sec:EventSelection}
 
 We are trying to select low energy neutrino-on-electron events, which are characterised by a single very forward going electron shower. Since these are the same events as are used in the Near Detector group's analysis to constraint the neutrino beam prediction with a neutrino-on-electron events \cite{NOVA-doc-56383}, we have taken taken their event selection without changes. This is to save time and analysis efforts, but also to get a first good estimation of NOvA's capabilities to constraint (or measure) neutrino magnetic moment. Almost the same selection is also used in the Light Dark Matter analysis \cite{NOVA-doc-59439}, only without the final $E\theta^2$ cut.
 
@@ -268,7 +273,25 @@ Other background         & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\&
 \subsubsection*{Pre-selection}
 
 The pre-selection cuts have been kept from the $\nu_e$CC analysis with loosened cut values \todo{find a reference for this analysis}.
-Pre-selection cuts include basic quality cuts \todo{describe the basic quality cuts that are implied from the preselection cuts}. They also remove the obvious $\nu$CC interactions by requiring that the length of the longest prong is $<800\ \unit{cm}$, number of planes crossed by the longest prong is $<120$, and the summed number of cells for all prongs in the slice is $<600$. In pre-selection we also include a cut on the time difference between the mean times of the "current" slice and of the slice closest in time, which should be $>25\ \unit{ns}$. This ensures that ... \todo{describe why do we need the closest slice cut with reference to Yiwen's talk and technote}.
+Pre-selection cuts include basic quality cuts that remove events with invalid vertex reconstruction and events with no reconstructed prongs, as shown on Fig.~\ref{fig:BasicPreSelectionCuts}. They also remove the obvious $\nu_\mu$CC interactions by requiring that the length of the longest prong is $<800\ \unit{cm}$, number of planes crossed by the longest prong is $<120$, and the summed number of cells for all prongs in the slice is $<600$. In pre-selection we also include a cut on the time difference between the mean times of the "current" slice and of the slice closest in time, which should be $>25\ \unit{ns}$. This ensures that ... \todo{describe why do we need the closest slice cut with reference to Yiwen's talk and technote}. Relative comparison of signal, $\nu$-on-e background, and other background distributions for the pre-selection variables is shown on Fig.~\ref{fig:PreSelectionCuts}.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_vtxIsValid.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_NPng.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for basic pre-selection variables. No cuts were applied to make these plots. Gold lines show the cut values for the shown variables.}
+\label{fig:BasicPreSelectionCuts}
+\end{figure}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_longestProng.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_NPlanes.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_NHits.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_closestSlice.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for pre-selection variables. Cuts on VtxIsValid and number of prongs were applied to make these plots. Gold lines show the cut values for the shown variables.}
+\label{fig:PreSelectionCuts}
+\end{figure}
 
 %\todo{Add the DeCAF cuts description here - might describe them already when introducing the decaf samples, not sure yet}
 
@@ -277,16 +300,68 @@ Pre-selection cuts include basic quality cuts \todo{describe the basic quality c
 \todo{Describe what does the fiducial cut do}
 We require that the reconstructed vertex is contained within the following volume: $-185<\textsf{Vtx}_X<175,-175<\textsf{Vtx}_Y<175, 95<\textsf{Vtx}_Z<1095\ \unit{cm}$.
 
-To ensure all the energy is contained within the detector and to remove events originating outside of the detector (rock muons), we require that the extreme positions of hits for all prongs in the slice are within the following volume: $-190<\textsf{min}_X, \textsf{max}_X<180, -180<\textsf{min}_Y, \textsf{max}_Y<190, 105<\textsf{min}_Z, \textsf{max}_Z<1275\ \unit{cm}$
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_vtxX.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_vtxY.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_vtxZ.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the reconstructed vertex. No cuts were applied to make these plots. Gold lines show the cut values that create the fiducial volume.}
+\label{fig:FiducialCut}
+\end{figure}
+
+To ensure all the energy is contained within the detector and to remove events originating outside of the detector (rock muons), we require that the extreme positions of hits for all prongs in the slice are within the following volume: $-190<\textsf{min}_X, \textsf{max}_X<180, -180<\textsf{min}_Y, \textsf{max}_Y<190, 105<\textsf{min}_Z, \textsf{max}_Z<1275\ \unit{cm}$.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_minX.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_maxX.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the minimum and maximum position of the reconstructed shower along the X axis. Pre-selection and fiducial cuts were applied to make these plots. Gold lines show the values of the containment cuts.}
+\label{fig:ContainmentCutsX}
+\end{figure}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_minY.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_maxY.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the minimum and maximum position of the reconstructed shower along the Y axis. Pre-selection and fiducial cuts were applied to make these plots. Gold lines show the values of the containment cuts.}
+\label{fig:ContainmentCutsY}
+\end{figure}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_minZ.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_maxZ.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the minimum and maximum position of the reconstructed shower along the Z axis. Pre-selection and fiducial cuts were applied to make these plots. Gold lines show the values of the containment cuts.}
+\label{fig:ContainmentCutsZ}
+\end{figure}
 
 \subsubsection*{Single particle requirement}
 
 To selection events with a single particle we require that the fraction of energy contained in the most energetic shower is $>0.8$, that the summed energy of all cells (above threshold and within $\pm8$ planes from the vertex) outside of the most energetic shower is $<0.02\ \unit{GeV}$, and that the distance between the vertex and the start of the primary shower is $<20\ \unit{cm}$.
 
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_showerEFrac.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_vtxE.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_gap.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the reconstructed vertex. No cuts were applied to make these plots. Gold lines show the cut values that create the fiducial volume.}
+\label{fig:SingleShowerCuts}
+\end{figure}
+
 \subsubsection*{Shower energy cut}
 
 \todo{discuss the energy cut, should this be removed? What is the effect on the event count? Why was this included in the first place (the identifiers are not as strong for lowere energies - is this true though? - also there are further unexplored backgrounds that would need to be further studied and explore. Maybe depends on where would we move the cut...)}
 The calorimetric energy of the primary shower is required to be within $0.5<E_{cal}<5\ \unit{GeV}$.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_calE.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_calE_BkgDecomp.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NuMM_N1Cut_calE_Stat.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NuMM_N1Cut_calE_Syst.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the reconstructed vertex. No cuts were applied to make these plots. Gold lines show the cut values that create the fiducial volume.}
+\label{fig:SingleShowerCuts}
+\end{figure}
 
 \subsubsection*{Event classifiers}
 
@@ -373,7 +448,7 @@ The final event count and efficiency of each of the cuts is shown on the table \
 From here we can see that ... Maybe what can be improved is...
 This can likely be improved upon by specifically selection low energy events and removing the cut on the reconstructed shower energy. 
 
-\subsection{Resolution and binning}
+\subsection{Resolution and binning}\label{sec:resolution}
 \todo{Add the energy resolution and binning plots}
 The electron energy and angle distributions and resolutions. Are we going to fit in E, Th, or ETh2? Is there something else?
 
