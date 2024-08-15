@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                       ANALYSIS OVERVIEW                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Systematic uncertainties}\label{sec:SystematicUncertainties}
+\todo{Describe the main systematic uncertainties. Add plots showing their effect on the NuMM events. Possibly with different event selection variables as X axes. Also show the final table with the percentages summed}
+Plots showing combined uncertainties for signal and backgrounds. Maybe also some interpolations. Table of systematic uncertainties on the event count.
+
+\subsection{Normalization systematics}
+\todo{Describe the normalization systematics (or just remove this if not using them in the end}
+Should we include normalization systematics? Would that make any difference? There's a POT scaling uncertainty which is very small (find out exactly how small).
+
+In the fitting experiment normalization uncertainties would probably not make any difference whatsoever, but in the counting experiment they might be important?
+
+\subsection{Neutrino flux systematics}
+\todo{Describe the flux uncertainties. Describe the PCA. Describe the difference between what the ND group is doing and what we're doing}
+Using the PCA vs using the PPFX universes+beam transport separately. Plots of energy showing shifts for signal and backgrounds separately
+
+\todo{understand differences with ND and 3F methods}
+
+This is mainly a normalization. Discuss how to use the fact that $\nu$-on-e events can be used (and are used) to constraint the beam uncertainty. Would the counting experiment still be valid then? Maybe if we made another sideband sample...
+
+\subsection{Detector systematics}
+\todo{Make plots of energy showing shifts for signal and backgrounds separately}
+Reference for the Prod5.1 detector systematics is docdb 53225
+
+\subsection{Cross section systematics}
+\todo{Describe the XSec systs}
+Only for the non nu-on-e background. Assuming the nu-on-e events (including the signal events) are precisely known.
+
+Plots of energy showing shifts for signal and backgrounds separately
+
+\subsection{Fitting framework}
+\todo{Describe the fitting framework, ideally with an example plot, maybe with some arrows}
+How does the fitting framework work? It's based on the framework developed by Mu Wei for the Light Dark Matter analysis (ref.) which was developed together (is this fair?). Basic description of the framework.
+
+Also this framework is used for both LDM and NuMM together. It is trivial to simply switch between including the NuMM or LDM in it. This was done to save space in creating predictions since our backgrounds are exactly the same (or at least they should be...). Theoretically this could be separated into two difference frameworks.
+
+\begin{itemize}
+\item <NDPredictionSingleElectron> Prediction class which holds the LDM as a special 2-D spectrum (not used for NuMM), and NuMM, $\nu$-on-e background, $\nu_e$CC MEC background and other background as simple 1-D spectra. Also scaling each spectra by...
+\item <NDPredictionSystSingleElectron> class derived from PredictionInterp that takes in the NDPredictionSingleElectron and applies systematic shifts to it. Includes the interpolation/extrapolation between the systematic shifts.
+\item FitVariables and what do they do
+\item Fitter which does exactly what... What are the parameters of the fit? What are the results/outputs?
+\end{itemize}

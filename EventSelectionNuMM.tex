@@ -1,0 +1,217 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                       ANALYSIS OVERVIEW                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Event Selection}\label{sec:EventSelection}
+
+We are trying to select low energy neutrino-on-electron events, which are characterised by a single very forward going electron shower. Since these are the same events as are used in the Near Detector group's analysis to constraint the neutrino beam prediction with a neutrino-on-electron events \cite{NOVA-doc-56383}, we have taken taken their event selection without changes. This is to save time and analysis efforts, but also to get a first good estimation of NOvA's capabilities to constraint (or measure) neutrino magnetic moment. Almost the same selection is also used in the Light Dark Matter analysis \cite{NOVA-doc-59439}, only without the final $E\theta^2$ cut.
+
+We explain the motivation behind each cut of the event selection and discuss their effect on the neutrino magnetic moment events below. We also consider possible improvements to the event selection for a future (re-)analysis.
+
+The code to make plots and analyse the event selection is located in the \path{NuMagMomentAna/NuMMAnalysis/EventSelection} directory. The signal definition is in \path{NuoneCuts.h} and the cut values in the \path{EventCVNCuts.h/cxx} scripts from the \path{NuMagMomentAna/Cuts} directory.
+
+\subsubsection*{Signal Definition}
+To define the signal and background samples we use the true information listed in Tab.~\ref{tab:SignalDefinitions}. The neutrino magnetic moment signal definition is the same as that for the neutrino-on-electron background with the neutrino magnetic moment weight applied (explained in Sec.~\ref{sec:anaWeights}). 
+
+The signal definitions use the \texttt{kMode} variable instead of the \texttt{kIntType}, which is now deprecated (ref.: various Slack conversations). Mode 10005 denotes only the $\nu$-on-e events and is only available for the enhanced $\nu$-on-e samples, while mode 5 denotes all electron scattering events, including inverse muon decay interactions. That is why we had to add a requirement of an electron in the final state. Mode 10 denotes all Meson Exchange Current (MEC) events.
+
+We are using the ND group's \cite{NOVA-doc-56383} signal definition including a requirement for the true vertex to lie within their fiducial volume (defined below). This is the cut name \texttt{NDNuoneFiducial}. This is in contrast with the LDM analysis \cite{NOVA-doc-59439}, which uses the \texttt{ana::kVtxIsContained} cut instead, which has a looser boundary. This choice has only a negligible effect on the final number of selected events and only affects the selection efficiency.
+
+\begin{table}[!ht]
+\centering
+\caption{Overview of signal and background definitions.}
+\def\arraystretch{1.4}
+\begin{tabular}{p{.25\textwidth}p{.7\textwidth}}
+Signal                   & \texttt{kMode}== 10005 \&\& \texttt{NDNuoneFiducial}\\
+$\nu$-on-e background    & \texttt{kMode}== 10005 \&\& \texttt{NDNuoneFiducial}\\
+$\nu_e$CC MEC background & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) \&\& (\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode == 10})\\
+Other background         & !(\texttt{kMode}== 5 \&\& \texttt{kElInFinState} \&\& \texttt{NDNuoneFiducial}) \&\& !(\texttt{kIsCC} \&\& \texttt{kIsNue} \&\& \texttt{kMode} == 10)
+\end{tabular}
+\label{tab:SignalDefinitions}
+\end{table}
+
+\subsubsection*{Spill Quality Selection}
+To ensure good data quality, we apply the following criteria on the run, subrun and spill level. 
+\todo{Add a description of the spill quality cuts (only applied to data)}
+
+\subsubsection*{Basic Reconstruction Quality Selection}
+
+\todo{Split the pre-selection into basic reco quality and basic event selection}
+Pre-selection cuts include basic quality cuts that remove events with invalid vertex reconstruction and events with no reconstructed prongs, as shown on Fig.~\ref{fig:BasicPreSelectionCuts}. In pre-selection we also include a cut on the time difference between the mean times of the "current" slice and of the slice closest in time, which should be $>25\ \unit{ns}$. This ensures that ... \todo{This is to remove slicing failures that split the two gamma from a $\pi^0$ into two slices that resemble electron signal. Should we remove them now though?}.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_vtxIsValid.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_NPng.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for basic pre-selection variables. No cuts were applied to make these plots. Gold lines show the cut values for the shown variables.}
+\label{fig:BasicPreSelectionCuts}
+\end{figure}
+
+\subsubsection*{Basic Event Selection}
+
+The pre-selection cuts have been kept from the $\nu_e$CC analysis with loosened cut values \todo{find a reference for this analysis}.
+They also remove the obvious $\nu_\mu$CC interactions by requiring that the length of the longest prong is $<800\ \unit{cm}$, number of planes crossed by the longest prong is $<120$, and the summed number of cells for all prongs in the slice is $<600$.Relative comparison of signal, $\nu$-on-e background, and other background distributions for the pre-selection variables is shown on Fig.~\ref{fig:PreSelectionCuts}.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_longestProng.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_NPlanes.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_NHits.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_closestSlice.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for pre-selection variables. Cuts on VtxIsValid and number of prongs were applied to make these plots. Gold lines show the cut values for the shown variables.}
+\label{fig:PreSelectionCuts}
+\end{figure}
+
+%\todo{Add the DeCAF cuts description here - might describe them already when introducing the decaf samples, not sure yet}
+
+\subsubsection*{Fiducial and containment cuts}
+
+\todo{Describe what does the fiducial cut do}
+We require that the reconstructed vertex is contained within the following volume: $-185<\textsf{Vtx}_X<175,-175<\textsf{Vtx}_Y<175, 95<\textsf{Vtx}_Z<1095\ \unit{cm}$.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_vtxX.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_vtxY.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NoCut_vtxZ.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the reconstructed vertex. No cuts were applied to make these plots. Gold lines show the cut values that create the fiducial volume.}
+\label{fig:FiducialCut}
+\end{figure}
+
+To ensure all the energy is contained within the detector and to remove events originating outside of the detector (rock muons), we require that the extreme positions of hits for all prongs in the slice are within the following volume: $-190<\textsf{min}_X, \textsf{max}_X<180, -180<\textsf{min}_Y, \textsf{max}_Y<190, 105<\textsf{min}_Z, \textsf{max}_Z<1275\ \unit{cm}$.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_minX.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_maxX.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the minimum and maximum position of the reconstructed shower along the X axis. Pre-selection and fiducial cuts were applied to make these plots. Gold lines show the values of the containment cuts.}
+\label{fig:ContainmentCutsX}
+\end{figure}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_minY.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_maxY.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the minimum and maximum position of the reconstructed shower along the Y axis. Pre-selection and fiducial cuts were applied to make these plots. Gold lines show the values of the containment cuts.}
+\label{fig:ContainmentCutsY}
+\end{figure}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_minZ.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_maxZ.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the minimum and maximum position of the reconstructed shower along the Z axis. Pre-selection and fiducial cuts were applied to make these plots. Gold lines show the values of the containment cuts.}
+\label{fig:ContainmentCutsZ}
+\end{figure}
+
+\subsubsection*{Single particle requirement}
+
+To selection events with a single particle we require that the fraction of energy contained in the most energetic shower is $>0.8$, that the summed energy of all cells (above threshold and within $\pm8$ planes from the vertex) outside of the most energetic shower is $<0.02\ \unit{GeV}$, and that the distance between the vertex and the start of the primary shower is $<20\ \unit{cm}$.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_showerEFrac.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_vtxE.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_gap.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the reconstructed vertex. No cuts were applied to make these plots. Gold lines show the cut values that create the fiducial volume.}
+\label{fig:SingleShowerCuts}
+\end{figure}
+
+\subsubsection*{Shower energy cut}
+
+\todo{discuss the energy cut, should this be removed? What is the effect on the event count? Why was this included in the first place (the identifiers are not as strong for lowere energies - is this true though? - also there are further unexplored backgrounds that would need to be further studied and explore. Maybe depends on where would we move the cut...)}
+The calorimetric energy of the primary shower is required to be within $0.5<E_{cal}<5\ \unit{GeV}$.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_calE.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/N1Cut_calE_BkgDecomp.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NuMM_N1Cut_calE_Stat.pdf}
+\includegraphics[width=.49\textwidth]{Plots/AnalysisOverview/NuMM_N1Cut_calE_Syst.pdf}
+\caption{Relative comparison of signal, $\nu$-on-e background, and other background events for the reconstructed vertex. No cuts were applied to make these plots. Gold lines show the cut values that create the fiducial volume.}
+\label{fig:SingleShowerCuts}
+\end{figure}
+
+\subsubsection*{Event classifiers}
+
+We are using two event classifiers based on convolution neural network that were developed specifically to identify $\nu$-on-e interactions. The first one (\texttt{NuoneID}) is trained to select $\nu$-on-e events and the second one (\texttt{Epi0ID}) is trained on the events passing the \texttt{NuoneID} to reject the $\pi^0$ background. Our selection requires that \texttt{NuoneID}$>0.73$ and that \texttt{Epi0ID}$>0.92$.
+
+\todo{reference theory for the kinematics of nuone scattering}
+We require that the product of reconstructed energy of the primary shower and the square of its angle from the Z axis is $E_{cal}\theta^2<0.005\ \unit{GeV\times rad^2}$.
+
+\todo{Add plots of distributions of the event selection variables with two columns. LHS shows no cuts applied and RHS shows all previous cuts applied}
+
+Using the many plots below that show the effect of each of the cuts on the signal and all background events. (For signal we are showing NuMM=...)
+
+\todo{Describe the cutflow tables below}
+The final event count and efficiency of each of the cuts is shown on the table \ref{tab:CutflowTableSignal}. Table \ref{tab:CutflowTableBackground} shows the dissemination of background into the individual components.
+
+\begin{table}[!hb]
+\caption{Event selection cutflow table}
+\begin{tabular}{|l|ccc|ccc|ccc|}\hline
+\multicolumn{1}{|c|}{}                                     & \multicolumn{3}{c|}{\textbf{$\nu$ Mag. Moment signal}}          & \multicolumn{3}{c|}{\textbf{$\nu$-on-e background}}                      & \multicolumn{3}{c|}{\textbf{Other background}}                           \\
+\multicolumn{1}{|c|}{\multirow{-2}{*}{\textbf{Selection}}} & \multicolumn{1}{c}{\textbf{$N_{sig}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N_{IBkg}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N_{Bkg}$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} \\\hline
+\textbf{No Cut}      & 269.77            & 100 & 100 & 3.43$\times 10^3$           & 100 & 100                                     & 2.96$\times 10^8$          & 100                                                             & 100                                    \\
+\textbf{Vtx Is Valid}  & 180.58            & 66.94                                                              & 66.94                                     & 3.33$\times 10^3$               & 96.94                                                               & 96.94                                      & 2.34$\times 10^8$          & 79.09                                                              & 79.09                                     \\
+\textbf{N Prongs}        & 174.69            & 96.74                                                              & 64.76                                     & 3.23$\times 10^3$                             & 96.99                                                               & 94.02                                      & 8.66$\times 10^7$                     & 37.00                                                                 & 29.27                                     \\
+\textbf{Png Length}  & 174.67            & 99.99                                                              & 64.75                                     & 3.22$\times 10^3$                                          & 99.64                                                               & 93.68                                      & 7.67$\times 10^7$                              & 88.56                                                              & 25.92                                     \\
+\textbf{N Planes}      & 174.67            & 100                                                                & 64.75                                     & 3.22$\times 10^3$                                          & 99.98                                                               & 93.67                                      & 7.67$\times 10^7$          & 99.98                                                              & 25.92                                     \\
+\textbf{N Cells}       & 174.67            & 100                                                                & 64.75                                     & 3.22$\times 10^3$                                           & 99.98                                                               & 93.65                                      & 7.42$\times 10^7$          & 96.78                                                              & 25.08                                     \\
+\textbf{Closest Slc}  & 169.82            & 97.22                                                              & 62.95                                     & 3.14$\times 10^3$                                           & 97.54                                                               & 91.35                                      & 6.95$\times 10^7$          & 93.68                                                              & 23.49 \\
+\textbf{Fiducial}     & 167.72            & 98.76                                                              & 62.17                                     & 3.09$\times 10^3$           & 98.41                                                               & 89.89                                      & 3.59$\times 10^7$          & 51.71                                                              & 12.15                                     \\
+\textbf{Cont.}  & 159.37            & 95.02                                                              & 59.08                                     & 2.48$\times 10^3$           & 80.43                                                               & 72.30                                      & 1.38$\times 10^7$          & 38.35                                                              & 4.66                                      \\
+\textbf{ShwE Frac.}  & 150.37            & 94.35                                                              & 55.74                                     & 2.42$\times 10^3$           & 97.59                                                               & 70.56                                      & 8.82$\times 10^6$          & 63.97                                                              & 2.98                                      \\
+\textbf{Vtx E}         & 142.29            & 94.63                                                              & 52.74                                     & 2.18$\times 10^3$           & 90.16                                                               & 63.62                                      & 4.15$\times 10^6$          & 47.07                                                              & 1.40                                      \\
+\textbf{Shw Gap}          & 137.96            & 96.96                                                              & 51.14                                     & 2.09$\times 10^3$           & 95.58                                                               & 60.80                                      & 3.25$\times 10^6$          & 78.34                                                              & 1.10                                      \\
+\textbf{Shw E}      & 37.13             & 26.92                                                              & 13.76                                     & 1.36$\times 10^3$           & 65.10                                                               & 39.58                                      & 6.25$\times 10^5$          & 19.21                                                              & 0.21                                      \\
+\textbf{Nuoneid}      & 29.48             & 79.39                                                              & 10.93                                     & 940.21             & 69.18                                                               & 27.38                                      & 2.42$\times 10^4$ & 3.88                                                               & 8.19$\times 10^{-3}$                                  \\
+\textbf{Epi0id}       & 22.51             & 76.35                                                              & 8.34                                      & 749.93             & 79.76                                                               & 21.84                                      & 1.47$\times 10^4$ & 60.75                                                              & 4.97$\times 10^{-3}$                                  \\
+\rowcolor[HTML]{67FD9A}
+\textbf{$E\theta^2$}      & 19.74             & 87.73                                                              & 7.32                                      & 675.02             & 90.01                                                               & 19.66                                      & 84.15             & 0.57                                                               & 2.84$\times 10^{-5}$                                 \\\hline\hline
+\textbf{$E\theta^2$ (sb)}  & 2.74              & -                                                              & 1.01                                      & 74.30              & -                                                               & 2.16                                       & 1.01$\times 10^3$          & - & 3.43$\times 10^{-4}$                                  \\\hline\hline
+\textbf{No ShwE}  & 37.62             & -                                                           & 13.94                                     & 782.67             & -                                                            & 22.79                                      & 238.79            & -                                                              & 8.07E-05   \\\hline
+\end{tabular}
+\label{tab:CutflowTableSignal}
+\end{table}
+
+%\begin{landscape}
+\begin{sidewaysfigure}[!hb]
+\caption{Event selection cutflow table for background components}
+\begin{scriptsize}
+%\begin{table}[!hb]
+\begin{tabular}{|l|ccc|ccc|ccc|ccc|ccc|}\hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Selection}}} & \multicolumn{3}{c|}{\textbf{$\nu_e$CC MEC}} &
+\multicolumn{3}{c|}{\textbf{$\nu_e$CC Other}} &
+\multicolumn{3}{c|}{\textbf{$\nu_\mu$CC}} &
+\multicolumn{3}{c|}{\textbf{NC}} &
+\multicolumn{3}{c|}{\textbf{Other}} \\
+\multicolumn{1}{|c|}{}                                    & \multicolumn{1}{c}{\textbf{$N$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} & \multicolumn{1}{c}{\textbf{$N$}} & \textbf{$\epsilon^{N-1}$} & \textbf{$\epsilon \left(\%\right)$} \\\hline
+\textbf{No Cut}      & 3.50$\times 10^4$           & 100 & 100                                     & 3.23$\times 10^6$             & 100 & 100 & 2.24$\times 10^8$              & 100                                                                 & 100                                        & 3.40$\times 10^7$          & 100.                                                             & 100                                    & 3.49$\times 10^7$                      & 100 & 100                                       \\
+\textbf{Vtx Is Valid}  & 3.27$\times 10^4$           & 93.58                                                               & 93.58                                      & 2.62$\times 10^6$             & 81.14                                                                 & 81.14                                        & 1.99$\times 10^8$              & 89.02                                                                  & 89.02                                         & 2.57$\times 10^7$ & 75.55                                                              & 75.55                                     & 6.53$\times 10^6$             & 18.70                                                                 & 18.70                                        \\
+\textbf{N Prongs}        & 2.74$\times 10^4$           & 83.76                                                               & 78.39                                      & 1.39$\times 10^6$             & 53.05                                                                 & 43.05                                        & 6.75$\times 10^7$              & 33.89                                                                  & 30.17                                         & 1.51$\times 10^7$          & 58.57                                                              & 44.25                                     & 2.65$\times 10^6$ & 40.51                                                                 & 7.58                                         \\
+\textbf{Png Length}  & 2.73$\times 10^4$           & 99.79                                                               & 78.22                                      & 1.37$\times 10^6$             & 98.53                                                                 & 42.42                                        & 5.77$\times 10^7$ & 85.56                                                                  & 25.81                                         & 1.49$\times 10^7$          & 99.07                                                              & 43.84                                     & 2.64$\times 10^6$             & 99.87                                                                 & 7.57                                         \\
+\textbf{N Planes}      & 2.73$\times 10^4$           & 99.99                                                               & 78.22                                      & 1.37$\times 10^6$             & 99.99                                                                 & 42.41                                        & 5.77$\times 10^7$              & 99.98                                                                  & 25.81                                         & 1.49$\times 10^7$          & 100                                                             & 43.84                                     & 2.64$\times 10^6$ & 100                                                                & 7.57                                         \\
+\textbf{N Cells}       & 2.73$\times 10^4$           & 99.99                                                               & 78.21                                      & 1.28$\times 10^6$             & 93.49                                                                 & 39.65                                        & 5.59$\times 10^7$ & 96.82                                                                  & 24.98                                         & 1.44$\times 10^7$          & 96.34                                                              & 42.24                                     & 2.64$\times 10^6$             & 100                                                                & 7.57                                         \\
+\textbf{Closest Slc}  & 2.73$\times 10^4$           & 99.79                                                               & 78.05                                      & 1.21$\times 10^6$ & 94.25                                                                 & 37.37                                        & 5.33$\times 10^7$ & 95.40                                                                  & 23.84                                         & 1.35$\times 10^7$          & 94.17                                                              & 39.77                                     & 1.43$\times 10^6$ & 54.22                                                                 & 4.10 \\
+\textbf{Fiducial}     & 1.39$\times 10^4$           & 51.12                                                               & 39.90                                      & 6.30$\times 10^5$ & 52.10                                                                 & 19.47                                        & 2.60$\times 10^7$          & 48.77                                                                  & 11.62                                         & 8.25$\times 10^6$          & 60.99                                                              & 24.26                                     & 1.05$\times 10^6$             & 73.53                                                                 & 3.02                                         \\
+\textbf{Cont.}  & 9.32$\times 10^3$           & 66.82                                                               & 26.66                                      & 2.63$\times 10^5$             & 41.72                                                                 & 8.12                                         & 7.64$\times 10^6$              & 29.38                                                                  & 3.42                                          & 4.96$\times 10^6$          & 60.15                                                              & 14.59                                     & 9.12$\times 10^5$             & 86.62                                                                 & 2.61                                         \\
+\textbf{ShwE Frac.}  & 9.20$\times 10^3$           & 98.70                                                               & 26.32                                      & 1.95$\times 10^5$             & 74.39                                                                 & 6.04                                         & 4.82$\times 10^6$              & 63.10                                                                  & 2.15                                          & 2.97$\times 10^6$          & 59.78                                                              & 8.72                                      & 8.28$\times 10^5$             & 90.81                                                                 & 2.37                                         \\
+\textbf{Vtx E}         & 5.92$\times 10^3$           & 64.33                                                               & 16.93                                      & 6.05$\times 10^4$             & 30.96                                                                 & 1.87                                         & 1.97$\times 10^6$ & 40.79                                                                  & 0.88                                          & 1.36$\times 10^6$          & 45.75                                                              & 3.99                                      & 7.62$\times 10^5$             & 92.03                                                                 & 2.18                                         \\
+\textbf{Shw Gap}          & 5.50$\times 10^3$           & 92.91                                                               & 15.73                                      & 4.62$\times 10^4$             & 76.40                                                                 & 1.43                                         & 1.58$\times 10^6$ & 80.18                                                                  & 0.70                                          & 1.06$\times 10^6$          & 77.78                                                              & 3.10                                      & 5.69$\times 10^5$             & 74.61                                                                 & 1.63                                         \\
+\textbf{Shw E}      & 3.62$\times 10^3$           & 65.81                                                               & 10.35                                      & 1.12$\times 10^4$             & 24.15                                                                 & 0.35                                         & 4.38$\times 10^5$              & 27.80                                                                  & 0.20                                          & 1.71$\times 10^5$          & 16.15                                                              & 0.50                                      & 1.28$\times 10^3$             & 0.23                                                                  & 3.68$\times 10^{-3}$                                     \\
+\textbf{Nuoneid}      & 1.40$\times 10^3$           & 38.63                                                               & 4.00                                       & 2.11$\times 10^3$             & 18.89                                                                 & 0.065                                        & 1.17$\times 10^4$              & 2.66                                                                   & 5.21$\times 10^{-3}$                                      & 8.99$\times 10^3$          & 5.27                                                               & 0.026                                     & 66.43                & 5.17                                                                  & 1.90$\times 10^{-4}$                                     \\
+\textbf{Epi0id}       & 1.14$\times 10^3$           & 81.78                                                               & 3.27                                       & 1.61$\times 10^3$             & 76.40                                                                 & 0.050                                        & 7.17$\times 10^3$              & 61.52                                                                  & 3.20$\times 10^{-3}$                                      & 4.76$\times 10^3$          & 52.94                                                              & 0.014                                     & 29.47                & 44.36                                                                 & 8.44$\times 10^{-5}$                                     \\
+\rowcolor[HTML]{67FD9A}
+\textbf{$E\theta^2$}      & 15.13              & 1.32                                                                & 0.043                                      & 39.00                & 2.42                                                                  & 1.21$\times 10^{-3}$                                     & 8.62                  & 0.12                                                                   & 3.85$\times 10^{-6}$                                      & 20.91             & 0.44                                                               & 6.15$\times 10^{-5}$                                  & 0.50                 & 1.69                                                                  & 1.43$\times 10^{-6}$                                  \\\hline\hline
+\textbf{$E\theta^2$ (sb)}  & 386.16             & -                                                            & 1.10                                       & 306.55               & -                                                                & 9.48$\times 10^{-3}$                                     & 165.59                & -                                                               & 7.40$\times 10^{-5}$                                      & 149.93            & -                                                             & 4.41$\times 10^{-4}$                                  & 6.24                 & -                                                              & 1.79$\times 10^{-5}$                                     \\\hline\hline
+\textbf{No ShwE}  & 15.54              & -                                                                & 0.044                                      & 69.61                & -                                                                 & 2.15$\times 10^{-3}$                                     & 68.48                 & - & 3.06$\times 10^{-5}$                                      & 75.67             & - & 2.22$\times 10^{-4}$                                  & 9.49                 & -                                                                & 2.72E-05   \\\hline
+\end{tabular}
+
+\label{tab:CutflowTableBackground}
+%\end{table}
+\end{scriptsize}
+\end{sidewaysfigure}
+%\end{landscape}
+
+\todo{Add a discussion of possible improvements on the event selection on its limitations - mostly for the analysis review committee}
+From here we can see that ... Maybe what can be improved is...
+This can likely be improved upon by specifically selection low energy events and removing the cut on the reconstructed shower energy. 

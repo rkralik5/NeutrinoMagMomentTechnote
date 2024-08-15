@@ -22,6 +22,9 @@
 \usepackage{url} % for code paths
 \usepackage{subcaption} % fro subfigures
 \usepackage{placeins}  % for FloatBarrier
+\usepackage[acronym,toc,hyperfirst=false,nogroupskip]{glossaries} % for automatic glossary
+\input{glossary}
+\makeglossaries
 
 \usepackage{hyperref}
 \hypersetup{colorlinks,
@@ -54,41 +57,70 @@
 
 \begin{document}
 \maketitle
+\pagenumbering{roman}
+
 
 \begin{abstract}
     This is the abstract
 \end{abstract}
 \newpage
 \tableofcontents
+
 \newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 \section{Introduction}
 
-\todo{Describe the main motivations for the analysis. Briefly mention that there was a previous study by Biao, what were the results there and what limitations (or maybe talk about this in the Experimental overview?)}
+%%% OBJECTIVE
+In this analysis, we aim to detect a potential signal of the effective muon neutrino magnetic moment in the \gls{NOvA} \gls{ND}. This signal would manifest as an excess of \gls{nuone} elastic scattering interactions at low electron recoil energies, proportional to the value of the effective neutrino magnetic moment, over the \gls{SM} background. If no significant excess is observed, we will establish an upper limit on the effective muon neutrino magnetic moment.
 
-%The same types of experimental measurements are also sensitive to more exotic neutrino electromagnetic properties: magnetic moments and millicharges, which would be certainly due to new physics beyond the Standard Model. The discovery of millicharges or anomalously large neutrino magnetic moments would have also important implications for astrophysics and cosmology. [NeutrinoPropertiesSnowmass2022.pdf]
+%%% WHY - BSM theories, Majorana nature of neutrinos
+Detecting the neutrino magnetic moment $\left(\mu_\nu\right)$ would provide definitive evidence of new \gls{BSM} physics, and measuring its value would help identify the appropriate \gls{BSM} theory. As current and planned experiments can only detect an anomalously large neutrino magnetic moment, observing such a signature would strongly suggest that neutrinos are Majorana particles and would have significant implications for astrophysics and cosmology \cite{SnowmassNeutrinoFrontierReport.pdf}.
 
-%neutrino electromagnetic interactions [...] provide powerful tools to probe the physics beyond the standard model. ... Hence, the theoretical and experimental study of neutrino electromagnetic interactions is a powerful tool in the search for the fundamental theory beyond the standard model. Moreover, the electromagnetic interactions of neutrinos can generate important effects, especially in astrophysical environments, where neutrinos propagate over long distances in magnetic fields in vacuum and in matter. Unfortunately, in spite of many efforts in the search of neutrino electromagnetic interactions, up to now there is no positive experimental indication in favor of their existence. However, it is expected that the standard model neutrino charge radii should be measured in the near future. This will be a test of the standard model and of the physics beyond the standard model which contributes to the neutrino charge radii. Moreover, the existence of neutrino masses and mixing implies that neutrinos have magnetic moments. Since their values depend on the specific theory which extends the standard model in order to accommodate neutrino masses and mixing, experimentalists and theorists are eagerly looking for them. [nuElmagInt2015.pdf]
+%Current best overall measurements - XENONnT, XENON1T, LZ
+The best model-independent experimental results on the neutrino magnetic moment come from experiments searching for dark matter using xenon-based detectors. These highly sensitive detectors detect solar neutrinos, which are part of the background in dark matter searches but can be reanalysed for other purposes. In 2020, the XENON1T experiment observed \cite{XENON1TExcessNuOnE2020.pdf} a low energy excess of solar neutrinos, which could correspond to a signal from an anomalously large effective magnetic moment within $\mu_{\nu_\odot}\in \left(0.14, 0.29\right)\times 10^{-10} \mu_B$ at $\unit[90]{\%}$ \gls{CL}, where $\nu_\odot$ marks solar neutrinos. However, this result was disfavoured by the follow-up XENONnT experiment in 2022 \cite{XENONnTFirstResults2022.pdf}, which saw no excess and set the current world-leading limit on neutrino magnetic moment at $\mu_{\nu_\odot}<0.063\times 10^{-10}\mu_B$ at $\unit[90]{\%}$ \gls{CL}. Other solar neutrino experiments also reported null results regarding neutrino magnetic moment \cite{LZNuMMResults2022.pdf,BorexinoLimit2017.pdf}, placing less stringent limits on its value. Given some basic assumptions \cite{BorexinoLimit2017.pdf, KhanXENONnTImplications2022.pdf} this limit for solar neutrinos would correspond to a limit on muon neutrino effective magnetic moment of $\mu_{\nu_\mu}<0.137\times 10^{-10}\mu_B$. However, the relationship between effective magnetic moments of different neutrino flavours may be non-trivial, especially in the context of possible new \gls{BSM} physics, and studying muon neutrinos remains an important endeavour \cite{LargeNuMMJointFit2022.pdf}.
 
-%The importance of neutrino electromagnetic properties was first mentioned by Pauli in 1930, when he postulated the existence of this particle and discussed the possibility that the neutrino might have a magnetic moment (Pauli, W., 1991, Cambridge Monogr. Part. Phys., Nucl. Phys., Cosmol. 1, 1.). [nuElmagInt2015.pdf]
+The best results for $\nu_\mu$ and $\overline{\nu}_\mu$ come from accelerator-based stopped pion neutrino sources \cite{LSNDLimits2001.pdf,LAMPFAMuNuMM1990.pdf}, which also do not observe any low energy excess and provide an upper limit on the effective muon neutrino magnetic moment of $\mu_{\nu_\mu}<6.8\times 10^{-10}\mu_B$  at $\unit[90]{\%}$ \gls{CL} \cite{LSNDLimits2001.pdf}. Stopped pion neutrino sources provide well-understood beams made up of $\nu_\mu$, $\overline{\nu}_\mu$ and $\nu_e$ with energies up to $\unit[52.8]{MeV}$. Slightly looser limits come from pion decay-in-flight accelerator-based measurements (similar to \gls{NOvA})\cite{NuoneForEMProp1990.pdf, Charm2MuonNuMM1995.pdf}, which provide a limit of $\mu_{\nu_\mu}<8.5\times 10^{-10}\mu_B$ at $\unit[90]{\%}$ \gls{CL}.
 
-%Systematic theoretical studies of neutrino electromagnetic properties started after it was shown that in the extended standard model with right-handed neutrinos the magnetic moment of a massive neutrino is, in general, nonvanishing and that its value is determined by the neutrino mass (Lee and Shrock, 1977; Marciano and Sanda, 1977; Petcov, 1977; Fujikawa and Shrock, 1980; Pal and Wolfenstein, 1982; Shrock, 1982; Bilenky and Petcov, 1987). Neutrino electromagnetic properties are important because they are directly connected to fundamentals of particle physics. For example, neutrino electromagnetic properties can be used to distinguish Dirac and Majorana neutrinos, because Dirac neutrinos can have both diagonal and offdiagonal magnetic and electric dipole moments, whereas only the off-diagonal ones are allowed for Majorana neutrinos (Schechter and Valle, 1981; Kayser, 1982, 1984; Nieves, 1982; Pal and Wolfenstein, 1982; Shrock, 1982). Another important case in which Dirac and Majorana neutrinos have quite different observable effects is the spin-flavor precession in an external magnetic field discussed in Sec. VI.B. Neutrino electromagnetic properties are also probes of new physics beyond the standard model, because in the standard model neutrinos can have only a charge radius. The discovery of other neutrino electromagnetic properties would be a signal of new physics beyond the standard model (Bell et al., 2005, 2006; Bell, 2007; Novales-Sanchez et al., 2008). [nuElmagInt2015.pdf]
+%%% WHY NOvA IS SPECIAL / USEFUL
+Thanks to the very intense and highly pure beam of muon neutrinos and antineutrinos, and a detector designed for the reconstruction and identification of events with electrons in the final state, \gls{NOvA} is well-positioned to provide a highly competitive, and possibly even world-leading, measurement (or limit) of the effective muon neutrino magnetic moment. A previous analysis of \gls{NOvA} \gls{ND} data for a measurement of the effective muon neutrino magnetic moment was presented in a thesis \cite{nuMM-thesis-biaow.pdf}, providing a (statistics-only) limit of $\mu_{\nu_\mu}<15.8\times 10^{-10}\mu_B$ at $\unit[90]{\%}$ \gls{CL}.
 
-%Considering an experiment which does not observe any effect of neutrino magnetic moment and obtains a limit on the neutrino mag. moment, it is possible to obtain, following Studenikin (2014), a bound on neutrino millicharge by demanding that the effect of neutrino millicharge is smaller that tha of neutrino magnetic moment. [nuElmagInt2015.pdf - page 580]
+%%% Other NOvA analysis measuring the same signal
+Additionally, \gls{nuone} elastic scattering interactions are used in various other analyses in \gls{NOvA}, specifically in efforts to constrain the neutrino beam prediction \cite{NOVA-doc-56383} and in the search for \gls{LDM} \cite{NOVA-doc-59439}. These analyses developed various tools and methods that can be utilized in the search for a neutrino magnetic moment.
 
+\todo{Possibly include cosmological implications and limits}
+\iffalse
+\todo{This is an unfinished section and most of this text is just copied from some references. I find it interesting and would like to include some information on this, but haven't had time yet}
+[NuMMBasicsAndAstro\_2022.pdf]
+One of the most important astrophysical consequences of neutrino non-zero effective magnetic moments is the neutrino helicity change $\nu_l\rightarrow\nu_R$ with the appearance of nearly sterile right-handed neutrinos $\nu_R$. In general, this phenomena can proceed in three different mechanisms:
+\begin{enumerate}
+\item the helicity change in the neutrino magnetic moment scattering on electrons (or protons and neutrons),
+\item the neutrino spin and spin-flavour precession in an external magnetic field, and
+\item the neutrino spin and spin-flavour precession in the transversally moving matter currents or in the transversally polarized matter at rest
+\end{enumerate}
+For completeness note that the important astrophysical consequence of nonzero neutrino millicharges is the neutrino deviation from the rectilinear trajectory.
+\todo{find out if this is the same thing that IceCube describes in their paper}
+\fi
+
+%%% OVERVIEW OF THIS CHAPTER
+In this technical note, we will provide an overview of the theory of neutrino electromagnetic interactions in Sec.~\ref{sec:Theory}, focusing on the effective neutrino magnetic moment and its implications for \gls{nuone} measurements and other theoretical considerations. In Sec.~\ref{sec:AnalysisOverview}, we will discuss the analysis strategy, the signal and background definition, as well as the data and simulation samples and the analysis weights. Following this, in Sec.~\ref{sec:EventSelection} we will explain the selection of events for this analysis, while in Sec.~\ref{sec:SystematicUncertainties} we will address the relevant systematic uncertainties and in Sec.~\ref{sec:StatisticalAnalysis} the statistical methods employed to analyse the results. We will present the results of this analysis in Sec.~\ref{sec:Resoluts}. Finally, section~\ref{sec:Conclusion} will summarise the findings of this analysis.
 
 \input{TheoreticalOverviewNuMM}
-\input{ExperimentalOverviewNuMM}
 \input{AnalysisOverviewNuMM}
+\input{EventSelectionNuMM}
+\input{SystematicUncertaintiesNuMM}
+\input{StatisticalAnalysisNuMM}
 \input{ResultsNuMM}
 
-\section{Conclusion}
+\section{Conclusion}\label{sec:Conclusion}
 \todo{Report the limit with its uncertainty}
 
 \todo{Very briefly discuss differences with current world limit and how the techniques differ}
 
 \todo{Very briefly summarise expectations for future measurements.}
 
+\printglossaries
 \bibliographystyle{unsrturl}
 \bibliography{NeutrinoMagMomentTechnoteLiterature}
 \end{document}
