@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                       ANALYSIS OVERVIEW                       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Analysis overview}\label{sec:AnalysisOverview}
+\section{Analysis Overview}\label{sec:AnalysisOverview}
 Our analysis strategy for measuring the effective muon neutrino magnetic moment in the \gls{NOvA} \gls{ND} is based on comparing the total number of reconstructed and selected events in data with the prediction. The predicted events consist of the signal, which depends on the size of the effective muon neutrino magnetic moment, and of the background, which corresponds to the \gls{SM}-only (null) hypothesis without any neutrino magnetic moment. We define the signal as true \gls{nuone} elastic scattering interactions, created with the use of the neutrino magnetic moment cross section instead of the \gls{SM} cross section, as described in Sec.~\ref{sec:MeasuringNuMM}. Additionally, the signal events are required to have their true interaction vertex contained within the \gls{ND} to exclude events originating from outside of the detector.
 
 The \gls{nuone} interactions are also used in the \gls{ND} group's analysis to constraint the neutrino beam prediction \cite{NOVA-doc-56383}, which relies on the precise theoretical knowledge of the \gls{nuone} interaction cross section. They compare the total number of recorded \gls{nuone} interactions, with background subtracted based on a data/\gls{MC} comparison in a sideband region, to the prediction. Since the number of \gls{nuone} events should only depend on the normalization of the neutrino beam, this analysis should give us a precise validation, or correction, of the neutrino flux normalization. There has been a large amount of work going into this analysis, including making special samples, weights, event classifiers, developing a dedicated event selection, or developing a background subtraction method, among others. To save time and analysis effort, we have taken most of these work at face value and applied it to the neutrino magnetic moment analysis. This will help us get the first good estimate of \gls{NOvA}'s capabilities to constraint (or measure) the neutrino magnetic moment.
@@ -49,7 +49,7 @@ The simulation was created with approximately four times larger statistics than 
 \end{table}
 
 %Analysis weights - PPFX and cross section
-\subsubsection*{Analysis Weights}
+\subsection{Analysis Weights}
 Corrections for known limitations in the simulation are applied in the form of analysis weights applied to each event based on how it is affected by specific variations in the simulation. This includes the corrections for the neutrino beam prediction based on the external measurements used by the \gls{PPFX}, and, for the non-\gls{nuone} background only, also the internal and external measurements that constrain the neutrino interaction prediction inside GENIE.
 
 %Radiative correction weight
@@ -98,7 +98,8 @@ where
 \end{equation}
 
 %Enhanced nuone sample
-\subsubsection*{Enhanced $\nu$-on-e sample}
+\subsection{Special Simulation Samples}
+\subsubsection*{Enhanced $\nu$-on-e Sample}
 Due to the relatively low cross section of the \gls{nuone} interaction, the nominal simulation sample contains very few \gls{nuone} events, which could result in a significant statistical uncertainty from simulation. To avoid this, we are using the \gls{nuone}-enhanced simulation sample created by Wenjie \cite{NOVA-doc-56383}, which is mainly made up of \gls{nuone} events with a total exposure of $1.72\times10^{24}$~\gls{POT}. There are a few non-\gls{nuone} background events overlaid on top of the \gls{nuone} events to properly account for the possible reconstruction effects of the pileup of neutrino interactions in a single spill \cite{NOVA-doc-56383}, since in the real detector, the hits from the true \gls{nuone} interaction can be clustered together into another interaction, or additional hits can be clustered together into the \gls{nuone} event. To save up on unnecessary disk space and processing usage, the enhanced \gls{nuone} sample does not include any cross section related parameters and variables, as the \gls{nuone} interaction is assumed to be known exactly from theory. Therefore, we do not apply cross section weights or account for cross section systematic uncertainties for \gls{nuone} events.
 
 \todo{Describe the technical details of the nuone sample}
@@ -126,7 +127,7 @@ The list of the nu-on-e sample definitions is in table \ref{tab:NuoneDefinitions
 \end{table}
 
 % enhanced nueccmec
-\subsubsection*{Enhanced $\nu_e$CC MEC sample}
+\subsubsection*{Enhanced $\nu_e$CC MEC Sample}
 The cross section tuning procedure in \gls{NOvA} applies large weights to \gls{MEC} events in some parts of the parameter space. However, after the full event selection (Sec.~\ref{sec:EventSelection}) only a small number of \gls{MEC} events remain in the detector. This was shown to be an issue especially for the $\nu_e$\gls{CC} \gls{MEC} events \cite{NOVA-doc-56383}. Applying large tuning corrections to a small number of events results in large statistical fluctuations. To avoid this, we are using another special sample created by Yiwen Xiao \cite{NOVA-doc-56383} with an enhanced number of $\nu_e$\gls{CC} \gls{MEC} events, following the same procedure as for the \gls{nuone}-enhanced sample, with an exposure of $1.99\times10^{24}$~\gls{POT}.
 
 \todo{Describe the technical details}

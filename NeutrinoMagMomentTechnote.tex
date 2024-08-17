@@ -2,7 +2,6 @@
 \RequirePackage{rotating}
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{fullpage}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amsthm, amssymb,amsfonts}
 \usepackage{mathptmx}
@@ -22,17 +21,21 @@
 \usepackage{url} % for code paths
 \usepackage{subcaption} % fro subfigures
 \usepackage{placeins}  % for FloatBarrier
+\usepackage{tabularx}       % for title setting
+\usepackage{doi}            % automatically link doi to hyperlinks
+\usepackage[margin=2cm,headheight=65pt,tmargin=65pt,headsep=10pt]{geometry}
+
+%% Set page numbers and section titles in the header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+%\renewcommand{\headrulewidth}{0pt}
+
 \usepackage[acronym,toc,hyperfirst=false,nogroupskip]{glossaries} % for automatic glossary
 \input{glossary}
 \makeglossaries
-
-\usepackage{hyperref}
-\hypersetup{colorlinks,
-            citecolor=blue,
-            filecolor=black,
-            linkcolor=black,
-            urlcolor=black
-}
 
 \title{Measurement of the neutrino magnetic moment at the NOvA experiment\\ \vspace*{1cm} \texttt{Technical note}}
 \author[1]{Robert Kralik}
@@ -45,7 +48,7 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
-    citecolor=blue,
+    citecolor=blue!90!black,
     filecolor=black,
     linkcolor=black,
     urlcolor=black
