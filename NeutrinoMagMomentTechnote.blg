@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: NeutrinoMagMomentTechnote.aux
+The style file: unsrturl.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: NeutrinoMagMomentTechnoteLiterature.bib
+Warning--entry type for "NOVA-doc-56383" isn't style-file defined
+--line 73 of file NeutrinoMagMomentTechnoteLiterature.bib
+Warning--entry type for "NOVA-doc-59439" isn't style-file defined
+--line 134 of file NeutrinoMagMomentTechnoteLiterature.bib
+Warning--entry type for "NOvA-doc-59876" isn't style-file defined
+--line 416 of file NeutrinoMagMomentTechnoteLiterature.bib
+Warning--entry type for "NOvA-doc-61190" isn't style-file defined
+--line 426 of file NeutrinoMagMomentTechnoteLiterature.bib
+Warning--entry type for "NOvA-doc-37668" isn't style-file defined
+--line 436 of file NeutrinoMagMomentTechnoteLiterature.bib
+Warning--entry type for "ROOT" isn't style-file defined
+--line 457 of file NeutrinoMagMomentTechnoteLiterature.bib
+Warning--empty year in LSNDLimits2001.pdf
+Warning--empty journal in NeutrinoPropertiesSnowmass2022.pdf
+Warning--empty publisher in FundamentalsOfNeutrinoPhysics.pdf
+You've used 38 entries,
+            2616 wiz_defined-function locations,
+            886 strings with 13298 characters,
+and the built_in function-call counts, 14498 in all, are:
+= -- 1523
+> -- 505
+< -- 0
++ -- 162
+- -- 124
+* -- 896
+:= -- 1923
+add.period$ -- 155
+call.type$ -- 38
+change.case$ -- 35
+chr.to.int$ -- 0
+cite$ -- 41
+duplicate$ -- 339
+empty$ -- 1530
+format.name$ -- 124
+if$ -- 4004
+int.to.chr$ -- 0
+int.to.str$ -- 38
+missing$ -- 31
+newline$ -- 234
+num.names$ -- 38
+pop$ -- 279
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1063
+stack$ -- 0
+substring$ -- 624
+swap$ -- 114
+text.length$ -- 54
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 77
+width$ -- 40
+write$ -- 503
+(There were 9 warnings)

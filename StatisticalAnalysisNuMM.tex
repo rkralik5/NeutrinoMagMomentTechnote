@@ -8,7 +8,16 @@
 \subsection{Counting Experiment}
 
 % Likelihood
-Our analysis compares the total observed number of events, $N_O$, with the expected (predicted) number of events, $N_E\left(\mu_\nu\right)$, which in general depends on the value of the effective neutrino magnetic moment, $\mu_\nu$ and is the sum of the expected signal events, $N_S\left(\mu_\nu\right)$, and the expected background events, $N_B$. The number of recorded events within a fixed time interval follows the Poisson distribution with a likelihood (probability) of observing $N_O$ events, given a hypothesis predicting $N_E$ events, is defined as:
+Our analysis compares the total observed number of events, $N_O$, with the expected (predicted) number of events, $N_E\left(\mu_\nu\right)$, which in general depends on the value of the effective neutrino magnetic moment, $\mu_\nu$, and is equal to the sum of the expected signal and background events:
+\begin{equation}
+N_E\left(\mu_\nu\right)=N_S\left(\mu_\nu\right)+N_B.
+\end{equation}
+The number of background events is equal to $N_{\gls{SM}}$ from Eq.~\ref{eq:NumberOfSMEventsWithSysts} and the number of signal events can be expressed as
+\begin{equation}\label{eq:NuMMExpectedNumberOfSignalEvents}
+N_S=56.80\times\left(\frac{\mu_\nu}{10^{-9}\mu_B}\right)^2.
+\end{equation}
+
+The number of recorded events within a fixed time interval follows the Poisson distribution with the likelihood (probability) of observing $N_O$ events given a hypothesis predicting $N_E$ events defined as \cite{PDG.pdf}:
 \begin{equation}\label{eq:Likelihood}
 L\left(N_O;N_E\left(\mu_\nu\right)\right)=\frac{N_E\left(\mu_\nu\right)^{N_O}}{N_O!}e^{-N_E\left(\mu_\nu\right)}.
 \end{equation}
@@ -18,7 +27,7 @@ To estimate and constrain $\mu_\nu$, we employ a frequentist approach using the 
 \begin{equation}
 \lambda=\frac{L\left(N_O;N_E\left(\mu_\nu\right)\right)}{L_{sat}\left(N_O;N_O\right)}.
 \end{equation}
-Here, $L_{sat}$ is the so-called saturated model, for which $N_E=N_O$ \cite{PDG.pdf}. Maximising the likelihood with respect to $\mu_\nu$ is equivalent to minimising the \textit{`log-likelihood ratio'} described as:
+Here, $L_{sat}$ is the so-called saturated model, for which $N_E=N_O$ and is constant with respect to $\mu_\nu$ \cite{PDG.pdf}. Maximising the likelihood with respect to $\mu_\nu$ is equivalent to minimising the \textit{`log-likelihood ratio'} described as:
 \begin{align}\label{eq:LogLikelihoodStatsOnly}
 -2\ln\lambda\left(\mu_\nu\right)&=
 -2\ln\left(\frac{L\left(N_O;N_E\left(\mu_\nu\right)\right)}{L\left(N_O;N_O\right)}\right)\\
@@ -40,7 +49,7 @@ Incorporating the nuisance parameters into the log-likelihood ratio function in 
 \end{equation}
 Here, $\overrightarrow{\eta}$ is a vector of $M$ nuisance parameters representing the effect of systematic uncertainties.
 
-In practice, the systematic variations are initially predicted at fixed integer $\sigma$ values. Due to the computationally expensive nature of reproducing the detector simulation, variations in detector and calibration systematic uncertainties are estimated only at $\pm 1\sigma$ values. However, for beam and cross section uncertainties, variations are estimated at $\pm 1\sigma$, $\pm 2\sigma$, and $\pm 3\sigma$ levels. These systematically shifted predictions are then interpolated using of cubic spline-based fit, which is fixed at zero for the excluded sides of one-sided systematic uncertainties, such as detector ageing and calibration shape \cite{NitishOscMeasuremetPCAStatisticalAna2021.pdf}.
+In practice, we produce systematically shifted predictions for each systematic uncertainty with shifts at fixed integer $\sigma$ values. Due to the computationally expensive nature of reproducing the detector simulation, variations in detector and calibration systematic uncertainties are estimated only at $\pm 1\sigma$ values. However, for beam and cross section uncertainties, variations are estimated at $\pm 1\sigma$, $\pm 2\sigma$, and $\pm 3\sigma$ levels. These systematically shifted predictions are then interpolated using cubic spline-based fit. For one-sided systematic uncertainties, such as detector ageing and calibration shape uncertainties, the fit is fixed at zero for the excluded side \cite{NitishOscMeasuremetPCAStatisticalAna2021.pdf}.
 
 %[Nitish's thesis] The best-fit oscillation parameters are derived by minimizing this equation with respect to these parameters and is done using a MIGRAD based algorithm [125]. The parametrisation is derived by defining the variation in the prediction at specific $\sigma$ values, for example: $-2,-1,0,+1,+2 \sigma$ and interpolating the deviations in each analysis bin using a cubic spline-based method. This is sufficiently general for all the systematics considered in the analysis, including those with non-Gaussian uncertainties. For one-sided systematic shifts the interpolation parametrizes the overall deviation by fitting a flat line at 0 for the excluded shifts and only uses the included shifts.
 
@@ -61,16 +70,28 @@ where $\mu_i$ denotes the predicted number of events in each analysis bin $i$ as
 
 %Given the number of observed events we want to test whether we can describe the number of observed events only using the \gls{SM} prediction, or if we need a neutrino magnetic moment as well. To do this we test the null hypothesis, which states that the number of observed selected events is only due to the \gls{SM}. 
 
-To evaluate whether the observed number of events can be described solely using the \gls{SM} prediction, we test the \textit{`null hypothesis'}, for which $\mu_\nu=0$ and therefore the expected number of events is $N_E=N_B$. The log-likelihood ratio is in this case
-\begin{equation}
--2\ln\lambda\left(\theta\right)=
-2\left[N_B-N_O+N_O\ln\frac{N_O}{N_B}\right] + \sum_{k=1}^M \eta_k^2.
+To evaluate whether the observed number of events can be described solely using the \gls{SM} prediction, we perform a hypothesis test for the \textit{`null hypothesis'}, $H_0$, for which $\mu_\nu=0$, $E_S=0$, and hence the expected number of events is $N_E=N_B$. The log-likelihood ratio is in this case
+\begin{equation}\label{eq:NullHypothesisLogLikelihood}
+-2\ln\lambda_{H_0}=
+2\left[N_B-N_O+N_O\ln\frac{N_O}{N_B}\right] + \sum_{k=1}^M \eta_k^2
 \end{equation}
-The minimum of this log-likelihood ratio follows a $\chi^2$ distribution with one degree of freedom, which allows us to calculate the p-value of the goodness-of-fit of the null hypothesis. We reject the null hypothesis if the statistical test yields a p-value below a critical value - significance level. We set the significance level at $\alpha=0.10$, which is a common threshold in other measurements of the neutrino magnetic moment, as discussed in the introduction to this chapter.
+and its minimum follows a $\chi^2$ distribution with one degree of freedom. This allows us to calculate the p-value of the goodness-of-fit of the null hypothesis. We reject the null hypothesis if the statistical test yields a p-value below a critical value - significance level. We set the significance level at $\alpha=0.10$, which is a common threshold in other measurements of the neutrino magnetic moment, as discussed in the introduction to this chapter.
 
 %We want to test the null hypothesis, which states that there is no neutrino magnetic moment and all the observed events are due to the \gls{SM} - $\mu=0$. If we reject the null hypothesis, we want to estimate the size of the neutrino magnetic moment, and if we fail to reject the null hypothesis, we want to place a limit on the size of the neutrino magnetic moment. For all these, we are using the likelihood ratio test statistics. The likelihood ratio test statistics is a ratio of the likelihood (probability) to observe the data given some hypothesis $H\left(\mu\right)$, over the likelihood of the "alternate" hypothesis under the best fit point.
 
-If we fail to reject the null hypothesis $\left(p>\alpha\right)$, we establish an upper limit on the effective muon neutrino magnetic moment. We consider our results to represent only the $\nu_\mu$ thanks their high purity in our neutrino beam. The upper limit is calculated by iterating over a fixed range of neutrino magnetic moment values and profiling over the systematic shift variations. This means that at each iteration, the value of the neutrino magnetic moment is fixed, and the log-likelihood function is minimised only with respect to the systematic shifts. The minimisation of the log-likelihood ratio in Eq.~\ref{eq:FullLogLikelihood} is done using a MIGRAD-based algorithm in ROOT \cite{ROOT}. The minimum of the log-likelihood, as a function of the neutrino magnetic moment, follows a $\chi^2$ distribution with one degree of freedom.  Exclusion regions and limits are then derived based on integrating the tail of the $\chi^2$ distribution tables with one degree of freedom. 
+If we fail to reject the null hypothesis, defined as $p>\alpha$, we establish an upper limit on the value of the effective muon neutrino magnetic moment. We consider our results to represent only the $\nu_\mu$ thanks their high purity in our neutrino beam.
+
+The upper limit is calculated by iterating over a fixed range of neutrino magnetic moment values and calculating the minimum log likelihood from Eq.~\ref{eq:FullLogLikelihood} at each iteration, while profiling over the nuisance parameters (systematic variations). This means that at each iteration, the value of the neutrino magnetic moment is fixed, and the log-likelihood function is minimised with respect to the systematic shifts. The minimisation of the log-likelihood ratio in  is done using a MIGRAD-based algorithm in ROOT \cite{ROOT}.
+
+The minimum of the log-likelihood, as a function of the neutrino magnetic moment, follows a $\chi^2$ distribution with one degree of freedom and is often denoted as
+\begin{equation}
+-2\ln\lambda\left(\theta,\hat{\overrightarrow{\eta}}\right)\equiv \Delta\chi^2\left(\mu_\nu\right).
+\end{equation}
+Here $\hat{\overrightarrow{\eta}}$ denotes the vector of systematic shifts that minimise the log-likelihood for that specific $\mu_\nu$. We determine the $90\%$ \gls{CL} limit on the neutrino magnetic moment (equal to $1-\alpha$) as the range of $\mu_\nu$ values for which 
+\begin{equation}
+\Delta\chi^2<2.71.
+\end{equation}
+This is calculated as the integral of the right tail of the $\chi^2$ distribution with one degree of freedom.
 
 \subsection{Fitting framework}
 \todo{Describe the fitting framework, ideally with an example plot, maybe with some arrows}

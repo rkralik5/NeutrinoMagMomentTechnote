@@ -17,7 +17,8 @@
 		\setentrycounter[]{page}\glsnumberformat{1\delimR 4}}}\glsgroupskip
 \glsgroupheading{C}\relax \glsresetentrylist %
 \glossentry{CL}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{1}}}%
+		\setentrycounter[]{page}\glsnumberformat{1}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{44}}}%
 \glossentry{CC}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{7}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{13\delimR 15}\delimN 
@@ -108,8 +109,7 @@
 		\setentrycounter[]{page}\glsnumberformat{12}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{16}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{36}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{39\delimR 42}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{44}}}\glsgroupskip
+		\setentrycounter[]{page}\glsnumberformat{39\delimR 44}}}\glsgroupskip
 \glsgroupheading{T}\relax \glsresetentrylist %
 \glossentry{TMVA}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{35\delimN 36}}}%
