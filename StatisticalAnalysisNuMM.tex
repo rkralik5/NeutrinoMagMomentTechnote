@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                       ANALYSIS OVERVIEW                       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Statistical Analysis}\label{sec:StatisticalAnalysis}
+\section{Statistical analysis}\label{sec:StatisticalAnalysis}
 \subsection{Resolution and binning}\label{sec:resolution}
 \todo{If there is going to be a fit to the electron recoil energy there probably need to be some studies done into the electron energy and angle resolution and binning}
 
-\subsection{Counting Experiment}
+\subsection{Counting experiment}
 
 % Likelihood
 Our analysis compares the total observed number of events, $N_O$, with the expected (predicted) number of events, $N_E\left(\mu_\nu\right)$, which in general depends on the value of the effective neutrino magnetic moment, $\mu_\nu$, and is equal to the sum of the expected signal and background events:
@@ -39,7 +39,7 @@ According to Wilk's theorem \cite{WilksTheorem1938.pdf}, under the assumptions t
 %[wikipedia on Wilk's theorem] The model with more parameters (here alternative) will always fit at least as well — i.e., have the same or greater log-likelihood — than the model with fewer parameters (here null). Whether the fit is significantly better and should thus be preferred is determined by deriving how likely (p-value) it is to observe such a difference D by chance alone, if the model with fewer parameters were true. Where the null hypothesis represents a special case of the alternative hypothesis, the probability distribution of the test statistic is approximately a chi-squared distribution with degrees of freedom equal to df alt − df null respectively the number of free parameters of models alternative and null.
 
 % Systematic uncertainties as nuisance parameters
-\subsubsection{Treatment of Systematic Uncertainties}
+\subsubsection{Treatment of systematic uncertainties}
 %Including systematic uncertainties in the likelihood ratio
 Systematic uncertainties are incorporated into the fitting framework as nuisance parameters that multiply the likelihood function in Eq.~\ref{eq:Likelihood}. Each systematic uncertainty is modelled according to the normal distribution centred at zero, with a standard deviation corresponding to its respective $1\sigma$ variation. Systematic uncertainties are treated as mutually uncorrelated, justifying their independent treatment.
 
@@ -66,7 +66,7 @@ where $\mu_i$ denotes the predicted number of events in each analysis bin $i$ as
 \fi
 
 %Null hypothesis
-\subsubsection{Hypothesis Testing and Confidence Limits}
+\subsubsection{Hypothesis testing and confidence limits}
 
 %Given the number of observed events we want to test whether we can describe the number of observed events only using the \gls{SM} prediction, or if we need a neutrino magnetic moment as well. To do this we test the null hypothesis, which states that the number of observed selected events is only due to the \gls{SM}. 
 

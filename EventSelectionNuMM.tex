@@ -1,11 +1,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                       ANALYSIS OVERVIEW                       %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Event Selection}\label{sec:EventSelection}
+\section{Event selection}\label{sec:EventSelection}
 %Introduction:
 We are searching for \gls{nuone} elastic scattering events, characterised by a single very forward going electron shower, specifically focusing on low electron recoil energies. The main backgrounds for our analysis come from $\nu_e$\gls{CC} interactions, which produce an electron with additional activity, and interactions that produce $\pi^0$, which decays into two photons producing electromagnetic showers, where each can look similar to the \gls{nuone} signal. Additionally, there are $\nu_\mu$\gls{CC} interactions, which are generally easy to distinguish from our signal, however, their very high abundance in the \gls{NOvA} \gls{ND} makes them a dominant background nevertheless.
 
-The signal definitions use the \texttt{kMode} variable instead of the \texttt{kIntType}, which is now deprecated (ref.: various Slack conversations). Mode 10005 denotes only the \gls{nuone} events and is only available for the enhanced \gls{nuone} samples, while mode 5 denotes all electron scattering events, including inverse muon decay interactions. That is why we had to add a requirement of an electron in the final state. Mode 10 denotes all Meson Exchange Current (MEC) events. We are using the \gls{ND} group's \cite{NOVA-doc-56383} signal definition including a requirement for the true vertex to lie within their fiducial volume (defined below). This is the cut name \texttt{NDNuoneFiducial}. This is in contrast with the \gls{LDM} analysis \cite{NOVA-doc-59439}, which uses the \texttt{ana::kVtxIsContained} cut instead, which has a looser boundary. This choice has only a negligible effect on the final number of selected events and only affects the selection efficiency.
+
+A summary of the true cuts used for the selection of the individual signal and background samples is shown in Tab.~\ref{tab:NuMMSamplesSelection}. The signal definitions use the \texttt{kMode} variable instead of the \texttt{kIntType}, which is now deprecated (ref.: various Slack conversations). Mode 10005 denotes only the \gls{nuone} events and is only available for the enhanced \gls{nuone} samples, while mode 5 denotes all electron scattering events, including inverse muon decay interactions. That is why we had to add a requirement of an electron in the final state. The \texttt{kIsNueCCMEC} is defined as \texttt{kMode===10}, which denotes all Meson Exchange Current (MEC) events, at the same time as \texttt{kIsNue} and \texttt{kIsCC}.
+
+\begin{table}[!ht]
+\centering
+\caption{Overview of the true cuts used to selection the signal and background samples.}
+\def\arraystretch{1.4}
+\begin{tabular}{l@{\hskip 1cm}l@{\hskip 1cm}l@{\hskip 1cm}l}
+Signal type            & Selection\\\hline
+Signal                 & \texttt{kIsVtxContained} \&\& $\texttt{kMode}==10005$\\
+\gls{nuone} background & $\texttt{kMode}==10005$\\
+$\nu_e$\gls{CC} \gls{MEC} background & $!\left(\texttt{kMode}==5\text{ \&\& }\texttt{kHasElInFinState}\right)$  \&\& \texttt{kIsNueCCMEC}\\
+Other background       & $!\left(\texttt{kMode}==5\text{ \&\& }\texttt{kHasElInFinState}\right)$  \&\& !\texttt{kIsNueCCMEC}
+\end{tabular}
+\label{tab:NuMMSamplesSelection}
+\end{table}
 
 We explain the motivation behind each cut of the event selection and discuss their effect on the neutrino magnetic moment events below. We also consider possible improvements to the event selection for a future (re-)analysis.
 
@@ -57,10 +72,10 @@ The summary of the cut values for the event selection of neutrino magnetic momen
 
 The code to make plots and analyse the event selection is located in the \path{NuMagMomentAna/NuMMAnalysis/EventSelection} directory. The signal definition is in \path{NuoneCuts.h} and the cut values in the \path{EventCVNCuts.h/cxx} scripts from the \path{NuMagMomentAna/Cuts} directory.
 
-\subsection{Data Collection Quality}\label{sec:NuMMEventSelSpillCuts}
+\subsection{Data collection quality}\label{sec:NuMMEventSelSpillCuts}
 To ensure good data quality, we apply the following criteria to data (not applied to simulation) \cite{NOvA-doc-59876}. A cut on the time of each spill relative to other spills and on the exposure of each spill, where every spill is required to have at least $2\time10^{12}$ \gls{POT}. Additionally, the current in the focusing horn is required to be within $\unit[-202]{kA}<I_{Horn}<\unit[-196.4]{kA}$, the position of the beam to be within $\pm\unit[2]{cm}$ in both x and y axis, and that the width of the beam to be within $0.57$ and $\unit[1.58]{cm}$. Furthermore, incomplete events, or events with issues in one or more \glspl{DCM} are removed.
 
-\subsection{Reconstruction Quality}\label{sec:NuMMEventSelRecoQC}
+\subsection{Reconstruction quality}\label{sec:NuMMEventSelRecoQC}
 Electrons are reconstructed by slicing, followed by vertexing, then clustering into prongs. To identify electrons we require a valid reconstructed vertex and at least one reconstructed prong. Even though electrons only consist of a single shower, we don't reject events with more than one prong in a slice, as the reconstruction can wrongly assign noise hits as a separate prong. These false secondary prongs can be removed later in the event selection.
 
 Figure~\ref{fig:NuMMCutsVertexIsValid} and Tab.~\ref{tab:CutflowTableBasicRecoQC} show that about $\unit[68]{\%}$ of signal events do not have a valid reconstructed vertex. This is due to the concentration of signal events at very low electron recoil energies, which results in events that can consist of a small number of hits, or even a single hit. As can be seen in the bottom plot in Fig.~\ref{fig:NuMMCutsVertexIsValid}, events with small true electron recoil energies have much smaller vertex reconstruction efficiency than the higher energetic electrons. However, ongoing work is improving the vertex reconstruction in the \gls{NOvA} detectors with a use of \gls{ML} instead of the currently used Hough transform combined with Elastic Arms \cite{NOvA-doc-61190}. Improving \gls{NOvA} vertex reconstruction at low energies can enhance our event selection in the future.
@@ -113,7 +128,7 @@ Furthermore, the reconstructed calorimetric energy of the primary shower is requ
 \label{tab:CutflowTableBasicRecoQC}
 \end{table}
 
-\subsection{Pre-Selection}\label{sec:NuMMEventSelectionPresel}
+\subsection{Pre-selection}\label{sec:NuMMEventSelectionPresel}
 Pre-selection aims to remove obvious background events without significantly affecting the signal. The criterion we chose for the selection of these cuts is determined by the reduction of the signal efficiency by approximately $\unit[0.25]{\%}$ with each cut. This results in the total pre-selection reduction of the signal efficiency by approximately $\unit[1]{\%}$.
 
 The first two variables used for our pre-selection are the same as were used in the event selection for the $\nu_e$ appearance \gls{ND} constraint for the three flavour neutrino oscillation measurements \cite{NOvAResults2021.pdf}. As we are searching for single electron showers, we can reduce backgrounds with multiple final state particles by limiting the total activity in the detector. Specifically, we require that the total number of hits assigned to all the reconstructed prongs is $<280$. This is shown in Fig.~\ref{fig:NuMMCutsNHitsLoose}. In general, the main background in \gls{NOvA} consists of the $\nu_\mu$\gls{CC} interactions, which are characterised by long muon tracks. We therefore limit the length of the longest reconstructed prong to be $<\unit[640]{cm}$, as shown in Fig.~\ref{fig:NuMMCutsLongestProng}. 
@@ -162,7 +177,7 @@ The effect of the pre-selection cuts on the signal and background samples are su
 \label{tab:CutflowTableBasicSelection}
 \end{table}
 
-\subsection{Fiducial and Containment Cuts}\label{sec:NuMMEventSelFidCont}
+\subsection{Fiducial volume and containment}\label{sec:NuMMEventSelFidCont}
 To ensure all the deposited energy of the recoil electron is contained within the detector and to remove events originating outside of the detector (such as rock muons for the \gls{ND}), we constrain the position of the reconstructed vertex and all the prongs in the slice. The decision on where to place the exact cut values is made based on the maximum \gls{FOM} value.
 
 The reconstructed vertex is required to be within the fiducial volume, which represents a well-understood volume of the detector. To select the fiducial volume, we investigate distributions of the reconstructed vertex in the x, y and z direction, shown in Fig.~\ref{fig:NuMMFiducialCutX}, \ref{fig:NuMMFiducialCutY} and \ref{fig:NuMMFiducialCutZ} respectively. Basic reconstruction quality and pre-selection cuts are applied to make these distributions. Additionally, for the x and y position distributions, we require that the vertex is not placed inside of the Muon Catcher by requiring $\textsf{Vtx}_Z<\unit[1270]{cm}$, as it can significantly affect these distributions. The slanted distributions in x and y are caused by the off-axis nature of the \gls{NuMI} beam and the periodic peaks are due to a combination of the detector structure and the choice of binning.
@@ -269,7 +284,7 @@ Furthermore, we constrain the extreme positions (minimum and maximum) of all the
 \label{tab:CutflowTableFiducialContainmnet}
 \end{table}
 
-\subsection{Multivariate Analysis Cuts}\label{sec:NuMMEventSelTMVA}
+\subsection{Multivariate analysis}\label{sec:NuMMEventSelTMVA}
 %%% TMVA
 Following the removal of obvious backgrounds and events not contained within the detector, we aim to optimise the event selection to achieve the highest significance for measuring the effective muon neutrino magnetic moment. This goal is equivalent to maximising our \gls{FOM} from Eq.~\ref{eq:NuMMFOM}.
 

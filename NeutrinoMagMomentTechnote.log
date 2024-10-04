@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.21)  3 OCT 2024 22:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.21)  4 OCT 2024 17:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1340,6 +1340,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
  [1
 
 \openout4 = `NeutrinoMagMomentTechnote.ist'.
@@ -1399,7 +1401,16 @@ Package pdftex.def Info: Plots/RatioNumuMMCompLinX.pdf  used on input line 251.
 
 (pdftex.def)             Requested size: 350.33727pt x 262.76503pt.
 ) (./AnalysisOverviewNuMM.tex
-[9] [10 <./Plots/RatioNumuMMCompLinX.pdf>]
+
+LaTeX Font Warning: Font shape `T1/ptm/m/scit' undefined
+(Font)              using `T1/ptm/m/it' instead on input line 5.
+
+[9]
+
+LaTeX Font Warning: Font shape `T1/ptm/m/scit' undefined
+(Font)              using `T1/ptm/m/it' instead on input line 11.
+
+[10 <./Plots/RatioNumuMMCompLinX.pdf>]
 
 LaTeX Font Warning: Font shape `T1/ptm/m/scit' undefined
 (Font)              using `T1/ptm/m/it' instead on input line 19.
@@ -1473,8 +1484,6 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 32--49
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
  [12]
 
@@ -1557,146 +1566,147 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 141--158
  []
 
 [13]) (./EventSelectionNuMM.tex [14] [15]
-Overfull \hbox (4.66531pt too wide) in paragraph at lines 24--24
+Overfull \hbox (4.66531pt too wide) in paragraph at lines 39--39
 [][] 
  []
 
 
-Overfull \vbox (3.76326pt too high) detected at line 29
+Overfull \vbox (3.76326pt too high) detected at line 44
  []
 
 
-Overfull \hbox (2.72133pt too wide) in paragraph at lines 29--29
+Overfull \hbox (2.72133pt too wide) in paragraph at lines 44--44
 [][] 
  []
 
 
-Overfull \hbox (2.72133pt too wide) in paragraph at lines 33--33
+Overfull \hbox (2.72133pt too wide) in paragraph at lines 48--48
 [][] 
  []
 
 
-Overfull \hbox (2.72133pt too wide) in paragraph at lines 40--40
+Overfull \hbox (2.72133pt too wide) in paragraph at lines 55--55
 [][] 
  []
 
 
-Overfull \hbox (2.72133pt too wide) in paragraph at lines 47--47
+Overfull \hbox (2.72133pt too wide) in paragraph at lines 62--62
 [][] 
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 51--51
+Underfull \hbox (badness 1014) in paragraph at lines 66--66
 []|[]\T1/ptm/m/n/12 Convolutional Vi-sual Net-work (CVN)-based [][][]$\OML/ztmc
 m/m/it/12 ^^W$\T1/ptm/m/n/12 -on-e[][]
  []
 
 
-Overfull \hbox (24.5914pt too wide) in paragraph at lines 58--59
+Overfull \hbox (24.5914pt too wide) in paragraph at lines 73--74
 []\T1/ptm/m/n/12 The code to make plots and anal-yse the event se-lec-tion is l
 o-cated in the $\T1/cmtt/m/n/12 NuMagMomentAna / NuMMAnalysis /
  []
 
 
-Overfull \hbox (24.4581pt too wide) in paragraph at lines 58--59
+Overfull \hbox (24.4581pt too wide) in paragraph at lines 73--74
 \T1/cmtt/m/n/12 EventSelection$ \T1/ptm/m/n/12 di-rec-tory. The sig-nal def-i-n
 i-tion is in $\T1/cmtt/m/n/12 NuoneCuts . h$ \T1/ptm/m/n/12 and the cut val-ues
  in the $\T1/cmtt/m/n/12 EventCVNCuts .
  []
 
-[16]
-<Plots/NuMMEventSelection/N1Cut_vtxIsValid.pdf, id=791, 569.12625pt x 315.1775p
+<Plots/NuMMEventSelection/N1Cut_vtxIsValid.pdf, id=785, 569.12625pt x 315.1775p
 t>
 File: Plots/NuMMEventSelection/N1Cut_vtxIsValid.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_vtxIsValid.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_vtxIsValid.pdf  used on
- input line 70.
+ input line 85.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/VtxIsValidNuMM.pdf, id=792, 569.12625pt x 385.44pt>
+<Plots/NuMMEventSelection/VtxIsValidNuMM.pdf, id=786, 569.12625pt x 385.44pt>
 File: Plots/NuMMEventSelection/VtxIsValidNuMM.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/VtxIsValidNuMM.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/VtxIsValidNuMM.pdf  used on i
-nput line 71.
+nput line 86.
 (pdftex.def)             Requested size: 350.33727pt x 237.2765pt.
-<Plots/NuMMEventSelection/N1Cut_NPng.pdf, id=797, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_NPng.pdf, id=791, 569.12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_NPng.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_NPng.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_NPng.pdf  used on input
- line 84.
+ line 99.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_NHitsPPlane.pdf, id=798, 569.12625pt x 315.1775
+<Plots/NuMMEventSelection/N1Cut_NHitsPPlane.pdf, id=792, 569.12625pt x 315.1775
 pt>
 File: Plots/NuMMEventSelection/N1Cut_NHitsPPlane.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_NHitsPPlane.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_NHitsPPlane.pdf  used o
-n input line 85.
+n input line 100.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_calELow.pdf, id=809, 569.12625pt x 315.1775pt>
+[16] [17 <./Plots/NuMMEventSelection/N1Cut_vtxIsValid.pdf, page is rotated 90 d
+egrees> <./Plots/NuMMEventSelection/VtxIsValidNuMM.pdf, page is rotated 90 degr
+ees>] [18 <./Plots/NuMMEventSelection/N1Cut_NPng.pdf, page is rotated 90 degree
+s> <./Plots/NuMMEventSelection/N1Cut_NHitsPPlane.pdf, page is rotated 90 degree
+s>] [19]
+<Plots/NuMMEventSelection/N1Cut_calELow.pdf, id=1004, 569.12625pt x 315.1775pt>
+
 File: Plots/NuMMEventSelection/N1Cut_calELow.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_calELow.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_calELow.pdf  used on in
-put line 95.
+put line 110.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_calELow_BkgDecomp.pdf, id=810, 569.12625pt x 31
-5.1775pt>
+<Plots/NuMMEventSelection/N1Cut_calELow_BkgDecomp.pdf, id=1005, 569.12625pt x 3
+15.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_calELow_BkgDecomp.pdf Graphic file (type p
 df)
 <use Plots/NuMMEventSelection/N1Cut_calELow_BkgDecomp.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_calELow_BkgDecomp.pdf  
-used on input line 96.
+used on input line 111.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
- [17] [18 <./Plots/NuMMEventSelection/N1Cut_vtxIsValid.pdf, page is rotated 90 
-degrees> <./Plots/NuMMEventSelection/VtxIsValidNuMM.pdf, page is rotated 90 deg
-rees>] [19 <./Plots/NuMMEventSelection/N1Cut_NPng.pdf, page is rotated 90 degre
-es> <./Plots/NuMMEventSelection/N1Cut_NHitsPPlane.pdf, page is rotated 90 degre
-es>] [20 <./Plots/NuMMEventSelection/N1Cut_calELow.pdf, page is rotated 90 degr
-ees> <./Plots/NuMMEventSelection/N1Cut_calELow_BkgDecomp.pdf, page is rotated 9
-0 degrees>]
-<Plots/NuMMEventSelection/N1Cut_NHitsLoose.pdf, id=1105, 569.12625pt x 315.1775
+ [20 <./Plots/NuMMEventSelection/N1Cut_calELow.pdf, page is rotated 90 degrees>
+ <./Plots/NuMMEventSelection/N1Cut_calELow_BkgDecomp.pdf, page is rotated 90 de
+grees>]
+<Plots/NuMMEventSelection/N1Cut_NHitsLoose.pdf, id=1107, 569.12625pt x 315.1775
 pt>
 File: Plots/NuMMEventSelection/N1Cut_NHitsLoose.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_NHitsLoose.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_NHitsLoose.pdf  used on
- input line 123.
+ input line 138.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_NHitsLooseleft_Eff.pdf, id=1106, 569.12625
+<Plots/NuMMEventSelection/NuMM_N1Cut_NHitsLooseleft_Eff.pdf, id=1108, 569.12625
 pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_NHitsLooseleft_Eff.pdf Graphic file (
 type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_NHitsLooseleft_Eff.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_NHitsLooseleft_Eff
-.pdf  used on input line 124.
+.pdf  used on input line 139.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_longestProng.pdf, id=1109, 569.12625pt x 315.17
+<Plots/NuMMEventSelection/N1Cut_longestProng.pdf, id=1111, 569.12625pt x 315.17
 75pt>
 File: Plots/NuMMEventSelection/N1Cut_longestProng.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_longestProng.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_longestProng.pdf  used 
-on input line 131.
+on input line 146.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_longestProngleft_Eff.pdf, id=1110, 569.126
+<Plots/NuMMEventSelection/NuMM_N1Cut_longestProngleft_Eff.pdf, id=1112, 569.126
 25pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_longestProngleft_Eff.pdf Graphic file
  (type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_longestProngleft_Eff.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_longestProngleft_E
-ff.pdf  used on input line 132.
+ff.pdf  used on input line 147.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/LogY_N1Cut_eth2Loose.pdf, id=1118, 569.12625pt x 315.
+<Plots/NuMMEventSelection/LogY_N1Cut_eth2Loose.pdf, id=1120, 569.12625pt x 315.
 1775pt>
 File: Plots/NuMMEventSelection/LogY_N1Cut_eth2Loose.pdf Graphic file (type pdf)
 
 <use Plots/NuMMEventSelection/LogY_N1Cut_eth2Loose.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/LogY_N1Cut_eth2Loose.pdf  use
-d on input line 141.
+d on input line 156.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_eth2Looseleft_Eff.pdf, id=1119, 569.12625p
+<Plots/NuMMEventSelection/NuMM_N1Cut_eth2Looseleft_Eff.pdf, id=1121, 569.12625p
 t x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_eth2Looseleft_Eff.pdf Graphic file (t
 ype pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_eth2Looseleft_Eff.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_eth2Looseleft_Eff.
-pdf  used on input line 142.
+pdf  used on input line 157.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
  [21] [22 <./Plots/NuMMEventSelection/N1Cut_NHitsLoose.pdf, page is rotated 90 
 degrees> <./Plots/NuMMEventSelection/NuMM_N1Cut_NHitsLooseleft_Eff.pdf, page is
@@ -1705,167 +1715,167 @@ age is rotated 90 degrees> <./Plots/NuMMEventSelection/NuMM_N1Cut_longestProngl
 eft_Eff.pdf, page is rotated 90 degrees>] [24 <./Plots/NuMMEventSelection/LogY_
 N1Cut_eth2Loose.pdf, page is rotated 90 degrees> <./Plots/NuMMEventSelection/Nu
 MM_N1Cut_eth2Looseleft_Eff.pdf, page is rotated 90 degrees>]
-<Plots/NuMMEventSelection/N1Cut_vtxXActive.pdf, id=1415, 569.12625pt x 315.1775
+<Plots/NuMMEventSelection/N1Cut_vtxXActive.pdf, id=1414, 569.12625pt x 315.1775
 pt>
 File: Plots/NuMMEventSelection/N1Cut_vtxXActive.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_vtxXActive.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_vtxXActive.pdf  used on
- input line 179.
+ input line 194.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveright_FOMStats.pdf, id=1416, 569
+<Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveright_FOMStats.pdf, id=1415, 569
 .12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveright_FOMStats.pdf Graphic 
 file (type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveright_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveright_FO
-MStats.pdf  used on input line 180.
+MStats.pdf  used on input line 195.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveleft_FOMStats.pdf, id=1417, 569.
+<Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveleft_FOMStats.pdf, id=1416, 569.
 12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveleft_FOMStats.pdf Graphic f
 ile (type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveleft_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveleft_FOM
-Stats.pdf  used on input line 181.
+Stats.pdf  used on input line 196.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
 
 
-LaTeX Warning: Float too large for page by 37.0044pt on input line 184.
+LaTeX Warning: Float too large for page by 37.0044pt on input line 199.
 
-<Plots/NuMMEventSelection/N1Cut_vtxYActive.pdf, id=1422, 569.12625pt x 315.1775
+<Plots/NuMMEventSelection/N1Cut_vtxYActive.pdf, id=1421, 569.12625pt x 315.1775
 pt>
 File: Plots/NuMMEventSelection/N1Cut_vtxYActive.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_vtxYActive.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_vtxYActive.pdf  used on
- input line 188.
+ input line 203.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveright_FOMStats.pdf, id=1423, 569
+<Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveright_FOMStats.pdf, id=1422, 569
 .12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveright_FOMStats.pdf Graphic 
 file (type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveright_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveright_FO
-MStats.pdf  used on input line 189.
+MStats.pdf  used on input line 204.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveleft_FOMStats.pdf, id=1424, 569.
+<Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveleft_FOMStats.pdf, id=1423, 569.
 12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveleft_FOMStats.pdf Graphic f
 ile (type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveleft_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_vtxYActiveleft_FOM
-Stats.pdf  used on input line 190.
+Stats.pdf  used on input line 205.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
 
-LaTeX Warning: Float too large for page by 37.0044pt on input line 193.
+LaTeX Warning: Float too large for page by 37.0044pt on input line 208.
 
-<Plots/NuMMEventSelection/N1Cut_vtxZ.pdf, id=1429, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_vtxZ.pdf, id=1428, 569.12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_vtxZ.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_vtxZ.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_vtxZ.pdf  used on input
- line 197.
+ line 212.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_vtxZright_FOMStats.pdf, id=1430, 569.12625
+<Plots/NuMMEventSelection/NuMM_N1Cut_vtxZright_FOMStats.pdf, id=1429, 569.12625
 pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_vtxZright_FOMStats.pdf Graphic file (
 type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_vtxZright_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_vtxZright_FOMStats
-.pdf  used on input line 198.
+.pdf  used on input line 213.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_vtxZleft_FOMStats.pdf, id=1431, 569.12625p
+<Plots/NuMMEventSelection/NuMM_N1Cut_vtxZleft_FOMStats.pdf, id=1430, 569.12625p
 t x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_vtxZleft_FOMStats.pdf Graphic file (t
 ype pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_vtxZleft_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_vtxZleft_FOMStats.
-pdf  used on input line 199.
+pdf  used on input line 214.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
 
-LaTeX Warning: Float too large for page by 22.5044pt on input line 202.
+LaTeX Warning: Float too large for page by 22.5044pt on input line 217.
 
-<Plots/NuMMEventSelection/N1Cut_minX.pdf, id=1438, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_minX.pdf, id=1437, 569.12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_minX.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_minX.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_minX.pdf  used on input
- line 213.
+ line 228.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_minXright_FOMStats.pdf, id=1439, 569.12625
+<Plots/NuMMEventSelection/NuMM_N1Cut_minXright_FOMStats.pdf, id=1438, 569.12625
 pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_minXright_FOMStats.pdf Graphic file (
 type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_minXright_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_minXright_FOMStats
-.pdf  used on input line 214.
+.pdf  used on input line 229.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_maxX.pdf, id=1444, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_maxX.pdf, id=1443, 569.12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_maxX.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_maxX.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_maxX.pdf  used on input
- line 221.
+ line 236.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_maxXleft_FOMStats.pdf, id=1445, 569.12625p
+<Plots/NuMMEventSelection/NuMM_N1Cut_maxXleft_FOMStats.pdf, id=1444, 569.12625p
 t x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_maxXleft_FOMStats.pdf Graphic file (t
 ype pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_maxXleft_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_maxXleft_FOMStats.
-pdf  used on input line 222.
+pdf  used on input line 237.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_minY.pdf, id=1450, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_minY.pdf, id=1449, 569.12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_minY.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_minY.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_minY.pdf  used on input
- line 229.
+ line 244.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_minYright_FOMStats.pdf, id=1451, 569.12625
+<Plots/NuMMEventSelection/NuMM_N1Cut_minYright_FOMStats.pdf, id=1450, 569.12625
 pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_minYright_FOMStats.pdf Graphic file (
 type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_minYright_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_minYright_FOMStats
-.pdf  used on input line 230.
+.pdf  used on input line 245.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_maxY.pdf, id=1456, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_maxY.pdf, id=1455, 569.12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_maxY.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_maxY.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_maxY.pdf  used on input
- line 237.
+ line 252.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_maxYleft_FOMStats.pdf, id=1457, 569.12625p
+<Plots/NuMMEventSelection/NuMM_N1Cut_maxYleft_FOMStats.pdf, id=1456, 569.12625p
 t x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_maxYleft_FOMStats.pdf Graphic file (t
 ype pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_maxYleft_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_maxYleft_FOMStats.
-pdf  used on input line 238.
+pdf  used on input line 253.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_minZ.pdf, id=1462, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_minZ.pdf, id=1461, 569.12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_minZ.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_minZ.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_minZ.pdf  used on input
- line 245.
+ line 260.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_minZright_FOMStats.pdf, id=1463, 569.12625
+<Plots/NuMMEventSelection/NuMM_N1Cut_minZright_FOMStats.pdf, id=1462, 569.12625
 pt x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_minZright_FOMStats.pdf Graphic file (
 type pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_minZright_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_minZright_FOMStats
-.pdf  used on input line 246.
+.pdf  used on input line 261.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_maxZ.pdf, id=1468, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_maxZ.pdf, id=1467, 569.12625pt x 315.1775pt>
 File: Plots/NuMMEventSelection/N1Cut_maxZ.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_maxZ.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_maxZ.pdf  used on input
- line 253.
+ line 268.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/NuMM_N1Cut_maxZleft_FOMStats.pdf, id=1469, 569.12625p
+<Plots/NuMMEventSelection/NuMM_N1Cut_maxZleft_FOMStats.pdf, id=1468, 569.12625p
 t x 315.1775pt>
 File: Plots/NuMMEventSelection/NuMM_N1Cut_maxZleft_FOMStats.pdf Graphic file (t
 ype pdf)
 <use Plots/NuMMEventSelection/NuMM_N1Cut_maxZleft_FOMStats.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/NuMM_N1Cut_maxZleft_FOMStats.
-pdf  used on input line 254.
+pdf  used on input line 269.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
 [25] [26 <./Plots/NuMMEventSelection/N1Cut_vtxXActive.pdf, page is rotated 90 d
 egrees> <./Plots/NuMMEventSelection/NuMM_N1Cut_vtxXActiveright_FOMStats.pdf, pa
@@ -1891,49 +1901,49 @@ election/NuMM_N1Cut_minZright_FOMStats.pdf, page is rotated 90 degrees>]
 [34 <./Plots/NuMMEventSelection/N1Cut_maxZ.pdf, page is rotated 90 degrees> <./
 Plots/NuMMEventSelection/NuMM_N1Cut_maxZleft_FOMStats.pdf, page is rotated 90 d
 egrees>] [35]
-<Plots/NuMMEventSelection/N1Cut_shwEFrac.pdf, id=2459, 569.12625pt x 315.1775pt
+<Plots/NuMMEventSelection/N1Cut_shwEFrac.pdf, id=2461, 569.12625pt x 315.1775pt
 >
 File: Plots/NuMMEventSelection/N1Cut_shwEFrac.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_shwEFrac.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_shwEFrac.pdf  used on i
-nput line 306.
+nput line 321.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_NHitsPre.pdf, id=2460, 569.12625pt x 315.1775pt
+<Plots/NuMMEventSelection/N1Cut_NHitsPre.pdf, id=2462, 569.12625pt x 315.1775pt
 >
 File: Plots/NuMMEventSelection/N1Cut_NHitsPre.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_NHitsPre.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_NHitsPre.pdf  used on i
-nput line 307.
+nput line 322.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_calEHighPre.pdf, id=2461, 569.12625pt x 315.177
+<Plots/NuMMEventSelection/N1Cut_calEHighPre.pdf, id=2463, 569.12625pt x 315.177
 5pt>
 File: Plots/NuMMEventSelection/N1Cut_calEHighPre.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_calEHighPre.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_calEHighPre.pdf  used o
-n input line 314.
+n input line 329.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/N1Cut_eth2Pre.pdf, id=2462, 569.12625pt x 315.1775pt>
+<Plots/NuMMEventSelection/N1Cut_eth2Pre.pdf, id=2464, 569.12625pt x 315.1775pt>
 
 File: Plots/NuMMEventSelection/N1Cut_eth2Pre.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_eth2Pre.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_eth2Pre.pdf  used on in
-put line 315.
+put line 330.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/LogY_N1Cut_nuoneidPre.pdf, id=2463, 569.12625pt x 315
+<Plots/NuMMEventSelection/LogY_N1Cut_nuoneidPre.pdf, id=2465, 569.12625pt x 315
 .1775pt>
 File: Plots/NuMMEventSelection/LogY_N1Cut_nuoneidPre.pdf Graphic file (type pdf
 )
 <use Plots/NuMMEventSelection/LogY_N1Cut_nuoneidPre.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/LogY_N1Cut_nuoneidPre.pdf  us
-ed on input line 322.
+ed on input line 337.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
-<Plots/NuMMEventSelection/LogY_N1Cut_epi0idPre.pdf, id=2464, 569.12625pt x 315.
+<Plots/NuMMEventSelection/LogY_N1Cut_epi0idPre.pdf, id=2466, 569.12625pt x 315.
 1775pt>
 File: Plots/NuMMEventSelection/LogY_N1Cut_epi0idPre.pdf Graphic file (type pdf)
 
 <use Plots/NuMMEventSelection/LogY_N1Cut_epi0idPre.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/LogY_N1Cut_epi0idPre.pdf  use
-d on input line 323.
+d on input line 338.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
  [36 <./Plots/NuMMEventSelection/N1Cut_shwEFrac.pdf, page is rotated 90 degrees
 > <./Plots/NuMMEventSelection/N1Cut_NHitsPre.pdf, page is rotated 90 degrees>] 
@@ -1942,21 +1952,21 @@ es> <./Plots/NuMMEventSelection/N1Cut_eth2Pre.pdf, page is rotated 90 degrees>]
  [38 <./Plots/NuMMEventSelection/LogY_N1Cut_nuoneidPre.pdf, page is rotated 90 
 degrees> <./Plots/NuMMEventSelection/LogY_N1Cut_epi0idPre.pdf, page is rotated 
 90 degrees>]
-<Plots/NuMMEventSelection/N1Cut_calESignal.pdf, id=2744, 569.12625pt x 315.1775
+<Plots/NuMMEventSelection/N1Cut_calESignal.pdf, id=2746, 569.12625pt x 315.1775
 pt>
 File: Plots/NuMMEventSelection/N1Cut_calESignal.pdf Graphic file (type pdf)
 <use Plots/NuMMEventSelection/N1Cut_calESignal.pdf>
 Package pdftex.def Info: Plots/NuMMEventSelection/N1Cut_calESignal.pdf  used on
- input line 381.
+ input line 396.
 (pdftex.def)             Requested size: 350.33727pt x 194.02296pt.
 ) (./SystematicUncertaintiesNuMM.tex [39]
-<Plots/RelativeErrorBarChart.pdf, id=2756, 569.12625pt x 385.44pt>
+<Plots/RelativeErrorBarChart.pdf, id=2758, 569.12625pt x 385.44pt>
 File: Plots/RelativeErrorBarChart.pdf Graphic file (type pdf)
 <use Plots/RelativeErrorBarChart.pdf>
 Package pdftex.def Info: Plots/RelativeErrorBarChart.pdf  used on input line 13
 .
 (pdftex.def)             Requested size: 350.33727pt x 237.2765pt.
-<Plots/SystShifts_beamSysts_Full_Graph.pdf, id=2758, 569.12625pt x 385.44pt>
+<Plots/SystShifts_beamSysts_Full_Graph.pdf, id=2760, 569.12625pt x 385.44pt>
 File: Plots/SystShifts_beamSysts_Full_Graph.pdf Graphic file (type pdf)
 <use Plots/SystShifts_beamSysts_Full_Graph.pdf>
 Package pdftex.def Info: Plots/SystShifts_beamSysts_Full_Graph.pdf  used on inp
@@ -1965,7 +1975,7 @@ ut line 22.
  [40 <./Plots/NuMMEventSelection/N1Cut_calESignal.pdf, page is rotated 90 degre
 es>] [41 <./Plots/RelativeErrorBarChart.pdf, page is rotated 90 degrees> <./Plo
 ts/SystShifts_beamSysts_Full_Graph.pdf, page is rotated 90 degrees>]
-<Plots/SystShifts_detSysts_Full_Graph.pdf, id=2903, 569.12625pt x 385.44pt>
+<Plots/SystShifts_detSysts_Full_Graph.pdf, id=2905, 569.12625pt x 385.44pt>
 File: Plots/SystShifts_detSysts_Full_Graph.pdf Graphic file (type pdf)
 <use Plots/SystShifts_detSysts_Full_Graph.pdf>
 Package pdftex.def Info: Plots/SystShifts_detSysts_Full_Graph.pdf  used on inpu
@@ -2032,14 +2042,14 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `NeutrinoMagMomentTechnote.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: EF40E76576836D1F9FCD7B19CC776F89;5105.
+(rerunfilecheck)             Checksum: B4A5D4D6E95A5E9817B979B43FA8AE7B;5087.
  ) 
 Here is how much of TeX's memory you used:
- 34897 strings out of 474222
- 666719 string characters out of 5748733
- 1960975 words of memory out of 5000000
- 56179 multiletter control sequences out of 15000+600000
- 646013 words of font info for 177 fonts, out of 8000000 for 9000
+ 34917 strings out of 474222
+ 666863 string characters out of 5748733
+ 1958975 words of memory out of 5000000
+ 56180 multiletter control sequences out of 15000+600000
+ 654787 words of font info for 195 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,16n,107p,2360b,738s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
@@ -2062,10 +2072,10 @@ exmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on NeutrinoMagMomentTechnote.pdf (52 pages, 1231081 bytes).
+Output written on NeutrinoMagMomentTechnote.pdf (52 pages, 1232756 bytes).
 PDF statistics:
- 3335 PDF objects out of 3580 (max. 8388607)
- 2009 compressed objects within 21 object streams
- 258 named destinations out of 1000 (max. 500000)
+ 3338 PDF objects out of 3580 (max. 8388607)
+ 2012 compressed objects within 21 object streams
+ 259 named destinations out of 1000 (max. 500000)
  485 words of extra memory for PDF output out of 10000 (max. 10000000)
 

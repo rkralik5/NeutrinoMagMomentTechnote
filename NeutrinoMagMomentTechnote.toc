@@ -1,24 +1,24 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {2}Theoretical Overview}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Neutrino Electric and Magnetic Dipole Moments}{3}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Effective Neutrino Magnetic Moment}{5}{subsubsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.2}Measuring the Neutrino Magnetic Moment}{5}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Neutrino Magnetic Moment Cross Section}{7}{subsubsection.2.2.1}%
-\contentsline {section}{\numberline {3}Analysis Overview}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Analysis Weights}{12}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Special Simulation Samples}{13}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Event Selection}{15}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Data Collection Quality}{17}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Reconstruction Quality}{17}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Pre-Selection}{17}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Fiducial and Containment Cuts}{21}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Multivariate Analysis Cuts}{25}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Systematic Uncertainties}{40}{section.5}%
-\contentsline {section}{\numberline {6}Statistical Analysis}{42}{section.6}%
+\contentsline {section}{\numberline {2}Theoretical overview}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Neutrino electric and magnetic dipole moments}{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Effective neutrino magnetic moment}{5}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Measuring the neutrino magnetic moment}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Neutrino magnetic moment cross section}{7}{subsubsection.2.2.1}%
+\contentsline {section}{\numberline {3}Analysis overview}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Analysis weights}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Special simulation samples}{13}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Event selection}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Data collection quality}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Reconstruction quality}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Pre-selection}{20}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Fiducial volume and containment}{25}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Multivariate analysis}{25}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Systematic uncertainties}{40}{section.5}%
+\contentsline {section}{\numberline {6}Statistical analysis}{42}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Resolution and binning}{42}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Counting Experiment}{42}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Treatment of Systematic Uncertainties}{43}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Hypothesis Testing and Confidence Limits}{44}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2}Counting experiment}{42}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Treatment of systematic uncertainties}{43}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Hypothesis testing and confidence limits}{44}{subsubsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.3}Fitting framework}{44}{subsection.6.3}%
 \contentsline {section}{\numberline {7}Results / Fake data studies}{45}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Counting experiment}{45}{subsection.7.1}%
@@ -26,4 +26,4 @@
 \contentsline {subsection}{\numberline {7.3}Template fit}{45}{subsection.7.3}%
 \contentsline {subsubsection}{\numberline {7.3.1}Sensitivities and limits}{46}{subsubsection.7.3.1}%
 \contentsline {section}{\numberline {8}Conclusion}{46}{section.8}%
-\contentsline {section}{Acronyms}{46}{section*.43}%
+\contentsline {section}{Acronyms}{46}{section*.44}%
